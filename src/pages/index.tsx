@@ -5,10 +5,13 @@ import styles from '../styles/Home.module.css'
 const Home: NextPage = () => {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>joaobispo2077</title>
+      <Head>  
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>João Bispo | Portfólio</title>
         <meta name="description" content="Crafting software for the web" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="shortcut icon" href="/assets/icons/lightning.png" type="image/png" />
+        {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
       </Head>
 
       <main className={styles.main}>
