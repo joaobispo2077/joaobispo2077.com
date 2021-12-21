@@ -1,3 +1,13 @@
+
+:root {
+  --color-background: #3d4552;
+  --color-logo: #facf39;
+  --color-logo-soft: #fbdb6b;
+  --color-background-soft: #FFFFFF;
+  --color-background-secondary: #535e6f;
+  --color-background-tertiary: #272c35;
+}
+
 html,
 body {
   padding: 0;
