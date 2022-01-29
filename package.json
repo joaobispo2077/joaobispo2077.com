@@ -16,6 +16,10 @@
     "url": "https://github.com/joaobispo2077/portfolio/issues"
   },
   "homepage": "https://github.com/joaobispo2077/portfolio#readme",
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
