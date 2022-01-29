@@ -7,6 +7,7 @@ import styles from '@src/styles/Home.module.css';
 
 const Main: NextPage = () => {
   const { homeTranslation } = useTranslation();
+
   return (
     <div className={styles.container}>
       <Head>

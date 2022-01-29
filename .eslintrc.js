@@ -65,6 +65,7 @@ module.exports = {
     ],
     'prettier/prettier': 'error',
     'react/react-in-jsx-scope': 'off',
+    'react/prop-types': 'off',
   },
   ignorePatterns: ['node_modules', '.next', 'public'],
 };
