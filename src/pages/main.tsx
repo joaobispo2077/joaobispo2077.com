@@ -2,8 +2,8 @@ import type { NextPage } from 'next';
 
 import Head from 'next/head';
 
-import { useTranslation } from '../hooks/useTranslation';
-import styles from '../styles/Home.module.css';
+import { useTranslation } from '@src/hooks/useTranslation';
+import styles from '@src/styles/Home.module.css';
 
 const Main: NextPage = () => {
   const { homeTranslation } = useTranslation();
