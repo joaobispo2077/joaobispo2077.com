@@ -1,0 +1,38 @@
+query RepositoriesFromUser($before: String, $login: String = "joaobispo2077") {
+  user(login: $login) {
+    repositories(
+      last: 12
+      orderBy: { field: STARGAZERS, direction: ASC }
+      privacy: PUBLIC
+      before: $before
+    ) {
+      totalCount
+      edges {
+        node {
+          name
+          url
+          description
+          createdAt
+          homepageUrl
+          stargazerCount
+          repositoryTopics(last: 6) {
+            nodes {
+              topic {
+                name
+              }
+            }
+          }
+          languages(first: 5, orderBy: { field: SIZE, direction: ASC }) {
+            edges {
+              node {
+                name
+                color
+              }
+            }
+          }
+        }
+        cursor
+      }
+    }
+  }
+}
