@@ -1,43 +1,29 @@
 import type { GetStaticProps, NextPage } from 'next';
 
-import { useState } from 'react';
-
 import Head from 'next/head';
-import { GET_REPOSITORIES } from '@src/graphql/queries/githubQueries';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 import styles from '@src/styles/Home.module.css';
-import { GithubApolloClient } from '@src/services/GithubClient';
-import { GetRepositoriesResponsePayload } from '@src/interfaces/Repository';
+import { GithubClient } from '@src/services/GithubClient';
+import {
+  RepositoriesDocument,
+  useRepositoriesQuery,
+} from '@src/generated/graphql.github';
+import { serverSideCache } from '@src/services/ServerSideCache';
+import { parseRepositories } from '@src/utils/parseRepositories';
 
-type Repository = {
-  id: string;
-  name: string;
-  description: string | null;
-  url: string;
-  createdAt: string;
-  stars: number;
-  programmingLanguages: {
-    name: string;
-    color: string;
-  }[];
-  topics: string[];
-};
+// type HomeProps = {
+//   initialRepositories: Repository[];
+//   firstPaginateToken: string;
+//   repositoryTotalCount: number;
+// };
 
-type HomeProps = {
-  initialRepositories: Repository[];
-  firstPaginateToken: string;
-  repositoryTotalCount: number;
-};
-
-const Main: NextPage<HomeProps> = ({
-  initialRepositories,
-  firstPaginateToken,
-  repositoryTotalCount,
-}) => {
+const ProjectsPage: NextPage = () => {
   const { homeTranslation } = useTranslation();
-  const [repositories, setRepositories] = useState(initialRepositories);
-  const [paginateToken, setPaginateToken] = useState(firstPaginateToken);
+  // const [repositories, setRepositories] = useState(initialRepositories);
+  // const [paginateToken, setPaginateToken] = useState(firstPaginateToken);
+  const [{ data: repositories }] = useRepositoriesQuery({});
+  const { repositoryTotalCount = 0 } = parseRepositories(repositories);
 
   return (
     <div className={styles.container}>
@@ -62,50 +48,14 @@ const Main: NextPage<HomeProps> = ({
   );
 };
 
-export default Main;
+export default ProjectsPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  const { data, error } =
-    await GithubApolloClient.query<GetRepositoriesResponsePayload>({
-      query: GET_REPOSITORIES,
-    });
-
-  if (error) {
-    console.error(error);
-
-    return {
-      props: {
-        repositoryTotalCount: 0,
-        repositories: [],
-      },
-    };
-  }
-
-  console.info('Github data', JSON.stringify(data, null, 2));
-
-  const { totalCount: repositoryTotalCount, edges } = data.viewer.repositories;
-
-  const firstEdge = edges[0];
-
-  const repositories: Repository[] = edges.map(({ node }) => ({
-    id: node.id,
-    name: node.name,
-    description: node.description,
-    url: node.url,
-    createdAt: node.createdAt,
-    stars: node.stargazerCount,
-    programmingLanguages: node.languages.nodes.map(({ name, color }) => ({
-      name,
-      color,
-    })),
-    topics: node.repositoryTopics.nodes.map(({ topic }) => topic.name),
-  }));
+  await GithubClient.query(RepositoriesDocument, {}).toPromise();
 
   return {
     props: {
-      repositoryTotalCount: repositoryTotalCount,
-      initialRepositories: repositories,
-      firstPaginateToken: firstEdge.cursor,
+      urqlState: serverSideCache.extractData(),
     },
   };
 };
