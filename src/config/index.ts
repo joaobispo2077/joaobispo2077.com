@@ -1,9 +1,7 @@
-const { GITHUB_ACCESS_TOKEN, NEXT_PUBLIC_GITHUB_URL } = process.env;
-
 export const apis = {
   github: {
-    accessToken: String(GITHUB_ACCESS_TOKEN),
-    url: String(NEXT_PUBLIC_GITHUB_URL),
+    accessToken: String(process.env.GITHUB_ACCESS_TOKEN),
+    url: String(process.env.NEXT_PUBLIC_GITHUB_URL),
   },
 };
 
