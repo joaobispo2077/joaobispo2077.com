@@ -1,0 +1,24 @@
+overwrite: true
+
+generates:
+  src/generated/graphql.github.tsx:
+    documents: './src/graphql/github/**/*.graphql'
+    schema:
+      - ${NEXT_PUBLIC_GITHUB_URL}:
+          headers:
+            Authorization: Bearer ${GITHUB_ACCESS_TOKEN}
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'
+    config:
+      withHooks: true
+  src/generated/graphql.blog.tsx:
+    documents: './src/graphql/blog/**/*.graphql'
+    schema: ${NEXT_PUBLIC_BLOG_URL}
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-urql'
+    config:
+      withHooks: true
