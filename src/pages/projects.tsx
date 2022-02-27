@@ -3,12 +3,12 @@ import type { GetStaticProps, NextPage } from 'next';
 import { useState } from 'react';
 
 import Head from 'next/head';
+import { GET_REPOSITORIES } from '@src/graphql/queries/githubQueries';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 import styles from '@src/styles/Home.module.css';
-import { GithubApolloClient } from '@src/services/GithubApolloClient';
+import { GithubApolloClient } from '@src/services/GithubClient';
 import { GetRepositoriesResponsePayload } from '@src/interfaces/Repository';
-import { GET_REPOSITORIES } from '@src/graphql/queries/githubQueries';
 
 type Repository = {
   id: string;

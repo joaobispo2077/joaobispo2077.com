@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app';
 
 import { ApolloProvider } from '@apollo/client';
 
-import { GithubApolloClient } from '@src/services/GithubApolloClient';
+import { GithubApolloClient } from '@src/services/GithubClient';
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
