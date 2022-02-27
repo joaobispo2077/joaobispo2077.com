@@ -1,17 +1,21 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 
-import { ApolloProvider } from '@apollo/client';
+import { Provider as UrqlProvider } from 'urql';
 
-import { GithubApolloClient } from '@src/services/GithubClient';
+import { serverSideCache } from '@src/services/ServerSideCache';
+import { GithubClient } from '@src/services/GithubClient';
 
-function MyApp({ Component, pageProps }: AppProps) {
+function App({ Component, pageProps }: AppProps) {
+  if (pageProps.urqlState) {
+    serverSideCache.restoreData(pageProps.urqlState);
+  }
+
   return (
-    <ApolloProvider client={GithubApolloClient}>
-      {' '}
+    <UrqlProvider value={GithubClient}>
       <Component {...pageProps} />
-    </ApolloProvider>
+    </UrqlProvider>
   );
 }
 
-export default MyApp;
+export default App;
