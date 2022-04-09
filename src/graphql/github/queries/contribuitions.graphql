@@ -1,0 +1,18 @@
+query Contribuitions {
+  viewer {
+    contributionsCollection {
+      earliestRestrictedContributionDate
+      latestRestrictedContributionDate
+      contributionCalendar {
+        colors
+        weeks {
+          contributionDays {
+            date
+            weekday
+          }
+          firstDay
+        }
+      }
+    }
+  }
+}
