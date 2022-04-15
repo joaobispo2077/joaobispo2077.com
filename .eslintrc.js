@@ -11,7 +11,6 @@ module.exports = {
     'next/core-web-vitals',
     'plugin:@typescript-eslint/recommended',
     'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
     'plugin:import/recommended',
@@ -25,14 +24,7 @@ module.exports = {
       jsx: true,
     },
   },
-  plugins: [
-    'react',
-    'react-hooks',
-    '@typescript-eslint',
-    'prettier',
-    'jsx-a11y',
-    'import',
-  ],
+  plugins: ['react', '@typescript-eslint', 'prettier', 'jsx-a11y', 'import'],
   settings: {
     react: {
       version: 'detect',

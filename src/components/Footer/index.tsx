@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react';
 
 import { Box, HStack, Icon } from '@chakra-ui/react';
 import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
+import Link from 'next/link';
 
 export const Footer: FunctionComponent = () => {
   return (
@@ -21,7 +22,11 @@ export const Footer: FunctionComponent = () => {
         spacing={'2rem'}
       >
         <Box>
-          <a href="http://github.com/joaobispo2077">
+          <a
+            href="http://github.com/joaobispo2077"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Icon
               width="1.5rem"
               height="1.5rem"
@@ -36,7 +41,11 @@ export const Footer: FunctionComponent = () => {
           </a>
         </Box>
         <Box>
-          <a href="http://twitter.com/joaobispo2077">
+          <a
+            href="http://twitter.com/joaobispo2077"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Icon
               width="1.5rem"
               height="1.5rem"
@@ -51,7 +60,11 @@ export const Footer: FunctionComponent = () => {
           </a>
         </Box>
         <Box>
-          <a href="http://linkedin.com/in/joaobispo2077">
+          <a
+            href="http://linkedin.com/in/joaobispo2077"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Icon
               width="1.5rem"
               height="1.5rem"
@@ -66,7 +79,11 @@ export const Footer: FunctionComponent = () => {
           </a>
         </Box>
         <Box>
-          <a href="http://instagram.com/joaobispo2077">
+          <a
+            href="http://instagram.com/joaobispo2077"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
             <Icon
               width="1.5rem"
               height="1.5rem"
