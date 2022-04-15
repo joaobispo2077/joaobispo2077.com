@@ -8,7 +8,7 @@ export const Footer: FunctionComponent = () => {
   return (
     <Box
       as="footer"
-      height="5rem"
+      height="4rem"
       width="100%"
       padding="1rem"
       display="flex"

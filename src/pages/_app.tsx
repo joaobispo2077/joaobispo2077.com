@@ -9,6 +9,7 @@ import { GithubClient } from '@src/services/GithubClient';
 import { Header } from '@src/components/Header';
 import { Footer } from '@src/components/Footer';
 import { theme } from '@src/styles/theme';
+import { Shell } from '@src/components/Shell';
 
 function App({ Component, pageProps }: AppProps) {
   if (pageProps.urqlState) {
@@ -18,9 +19,9 @@ function App({ Component, pageProps }: AppProps) {
   return (
     <UrqlProvider value={GithubClient}>
       <ChakraProvider theme={theme}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
+        <Shell>
+          <Component {...pageProps} />
+        </Shell>
       </ChakraProvider>
     </UrqlProvider>
   );
