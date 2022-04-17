@@ -6,8 +6,6 @@ import { ChakraProvider } from '@chakra-ui/react';
 
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { GithubClient } from '@src/services/GithubClient';
-import { Header } from '@src/components/Header';
-import { Footer } from '@src/components/Footer';
 import { theme } from '@src/styles/theme';
 import { Shell } from '@src/components/Shell';
 
