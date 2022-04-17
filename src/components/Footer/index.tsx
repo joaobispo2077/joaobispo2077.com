@@ -2,7 +2,6 @@ import { FunctionComponent } from 'react';
 
 import { Box, HStack, Icon } from '@chakra-ui/react';
 import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
-import Link from 'next/link';
 
 export const Footer: FunctionComponent = () => {
   return (
@@ -10,6 +9,7 @@ export const Footer: FunctionComponent = () => {
       as="footer"
       height="4rem"
       width="100%"
+      maxWidth="800px"
       padding="1rem"
       display="flex"
       justifyContent={'space-between'}

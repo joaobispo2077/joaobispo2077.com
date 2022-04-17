@@ -17,6 +17,7 @@ export const Header: FunctionComponent = () => {
       as="header"
       height="4rem"
       width="100%"
+      maxWidth="800px"
       padding="1rem"
       display="flex"
       justifyContent={'space-between'}
