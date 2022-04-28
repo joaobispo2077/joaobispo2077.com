@@ -1,7 +1,12 @@
 import type { NextPage } from 'next';
 
+import React from 'react';
+
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
 import Head from 'next/head';
+
+// import dynamic from 'next/dynamic';
+// const Element3DLazy = dynamic(() => import('@src/components/Element3D'));
 
 const Home: NextPage = () => {
   return (
@@ -24,6 +29,9 @@ const Home: NextPage = () => {
         />
         {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
       </Head>
+      {/* <Box>
+        <Element3DLazy />
+      </Box> */}
       <Box marginX="1rem" marginTop={['7rem', '16rem']}>
         <Heading as="h1" color="brand.primary" fontSize="5xl">
           João Bispo
