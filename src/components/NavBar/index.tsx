@@ -6,9 +6,11 @@ import { NavbarDesktop } from './NavbarDesktop';
 import { NavbarMobile } from './NavbarMobile';
 
 export const Navbar: FunctionComponent = () => {
-  const isDesktop = useMediaQuery('(min-width: 768px)');
+  const [isDesktopScreen] = useMediaQuery('(min-width: 576px)');
 
   return (
-    <Flex as="nav">{isDesktop ? <NavbarDesktop /> : <NavbarMobile />}</Flex>
+    <Flex as="nav">
+      {isDesktopScreen ? <NavbarDesktop /> : <NavbarMobile />}
+    </Flex>
   );
 };
