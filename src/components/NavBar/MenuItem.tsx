@@ -21,7 +21,17 @@ export const MenuItem: FunctionComponent<MenuItemProps> = ({
   return (
     <Text as="li" display="block" {...rest}>
       <NextLink href={href} passHref>
-        <Link color={color}> {children}</Link>
+        <Link
+          color={color}
+          _hover={{
+            color: 'brand.cyan',
+            _activeLink: {
+              color: 'brand.yellow',
+            },
+          }}
+        >
+          {children}
+        </Link>
       </NextLink>
     </Text>
   );

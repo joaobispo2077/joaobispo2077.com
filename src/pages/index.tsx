@@ -27,8 +27,8 @@ const Home: NextPage = () => {
           href="/assets/icons/lightning.png"
           type="image/png"
         />
-        {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
       </Head>
+      {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
       {/* <Box>
         <Element3DLazy />
       </Box> */}
