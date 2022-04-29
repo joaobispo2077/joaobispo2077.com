@@ -59,5 +59,5 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
   },
-  ignorePatterns: ['node_modules', '.next', 'public'],
+  ignorePatterns: ['node_modules', '.next', 'public', 'generated'],
 };

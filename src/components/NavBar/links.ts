@@ -5,29 +5,29 @@ export type Link = {
 };
 
 export const links: Link[] = [
-  {
-    name: 'about',
-    text: 'Sobre',
-    url: '/about',
-  },
-  {
-    name: 'blog',
-    text: 'Blog',
-    url: '/blog/posts',
-  },
-  {
-    name: 'repositories',
-    text: 'Repositórios',
-    url: '/repositories',
-  },
-  {
-    name: 'projects',
-    text: 'Projetos',
-    url: '/projects',
-  },
-  {
-    name: 'think',
-    text: 'Think',
-    url: '/think',
-  },
+  // {
+  //   name: 'about',
+  //   text: 'Sobre',
+  //   url: '/about',
+  // },
+  // {
+  //   name: 'blog',
+  //   text: 'Blog',
+  //   url: '/blog/posts',
+  // },
+  // {
+  //   name: 'repositories',
+  //   text: 'Repositórios',
+  //   url: '/repositories',
+  // },
+  // {
+  //   name: 'projects',
+  //   text: 'Projetos',
+  //   url: '/projects',
+  // },
+  // {
+  //   name: 'think',
+  //   text: 'Think',
+  //   url: '/think',
+  // },
 ];
