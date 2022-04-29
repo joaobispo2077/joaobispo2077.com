@@ -1,7 +1,6 @@
 import { FunctionComponent, useState } from 'react';
 
 import { HStack } from '@chakra-ui/react';
-import { useRouter } from 'next/router';
 
 import { MenuItem } from './MenuItem';
 import { Link } from './links';

@@ -1,6 +1,6 @@
 {
   "name": "joaobispo.dev",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "author": "joaobispo2077@gmail.com",
   "description": "My personal portfólio with projects, works, studies, stories and services.",
   "main": "index.js",
@@ -17,10 +17,6 @@
     "url": "https://github.com/joaobispo2077/joaobispo2077.com/issues"
   },
   "homepage": "https://github.com/joaobispo2077/joaobispo2077.com#readme",
-  "engines": {
-    "node": ">=16.0.0",
-    "npm": ">=8.0.0"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
