@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 
 import { Box, Heading } from '@chakra-ui/react';
 
-import { Navbar } from '../Navbar';
+import { Navbar } from '../../Navbar';
 
 export const Header: FunctionComponent = () => {
   return (
