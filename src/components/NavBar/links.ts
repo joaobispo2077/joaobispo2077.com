@@ -4,7 +4,7 @@ export type Link = {
   text: string;
 };
 
-export const navbarlinks: Link[] = [
+export const links: Link[] = [
   {
     name: 'about',
     text: 'Sobre',
@@ -26,8 +26,8 @@ export const navbarlinks: Link[] = [
     url: '/projects',
   },
   {
-    name: 'flow',
-    text: 'Flow',
-    url: '/flow',
+    name: 'think',
+    text: 'Think',
+    url: '/think',
   },
 ];

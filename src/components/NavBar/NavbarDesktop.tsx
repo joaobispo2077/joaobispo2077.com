@@ -1,6 +1,7 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useState } from 'react';
 
 import { HStack } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 import { MenuItem } from './MenuItem';
 import { Link } from './links';
@@ -12,6 +13,12 @@ type NavbarDesktopProps = {
 export const NavbarDesktop: FunctionComponent<NavbarDesktopProps> = ({
   links,
 }) => {
+  const [selectedMenuItem, setSelectedMenuItem] = useState('');
+
+  const handleSelectMenuItem = (menuName: string) => {
+    setSelectedMenuItem(menuName);
+  };
+
   return (
     <HStack
       as="ul"
@@ -22,7 +29,12 @@ export const NavbarDesktop: FunctionComponent<NavbarDesktopProps> = ({
       pt={[4, 4, 0, 0]}
     >
       {links.map((link) => (
-        <MenuItem key={link.name} href={link.url}>
+        <MenuItem
+          key={link.name}
+          href={link.url}
+          onClick={() => handleSelectMenuItem(link.name)}
+          isSelected={selectedMenuItem === link.name}
+        >
           {link.text}
         </MenuItem>
       ))}
