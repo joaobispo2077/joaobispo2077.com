@@ -3,8 +3,15 @@ import { FunctionComponent } from 'react';
 import { HStack } from '@chakra-ui/react';
 
 import { MenuItem } from './MenuItem';
+import { Link } from './links';
 
-export const NavbarDesktop: FunctionComponent = () => {
+type NavbarDesktopProps = {
+  links: Link[];
+};
+
+export const NavbarDesktop: FunctionComponent<NavbarDesktopProps> = ({
+  links,
+}) => {
   return (
     <HStack
       as="ul"
@@ -14,11 +21,11 @@ export const NavbarDesktop: FunctionComponent = () => {
       direction={['column', 'row', 'row', 'row']}
       pt={[4, 4, 0, 0]}
     >
-      <MenuItem href="/about">Sobre</MenuItem>
-      <MenuItem href="/blog/posts">Artigos</MenuItem>
-      <MenuItem href="/repositories">Repositórios</MenuItem>
-      <MenuItem href="/projects">Projetos</MenuItem>
-      <MenuItem href="/flow">Flow</MenuItem>
+      {links.map((link) => (
+        <MenuItem key={link.name} href={link.url}>
+          {link.text}
+        </MenuItem>
+      ))}
     </HStack>
   );
 };

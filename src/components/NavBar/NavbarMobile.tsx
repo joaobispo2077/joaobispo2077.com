@@ -5,8 +5,15 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 
 import { MenuItem } from './MenuItem';
 import { NavMobileItem } from './NavMobileItem';
+import { Link } from './links';
 
-export const NavbarMobile: FunctionComponent = () => {
+type NavbarMobileProps = {
+  links: Link[];
+};
+
+export const NavbarMobile: FunctionComponent<NavbarMobileProps> = ({
+  links,
+}) => {
   return (
     <Menu>
       {({ isOpen }) => (
@@ -15,23 +22,17 @@ export const NavbarMobile: FunctionComponent = () => {
             as={IconButton}
             aria-label="Options"
             icon={isOpen ? <CloseIcon /> : <HamburgerIcon />}
+            color="brand.secondary"
+            _hover={{
+              background: 'brand.hover',
+            }}
           />
-          <MenuList background="brand.background">
-            <NavMobileItem>
-              <MenuItem href="/about">Sobre</MenuItem>
-            </NavMobileItem>
-            <NavMobileItem>
-              <MenuItem href="/blog/posts">Artigos</MenuItem>
-            </NavMobileItem>
-            <NavMobileItem>
-              <MenuItem href="/repositories">Repositórios</MenuItem>
-            </NavMobileItem>
-            <NavMobileItem>
-              <MenuItem href="/projects">Projetos</MenuItem>
-            </NavMobileItem>
-            <NavMobileItem>
-              <MenuItem href="/flow">Flow</MenuItem>
-            </NavMobileItem>
+          <MenuList background="brand.background" as="ul">
+            {links.map((link) => (
+              <MenuItem href={link.url} key={link.name}>
+                <NavMobileItem>{link.text}</NavMobileItem>
+              </MenuItem>
+            ))}
           </MenuList>
         </>
       )}

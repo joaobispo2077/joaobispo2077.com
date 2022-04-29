@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, ReactNode } from 'react';
 
 import { Link, Text, TextProps } from '@chakra-ui/react';
 import NextLink from 'next/link';
@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 
 type MenuItemProps = TextProps & {
   href: string;
-  children: React.ReactNode;
+  children: ReactNode;
 };
 
 export const MenuItem: FunctionComponent<MenuItemProps> = ({
@@ -16,7 +16,7 @@ export const MenuItem: FunctionComponent<MenuItemProps> = ({
 }) => {
   const { asPath } = useRouter();
 
-  const color = href === asPath ? 'brand.yellow' : 'brand.secondary';
+  const color = href === asPath ? 'brand.primary' : 'brand.secondary';
 
   return (
     <Text as="li" display="block" {...rest}>
@@ -24,10 +24,8 @@ export const MenuItem: FunctionComponent<MenuItemProps> = ({
         <Link
           color={color}
           _hover={{
-            color: 'brand.cyan',
-            _activeLink: {
-              color: 'brand.yellow',
-            },
+            color: 'brand.primary',
+            textDecoration: 'underline',
           }}
         >
           {children}

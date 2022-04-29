@@ -12,10 +12,10 @@ export const NavMobileItem: FunctionComponent<NavMobileItemProps> = ({
   <ChakraMenuItem
     _hover={{
       background: 'brand.hover',
-      color: 'brand.cyan',
-      _activeLink: {
-        color: 'brand.yellow',
-      },
+    }}
+    _activeLink={{
+      background: 'brand.hover',
+      color: 'brand.primary',
     }}
   >
     {children}
