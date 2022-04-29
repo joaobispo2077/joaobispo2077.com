@@ -19,7 +19,7 @@ export const Header: FunctionComponent = () => {
       <Heading as="h1" fontSize="2rem" fontWeight="bold" color="brand.primary">
         JB
       </Heading>
-      <Navbar />
+      {/* <Navbar /> */}
     </Box>
   );
 };
