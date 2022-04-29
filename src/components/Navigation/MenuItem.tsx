@@ -4,7 +4,7 @@ import { Link, Text, TextProps } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 
-import { AnimatedUnderline } from '../components/AnimatedUnderline';
+import { AnimatedUnderline } from '../AnimatedUnderline';
 
 type MenuItemProps = TextProps & {
   href: string;
