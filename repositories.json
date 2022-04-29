@@ -1,0 +1,469 @@
+{
+  "viewer": {
+    "__typename": "User",
+    "login": "joaobispo2077",
+    "name": "João Bispo",
+    "repositories": {
+      "__typename": "RepositoryConnection",
+      "totalCount": 110,
+      "edges": [
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpIBzhib6TM=",
+          "node": {
+            "__typename": "Repository",
+            "id": "R_kgDOGJvpMw",
+            "name": "to-do-serverless",
+            "url": "https://github.com/joaobispo2077/to-do-serverless",
+            "description": null,
+            "stargazerCount": 1,
+            "createdAt": "2021-10-02T17:49:34Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": []
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "TypeScript",
+                  "color": "#2b7489"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpIBzhjnj4c=",
+          "node": {
+            "__typename": "Repository",
+            "id": "R_kgDOGOePhw",
+            "name": "repositories-api",
+            "url": "https://github.com/joaobispo2077/repositories-api",
+            "description": null,
+            "stargazerCount": 1,
+            "createdAt": "2021-10-16T12:57:57Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": []
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpIBzhjp10s=",
+          "node": {
+            "__typename": "Repository",
+            "id": "R_kgDOGOnXSw",
+            "name": "jv-calculator-v2",
+            "url": "https://github.com/joaobispo2077/jv-calculator-v2",
+            "description": "A simple calculator app built with Angular.",
+            "stargazerCount": 1,
+            "createdAt": "2021-10-17T00:10:29Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": []
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "HTML",
+                  "color": "#e34c26"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "SCSS",
+                  "color": "#c6538c"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "TypeScript",
+                  "color": "#2b7489"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpIBzhk6LSk=",
+          "node": {
+            "__typename": "Repository",
+            "id": "R_kgDOGTotKQ",
+            "name": "jv-calculator-v3",
+            "url": "https://github.com/vivianequeiroz/jv-calculator-v3",
+            "description": "A simple calculator made with React.js. ",
+            "stargazerCount": 1,
+            "createdAt": "2021-10-31T19:34:27Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": []
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "HTML",
+                  "color": "#e34c26"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "SCSS",
+                  "color": "#c6538c"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "TypeScript",
+                  "color": "#2b7489"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpIBzhlAPj8=",
+          "node": {
+            "__typename": "Repository",
+            "id": "R_kgDOGUA-Pw",
+            "name": "marketcart",
+            "url": "https://github.com/joaobispo2077/marketcart",
+            "description": null,
+            "stargazerCount": 1,
+            "createdAt": "2021-11-01T22:59:01Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": []
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "HTML",
+                  "color": "#e34c26"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "TypeScript",
+                  "color": "#2b7489"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpIBzhlWoYc=",
+          "node": {
+            "__typename": "Repository",
+            "id": "R_kgDOGVahhw",
+            "name": "jv-calculator-v4",
+            "url": "https://github.com/joaobispo2077/jv-calculator-v4",
+            "description": "A simple calculator app built with Electron.",
+            "stargazerCount": 1,
+            "createdAt": "2021-11-05T23:14:01Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": []
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "HTML",
+                  "color": "#e34c26"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "CSS",
+                  "color": "#563d7c"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpIBzhmvOZ8=",
+          "node": {
+            "__typename": "Repository",
+            "id": "R_kgDOGa85nw",
+            "name": "dev-shop",
+            "url": "https://github.com/vivianequeiroz/dev-shop",
+            "description": null,
+            "stargazerCount": 1,
+            "createdAt": "2021-11-23T00:56:33Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": []
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "CSS",
+                  "color": "#563d7c"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "Shell",
+                  "color": "#89e051"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "TypeScript",
+                  "color": "#2b7489"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpICzhHw96g=",
+          "node": {
+            "__typename": "Repository",
+            "id": "MDEwOlJlcG9zaXRvcnkzMDEwMDQ3MTI=",
+            "name": "drive-thru",
+            "url": "https://github.com/vivianequeiroz/drive-thru",
+            "description": "Projeto Semestral da disciplina LG1A1 do IFSP cujo objetivo é a criação de um sistema de drive-thru. ",
+            "stargazerCount": 2,
+            "createdAt": "2020-10-03T23:50:39Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": []
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "C++",
+                  "color": "#f34b7d"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "C",
+                  "color": "#555555"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpICzhYwejY=",
+          "node": {
+            "__typename": "Repository",
+            "id": "MDEwOlJlcG9zaXRvcnkzNzIyNzU3NjY=",
+            "name": "nodeauth",
+            "url": "https://github.com/joaobispo2077/nodeauth",
+            "description": "Authentication JWT system made with NodeJS using TDD, TypeScript and Jest.",
+            "stargazerCount": 2,
+            "createdAt": "2021-05-30T17:27:31Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": [
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "tdd"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "nodejs"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "jwt-authentication"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "typescript"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "expressjs"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "jest"
+                  }
+                }
+              ]
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "Shell",
+                  "color": "#89e051"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "TypeScript",
+                  "color": "#2b7489"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "__typename": "RepositoryEdge",
+          "cursor": "Y3Vyc29yOnYyOpIEzhIWyE0=",
+          "node": {
+            "__typename": "Repository",
+            "id": "MDEwOlJlcG9zaXRvcnkzMDM0ODI5NTc=",
+            "name": "happy",
+            "url": "https://github.com/joaobispo2077/happy",
+            "description": "O Happy é uma plataforma que mapeia orfanatos com o intuito de doadores de sonhos e instituições encontrarem-os de forma eficiente.",
+            "stargazerCount": 4,
+            "createdAt": "2020-10-12T18:44:56Z",
+            "repositoryTopics": {
+              "__typename": "RepositoryTopicConnection",
+              "nodes": [
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "rocketseat"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "maps"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "leaflet"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "design-patterns"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "ui-ux"
+                  }
+                },
+                {
+                  "__typename": "RepositoryTopic",
+                  "topic": {
+                    "__typename": "Topic",
+                    "name": "monorepo"
+                  }
+                }
+              ]
+            },
+            "languages": {
+              "__typename": "LanguageConnection",
+              "nodes": [
+                {
+                  "__typename": "Language",
+                  "name": "JavaScript",
+                  "color": "#f1e05a"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "HTML",
+                  "color": "#e34c26"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "CSS",
+                  "color": "#563d7c"
+                },
+                {
+                  "__typename": "Language",
+                  "name": "TypeScript",
+                  "color": "#2b7489"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  }
+}
