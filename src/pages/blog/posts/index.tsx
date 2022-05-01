@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 
-import Head from 'next/head';
+import { Flex, Heading, Text } from '@chakra-ui/react';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 import styles from '@src/styles/Home.module.css';
@@ -11,6 +11,9 @@ import {
 } from '@src/generated/graphql.github';
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { parseRepositories } from '@src/utils/parseRepositories';
+import { theme } from '@src/styles/theme';
+import { generateTextLinearGradient } from '@src/utils/generateGradient';
+import { SEO } from '@src/components/SEO';
 
 // type HomeProps = {
 //   initialRepositories: Repository[];
@@ -18,37 +21,41 @@ import { parseRepositories } from '@src/utils/parseRepositories';
 //   repositoryTotalCount: number;
 // };
 
-const PostsPage: NextPage = () => {
-  const { homeTranslation } = useTranslation();
+const BlogPage: NextPage = () => {
+  const { blogTranslation } = useTranslation();
   // const [repositories, setRepositories] = useState(initialRepositories);
   // const [paginateToken, setPaginateToken] = useState(firstPaginateToken);
   const [{ data: repositories }] = useRepositoriesQuery({});
   const { repositoryTotalCount = 0 } = parseRepositories(repositories);
 
   return (
-    <div className={styles.container}>
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>João Bispo | Portfólio</title>
-        <meta name="description" content="Crafting software for the web" />
-        <link
-          rel="shortcut icon"
-          href="/assets/icons/lightning.png"
-          type="image/png"
-        />
-        {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
-      </Head>
-
-      <main className={styles.main}>
-        <h1>Quantidade total de repositórios: {repositoryTotalCount}</h1>
-        {homeTranslation.helloWorld}
-      </main>
-    </div>
+    <Flex
+      as="main"
+      background="brand.background"
+      width="100%"
+      height="calc(100vh - 8rem)"
+      flexDirection="column"
+      paddingTop={[4, 16]}
+      paddingX={'1rem'}
+    >
+      <SEO title="Blog" description="Blog posts about software development" />
+      <Heading
+        as="h1"
+        fontSize="5xl"
+        fontWeight="bold"
+        color="brand.primary"
+        {...generateTextLinearGradient('cyan', 'red')}
+      >
+        {blogTranslation.title}
+      </Heading>
+      <Text color="brand.secondary" fontSize="xl" marginTop="1.5rem">
+        {blogTranslation.description}
+      </Text>
+    </Flex>
   );
 };
 
-export default PostsPage;
+export default BlogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
   await GithubClient.query(RepositoriesDocument, {}).toPromise();

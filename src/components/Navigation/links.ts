@@ -10,11 +10,11 @@ export const links: Link[] = [
   //   text: 'Sobre',
   //   url: '/about',
   // },
-  // {
-  //   name: 'blog',
-  //   text: 'Blog',
-  //   url: '/blog/posts',
-  // },
+  {
+    name: 'blog',
+    text: 'Blog',
+    url: '/blog/posts',
+  },
   // {
   //   name: 'roadmap',
   //   text: 'roadmap',
