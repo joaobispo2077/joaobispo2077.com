@@ -3,7 +3,8 @@ import type { NextPage } from 'next';
 import React from 'react';
 
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import Head from 'next/head';
+
+import { SEO } from '@src/components/SEO';
 
 // import dynamic from 'next/dynamic';
 // const Element3DLazy = dynamic(() => import('@src/components/Element3D'));
@@ -17,17 +18,10 @@ const Home: NextPage = () => {
       height="calc(100vh - 8rem)"
       flexDirection="column"
     >
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>João Bispo | Portfólio</title>
-        <meta name="description" content="Crafting software for the web" />
-        <link
-          rel="shortcut icon"
-          href="/assets/icons/lightning.png"
-          type="image/png"
-        />
-      </Head>
+      <SEO
+        description="Crafting software for the web"
+        image="https://images.unsplash.com/photo-1604964432806-254d07c11f32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+      />
       {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
       {/* <Box>
         <Element3DLazy />
