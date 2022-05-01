@@ -6,4 +6,5 @@ export const blogTranslation = {
   title: 'Continuamente compartilhando conhecimento',
   description:
     'Um blog sobre aprendizados, carreira e desenvolvimento de software.',
+  seeAllPosts: 'Todos os posts',
 };

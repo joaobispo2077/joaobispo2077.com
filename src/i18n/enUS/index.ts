@@ -5,4 +5,5 @@ export const homeTranslation = {
 export const blogTranslation = {
   title: 'Continous sharing knowledge',
   description: 'A blog about learning, career and software development.',
+  seeAllPosts: 'All posts',
 };
