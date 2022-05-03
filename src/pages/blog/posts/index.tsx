@@ -4,7 +4,6 @@ import { Flex, Heading, Text, VStack, Link } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 import { useTranslation } from '@src/hooks/useTranslation';
-import styles from '@src/styles/Home.module.css';
 import { GithubClient } from '@src/services/GithubClient';
 import {
   RepositoriesDocument,
@@ -12,18 +11,9 @@ import {
 } from '@src/generated/graphql.github';
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { parseRepositories } from '@src/utils/parseRepositories';
-import { theme } from '@src/styles/theme';
-import {
-  generateLinearGradient,
-  generateTextLinearGradient,
-} from '@src/utils/generateGradient';
+import { generateTextLinearGradient } from '@src/utils/generateGradient';
 import { SEO } from '@src/components/SEO';
-
-// type HomeProps = {
-//   initialRepositories: Repository[];
-//   firstPaginateToken: string;
-//   repositoryTotalCount: number;
-// };
+import { Card } from '@src/components/Card';
 
 const BlogPage: NextPage = () => {
   const { blogTranslation } = useTranslation();
@@ -88,28 +78,8 @@ const BlogPage: NextPage = () => {
           {blogTranslation.seeAllPosts}
         </Text>
         <VStack width="100%">
-          {posts.map(({ id, title, description, url, createdAt, slug }) => (
-            <Flex
-              key={id}
-              as="a"
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              marginBottom="1.5rem"
-              flexDirection="column"
-              alignItems="start"
-              width="100%"
-              borderRadius="lg"
-              padding="1rem"
-              _hover={{
-                cursor: 'pointer',
-                background: generateLinearGradient('hover', 'background'),
-                transition: 'all 0.4s ease-in-out',
-                opacity: 1,
-              }}
-              transition="all 1s ease-in-out"
-              opacity="0.75"
-            >
+          {posts.map(({ id, title, description, createdAt, slug }) => (
+            <Card key={id}>
               <NextLink href={`/blog/posts/${slug}`} passHref>
                 <Link>
                   <Heading
@@ -136,7 +106,7 @@ const BlogPage: NextPage = () => {
                   </Text>
                 </Link>
               </NextLink>
-            </Flex>
+            </Card>
           ))}
         </VStack>
       </Flex>
