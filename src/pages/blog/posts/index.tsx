@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 
-import { Flex, Heading, Text, VStack } from '@chakra-ui/react';
+import { Flex, Heading, Text, VStack, Link } from '@chakra-ui/react';
+import NextLink from 'next/link';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 import styles from '@src/styles/Home.module.css';
@@ -12,7 +13,10 @@ import {
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { parseRepositories } from '@src/utils/parseRepositories';
 import { theme } from '@src/styles/theme';
-import { generateTextLinearGradient } from '@src/utils/generateGradient';
+import {
+  generateLinearGradient,
+  generateTextLinearGradient,
+} from '@src/utils/generateGradient';
 import { SEO } from '@src/components/SEO';
 
 // type HomeProps = {
@@ -27,6 +31,7 @@ const BlogPage: NextPage = () => {
   // const [paginateToken, setPaginateToken] = useState(firstPaginateToken);
   const [{ data: repositories }] = useRepositoriesQuery({});
   const { repositoryTotalCount = 0 } = parseRepositories(repositories);
+
   const posts = [
     {
       id: '1',
@@ -36,6 +41,7 @@ const BlogPage: NextPage = () => {
         'Eu estou usando uma máquina nova apenas com os meus profiles configurados e quase nenhuma customização...',
       url: 'https://blog.chakra-ui.com',
       createdAt: new Date('2020-07-01'),
+      slug: 'customizing-terminal',
     },
     {
       id: '2',
@@ -44,8 +50,10 @@ const BlogPage: NextPage = () => {
         'Existem 2 recursos que estão presentes no JavaScript que abrem um mar de possibilidades para a escrita de um código mais funcional...',
       url: 'https://medium.com/joaobispo2077/javascript-higher-order-e-first-class-functions-1e7b95f67547',
       createdAt: new Date('2021-07-01'),
+      slug: 'javascript-higher-order-e-first-class-functions',
     },
   ];
+
   return (
     <Flex
       as="main"
@@ -80,7 +88,7 @@ const BlogPage: NextPage = () => {
           {blogTranslation.seeAllPosts}
         </Text>
         <VStack width="100%">
-          {posts.map(({ id, title, description, url, createdAt }) => (
+          {posts.map(({ id, title, description, url, createdAt, slug }) => (
             <Flex
               key={id}
               as="a"
@@ -91,21 +99,43 @@ const BlogPage: NextPage = () => {
               flexDirection="column"
               alignItems="start"
               width="100%"
+              borderRadius="lg"
+              padding="1rem"
+              _hover={{
+                cursor: 'pointer',
+                background: generateLinearGradient('hover', 'background'),
+                transition: 'all 0.4s ease-in-out',
+                opacity: 1,
+              }}
+              transition="all 1s ease-in-out"
+              opacity="0.75"
             >
-              <Heading
-                as="h2"
-                color="brand.primary"
-                fontSize="xl"
-                fontWeight="bold"
-              >
-                {title}
-              </Heading>
-              <Text fontSize="lg" color="brand.secondary" marginTop="1.5rem">
-                {description}
-              </Text>
-              <Text fontSize="lg" color="brand.secondary" alignSelf="flex-end">
-                {createdAt.toLocaleDateString()}
-              </Text>
+              <NextLink href={`/blog/posts/${slug}`} passHref>
+                <Link>
+                  <Heading
+                    as="h2"
+                    color="brand.primary"
+                    fontSize="xl"
+                    fontWeight="bold"
+                  >
+                    {title}
+                  </Heading>
+                  <Text
+                    fontSize="lg"
+                    color="brand.secondary"
+                    marginTop="1.5rem"
+                  >
+                    {description}
+                  </Text>
+                  <Text
+                    fontSize="lg"
+                    color="brand.secondary"
+                    alignSelf="flex-end"
+                  >
+                    {createdAt.toLocaleDateString()}
+                  </Text>
+                </Link>
+              </NextLink>
             </Flex>
           ))}
         </VStack>
