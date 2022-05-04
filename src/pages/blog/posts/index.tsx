@@ -1,16 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 
-import {
-  Flex,
-  Heading,
-  Text,
-  VStack,
-  Link,
-  HStack,
-  Box,
-  Tag,
-  Icon,
-} from '@chakra-ui/react';
+import { Flex, Heading, Text, VStack, Link, Tag, Icon } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { FiCalendar } from 'react-icons/fi';
 
@@ -84,16 +74,17 @@ const BlogPage: NextPage = () => {
       paddingX={'1rem'}
     >
       <SEO title="Blog" description="Blog posts about software development" />
-      <Heading
-        as="h1"
-        fontSize="5xl"
-        fontWeight="bold"
-        color="brand.primary"
-        {...generateTextLinearGradient('cyan', 'red')}
-      >
-        {blogTranslation.title}
-      </Heading>
-      <Text color="brand.secondary" fontSize="xl" marginTop="1.5rem">
+      <Flex width="100%" minHeight="4rem" justifyContent="flex-start">
+        <Heading
+          as="h1"
+          fontSize="5xl"
+          color="brand.primary"
+          {...generateTextLinearGradient('cyan', 'red')}
+        >
+          {blogTranslation.title}
+        </Heading>
+      </Flex>
+      <Text color="brand.secondary" fontSize="xl" marginTop="1rem">
         {blogTranslation.description}
       </Text>
       <Flex as="section" flexDirection="column" marginTop="1.5rem">
