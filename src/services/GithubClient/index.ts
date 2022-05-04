@@ -5,7 +5,7 @@ import {
   fetchExchange,
 } from 'urql';
 
-import { config } from '@src/config';
+import { config } from '@src/configs';
 
 import { serverSideCache } from '../ServerSideCache';
 
