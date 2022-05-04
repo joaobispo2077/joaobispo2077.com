@@ -1,7 +1,18 @@
 import type { GetStaticProps, NextPage } from 'next';
 
-import { Flex, Heading, Text, VStack, Link } from '@chakra-ui/react';
+import {
+  Flex,
+  Heading,
+  Text,
+  VStack,
+  Link,
+  HStack,
+  Box,
+  Tag,
+  Icon,
+} from '@chakra-ui/react';
 import NextLink from 'next/link';
+import { FiCalendar } from 'react-icons/fi';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 import { GithubClient } from '@src/services/GithubClient';
@@ -16,7 +27,7 @@ import { SEO } from '@src/components/SEO';
 import { Card } from '@src/components/Card';
 
 const BlogPage: NextPage = () => {
-  const { blogTranslation } = useTranslation();
+  const { blogTranslation, locale } = useTranslation();
   // const [repositories, setRepositories] = useState(initialRepositories);
   // const [paginateToken, setPaginateToken] = useState(firstPaginateToken);
   const [{ data: repositories }] = useRepositoriesQuery({});
@@ -32,6 +43,15 @@ const BlogPage: NextPage = () => {
       url: 'https://blog.chakra-ui.com',
       createdAt: new Date('2020-07-01'),
       slug: 'customizing-terminal',
+      tags: [
+        'terminal',
+        'macos',
+        'oh-my-zsh',
+        'powerlevel10k',
+        'iterm2',
+        'dracula',
+        'plugins',
+      ],
     },
     {
       id: '2',
@@ -41,8 +61,17 @@ const BlogPage: NextPage = () => {
       url: 'https://medium.com/joaobispo2077/javascript-higher-order-e-first-class-functions-1e7b95f67547',
       createdAt: new Date('2021-07-01'),
       slug: 'javascript-higher-order-e-first-class-functions',
+      tags: ['javascript', 'higher-order', 'first-class'],
     },
   ];
+
+  function formatDate(date: Date) {
+    return new Intl.DateTimeFormat(locale, {
+      year: 'numeric',
+      month: 'short',
+      day: '2-digit',
+    }).format(date);
+  }
 
   return (
     <Flex
@@ -78,7 +107,7 @@ const BlogPage: NextPage = () => {
           {blogTranslation.seeAllPosts}
         </Text>
         <VStack width="100%">
-          {posts.map(({ id, title, description, createdAt, slug }) => (
+          {posts.map(({ id, title, description, createdAt, slug, tags }) => (
             <Card key={id}>
               <NextLink href={`/blog/posts/${slug}`} passHref>
                 <Link>
@@ -90,20 +119,48 @@ const BlogPage: NextPage = () => {
                   >
                     {title}
                   </Heading>
+                  <Flex alignItems="center" marginTop=".5rem">
+                    <Icon
+                      width="1rem"
+                      height="1rem"
+                      name="calendar"
+                      color="brand.secondary"
+                      marginRight=".5rem"
+                      as={FiCalendar}
+                    />
+                    <Text fontSize="md" color="brand.secondary">
+                      {formatDate(createdAt)}
+                    </Text>
+                  </Flex>
                   <Text
                     fontSize="lg"
                     color="brand.secondary"
-                    marginTop="1.5rem"
+                    marginTop=".75rem"
                   >
                     {description}
                   </Text>
-                  <Text
-                    fontSize="lg"
-                    color="brand.secondary"
-                    alignSelf="flex-end"
+
+                  <Flex
+                    width="100%"
+                    height="auto"
+                    gap=".75rem"
+                    flexWrap={'wrap'}
+                    marginTop="1rem"
                   >
-                    {createdAt.toLocaleDateString()}
-                  </Text>
+                    {tags.map((tag) => (
+                      <Tag
+                        size="md"
+                        key={tag}
+                        variant="solid"
+                        colorScheme={'whiteAlpha'}
+                        _hover={{
+                          textDecoration: 'none',
+                        }}
+                      >
+                        {tag}
+                      </Tag>
+                    ))}
+                  </Flex>
                 </Link>
               </NextLink>
             </Card>
