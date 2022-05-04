@@ -17,14 +17,15 @@ export const Card: FunctionComponent<CardProps> = ({ children, ...rest }) => {
       width="100%"
       borderRadius="lg"
       padding="1rem"
+      opacity="0.75"
+      transition="background-color, opacity, transform 0.4s ease-in-out"
       _hover={{
         cursor: 'pointer',
         background: generateLinearGradient('hover', 'background'),
-        transition: 'all 0.4s ease-in-out',
+        transition: 'background-color, opacity, transform 0.2s ease-in-out',
         opacity: 1,
+        transform: 'scale(1.025)',
       }}
-      transition="all 1s ease-in-out"
-      opacity="0.75"
       {...rest}
     >
       {children}
