@@ -153,9 +153,7 @@ const BlogPage: NextPage = () => {
                         key={tag}
                         variant="solid"
                         colorScheme={'whiteAlpha'}
-                        _hover={{
-                          textDecoration: 'none',
-                        }}
+                        textTransform="lowercase"
                       >
                         {tag}
                       </Tag>
