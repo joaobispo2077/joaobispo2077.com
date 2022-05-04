@@ -3,6 +3,7 @@ import type { GetStaticProps, NextPage } from 'next';
 import { Flex, Heading, Text, VStack, Link, Tag, Icon } from '@chakra-ui/react';
 import NextLink from 'next/link';
 import { FiCalendar } from 'react-icons/fi';
+import { motion } from 'framer-motion';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 import { GithubClient } from '@src/services/GithubClient';
