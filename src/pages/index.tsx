@@ -15,7 +15,7 @@ const Home: NextPage = () => {
       as="main"
       background="brand.background"
       width="100%"
-      height="calc(100vh - 8rem)"
+      minHeight="calc(100vh - 8rem)"
       flexDirection="column"
     >
       <SEO
