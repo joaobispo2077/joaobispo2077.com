@@ -2,8 +2,8 @@ import { FunctionComponent, ReactNode } from 'react';
 
 import { Box } from '@chakra-ui/react';
 
-import { Footer } from '../Footer';
-import { Header } from '../Header';
+import { Footer } from '../../Footer';
+import { Header } from '../../Header';
 
 export const Shell: FunctionComponent<{
   children: ReactNode;
