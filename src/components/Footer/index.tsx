@@ -44,7 +44,9 @@ export const Footer: FunctionComponent = () => {
                   _hover={{
                     opacity: 1,
                     color: socialmedia.color,
+                    transition: 'opacity 0.2s ease-in-out',
                   }}
+                  transition="opacity 0.2s ease-in-out"
                 />
               </a>
             </Box>
