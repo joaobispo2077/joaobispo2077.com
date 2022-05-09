@@ -73,6 +73,7 @@ const BlogPage: NextPage = () => {
       flexDirection="column"
       paddingTop={[4, 16]}
       paddingX={'1rem'}
+      overflow="hidden"
     >
       <SEO title="Blog" description="Blog posts about software development" />
       <Flex width="100%" minHeight="4rem" justifyContent="flex-start">
@@ -81,6 +82,7 @@ const BlogPage: NextPage = () => {
           fontSize="5xl"
           color="brand.primary"
           {...generateTextLinearGradient('cyan', 'red')}
+          whiteSpace="pre-line"
         >
           {blogTranslation.title}
         </Heading>
