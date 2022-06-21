@@ -25,8 +25,8 @@ export const Footer: FunctionComponent = () => {
         {socialmedias
           .filter(
             (socialmedia) =>
-              socialmedia.name !== 'Twitter' &&
-              socialmedia.name !== 'Instagram',
+              socialmedia.name.includes('Github') ||
+              socialmedia.name.includes('Linkedin'),
           )
           .map((socialmedia) => (
             <Box key={socialmedia.name}>
