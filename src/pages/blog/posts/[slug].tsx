@@ -1,11 +1,10 @@
-import { Box, Flex, Heading, HStack, Icon, Text } from '@chakra-ui/react';
+import { Flex, Heading, HStack, Icon, Text } from '@chakra-ui/react';
 import { NextPage } from 'next';
 import { FiCalendar, FiUser } from 'react-icons/fi';
-import SyntaxHighlighter from 'react-syntax-highlighter';
-import { dracula } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 import { formatDate } from '@src/utils/date';
+import { Codeblock } from '@src/components/Codeblock';
 
 const PostPage: NextPage = () => {
   const { locale } = useTranslation();
@@ -127,11 +126,7 @@ const PostPage: NextPage = () => {
           </Text>
         </Flex>
       </HStack>
-      <Box borderRadius={8} overflow="hidden">
-        <SyntaxHighlighter language={''} style={dracula}>
-          {codeString}
-        </SyntaxHighlighter>
-      </Box>
+      <Codeblock code={codeString} />
     </Flex>
   );
 };
