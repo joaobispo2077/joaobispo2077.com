@@ -3,6 +3,9 @@ export const apis = {
     accessToken: String(process.env.GITHUB_ACCESS_TOKEN),
     url: String(process.env.NEXT_PUBLIC_GITHUB_URL),
   },
+  contentManagement: {
+    url: String(process.env.NEXT_PUBLIC_BLOG_URL),
+  },
 };
 
 const isServerSide = typeof window === 'undefined';
