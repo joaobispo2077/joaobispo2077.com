@@ -4,6 +4,7 @@ query Posts {
     slug
     excerpt
     publishedAt
+    tags
     coverImage {
       url(transformation: { image: { resize: { width: 400 } } })
     }
