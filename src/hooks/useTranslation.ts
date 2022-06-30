@@ -6,8 +6,8 @@ type UseTranslationsReturn = i18nTranslationsObject & {
   locale: string;
 };
 export const useTranslation = (): UseTranslationsReturn => {
-  const { locale } = useRouter();
+  const { locale = 'en-us' } = useRouter();
 
   const pagesText = i18n[locale as keyof typeof i18n];
-  return { ...pagesText, locale: locale || 'en-us' };
+  return { ...pagesText, locale: locale };
 };
