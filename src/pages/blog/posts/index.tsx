@@ -13,8 +13,6 @@ import { PostCard } from '@src/components/PostCard';
 const BlogPage: NextPage = () => {
   const { blogTranslation } = useTranslation();
   const [{ data }] = usePostsQuery({});
-  console.info('Blog page');
-  console.info('data', data?.posts);
 
   return (
     <Flex
@@ -71,7 +69,6 @@ const BlogPage: NextPage = () => {
 export default BlogPage;
 
 export const getStaticProps: GetStaticProps = async () => {
-  console.info('Blog page getStaticProps');
   await ContentManagementClient.query(PostsDocument, {}).toPromise();
 
   return {
