@@ -1,12 +1,12 @@
 import { FunctionComponent } from 'react';
 
-import { Flex, Tag } from '@chakra-ui/react';
+import { Flex, FlexProps, Tag } from '@chakra-ui/react';
 
 export type TagsProps = {
   tags?: string[];
-};
+} & FlexProps;
 
-export const Tags: FunctionComponent<TagsProps> = ({ tags = [] }) => {
+export const Tags: FunctionComponent<TagsProps> = ({ tags = [], ...rest }) => {
   return (
     <Flex
       width="100%"
@@ -14,6 +14,7 @@ export const Tags: FunctionComponent<TagsProps> = ({ tags = [] }) => {
       gap=".75rem"
       flexWrap={'wrap'}
       marginTop="1rem"
+      {...rest}
     >
       {tags.map((tag) => (
         <Tag
