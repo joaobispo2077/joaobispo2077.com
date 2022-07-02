@@ -4,6 +4,20 @@ query Post($slug: String) {
     excerpt
     publishedAt
     tags
+    seo {
+      image {
+        url
+      }
+      title
+      description
+    }
+    coverImage {
+      coverImagePost {
+        coverImage {
+          url
+        }
+      }
+    }
     content {
       html
     }
