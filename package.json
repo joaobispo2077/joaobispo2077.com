@@ -20,6 +20,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prebuild": "npm run codegen:graphql",
     "start": "next start",
     "lint": "next lint",
     "codegen:graphql": "cross-env DOTENV_CONFIG_PATH=./.env.local graphql-codegen -r dotenv/config --config codegen.graphql.yml"
