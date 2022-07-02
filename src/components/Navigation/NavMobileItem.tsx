@@ -17,6 +17,7 @@ export const NavMobileItem: FunctionComponent<NavMobileItemProps> = ({
       background: 'brand.hover',
       color: 'brand.primary',
     }}
+    color="brand.secondary"
   >
     {children}
   </ChakraMenuItem>

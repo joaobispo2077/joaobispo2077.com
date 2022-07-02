@@ -1,9 +1,10 @@
 import { FunctionComponent, ReactNode } from 'react';
 
 import { Box } from '@chakra-ui/react';
+import { LayoutGroup } from 'framer-motion';
 
-import { Footer } from '../Footer';
-import { Header } from '../Header';
+import { Footer } from '../../Footer';
+import { Header } from '../../Header';
 
 export const Shell: FunctionComponent<{
   children: ReactNode;
@@ -18,9 +19,11 @@ export const Shell: FunctionComponent<{
       alignItems="center"
     >
       <Header />
-      <Box height="100%" width="100%" maxWidth="800px">
-        {children}
-      </Box>
+      <LayoutGroup id="global">
+        <Box height="100%" width="100%" maxWidth="800px">
+          {children}
+        </Box>
+      </LayoutGroup>
       <Footer />
     </Box>
   );

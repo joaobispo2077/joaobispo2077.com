@@ -15,8 +15,10 @@ const Home: NextPage = () => {
       as="main"
       background="brand.background"
       width="100%"
-      height="calc(100vh - 8rem)"
+      minHeight="calc(100vh - 8rem)"
       flexDirection="column"
+      justifyContent="center"
+      paddingX={'1rem'}
     >
       <SEO
         description="Crafting software for the web"
@@ -26,7 +28,7 @@ const Home: NextPage = () => {
       {/* <Box>
         <Element3DLazy />
       </Box> */}
-      <Box marginX="1rem" marginTop={['7rem', '16rem']}>
+      <Flex as="section" width="100%" flexDirection="column">
         <Heading as="h1" color="brand.primary" fontSize="5xl">
           João Bispo
         </Heading>
@@ -38,7 +40,7 @@ const Home: NextPage = () => {
             Crafting world-impact software that make people lives better.
           </Text>
         </Box>
-      </Box>
+      </Flex>
     </Flex>
   );
 };

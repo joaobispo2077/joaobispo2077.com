@@ -9,17 +9,11 @@ import { config } from '@src/configs';
 
 import { serverSideCache } from '../ServerSideCache';
 
-const { github } = config.apis;
+const { contentManagement } = config.apis;
 
-const GithubClient = createClient({
-  url: github.url,
-  fetchOptions: {
-    credentials: 'include',
-    headers: {
-      Authorization: `Bearer ${github.accessToken}`,
-    },
-  },
+const ContentManagementClient = createClient({
+  url: contentManagement.url,
   exchanges: [dedupExchange, cacheExchange, serverSideCache, fetchExchange],
 });
 
-export { GithubClient };
+export { ContentManagementClient };

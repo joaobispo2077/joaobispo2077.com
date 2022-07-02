@@ -25,8 +25,8 @@ export const Footer: FunctionComponent = () => {
         {socialmedias
           .filter(
             (socialmedia) =>
-              socialmedia.name !== 'Twitter' &&
-              socialmedia.name !== 'Instagram',
+              socialmedia.name.includes('Github') ||
+              socialmedia.name.includes('Linkedin'),
           )
           .map((socialmedia) => (
             <Box key={socialmedia.name}>
@@ -44,7 +44,9 @@ export const Footer: FunctionComponent = () => {
                   _hover={{
                     opacity: 1,
                     color: socialmedia.color,
+                    transition: 'opacity 0.2s ease-in-out',
                   }}
+                  transition="opacity 0.2s ease-in-out"
                 />
               </a>
             </Box>

@@ -18,7 +18,7 @@ export const SEO: FunctionComponent<SEOProps> = ({
   const baseTitle = 'João Bispo';
   const fullTitle = title ? `${title} | ${baseTitle}` : baseTitle;
 
-  const baseUrl = 'https://joaobispo.dev';
+  const baseUrl = 'https://joaobispo2077.com';
   const fullUrl = url ? `${baseUrl}${url}` : baseUrl;
 
   return (
