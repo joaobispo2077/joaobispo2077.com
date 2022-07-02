@@ -9,6 +9,7 @@ import { ContentManagementClient } from '@src/services/ContentManagementClient';
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { PostDocument, usePostQuery } from '@src/generated/graphql.blog';
 import { Content } from '@src/styles/poststyles';
+import { SEO } from '@src/components/SEO';
 
 const PostPage: NextPage = () => {
   const router = useRouter();
@@ -19,6 +20,7 @@ const PostPage: NextPage = () => {
     },
   });
   const { locale } = useTranslation();
+  // TODO: ADD image={data?.post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
 
   return (
     <Flex
@@ -30,6 +32,12 @@ const PostPage: NextPage = () => {
       paddingTop={[4, 16]}
       paddingX={'1rem'}
     >
+      <SEO
+        title={`${data?.post?.title}`}
+        description={`${data?.post?.excerpt || ''}`}
+        image={data?.post?.seo?.image?.url}
+        url={`/blog/posts/${slug}`}
+      />
       <Heading color="brand.primary">{data?.post?.title}</Heading>
       <HStack spacing="2rem" marginTop={'2rem'}>
         <Flex alignItems="center" gap="1rem">
@@ -63,9 +71,11 @@ export const getStaticPaths: GetStaticPaths = () => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug } = params || {};
+
   await ContentManagementClient.query(PostDocument, {
     slug,
   }).toPromise();
+
   return {
     props: {
       urqlState: serverSideCache.extractData(),
