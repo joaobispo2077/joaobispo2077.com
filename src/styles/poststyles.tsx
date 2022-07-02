@@ -85,6 +85,13 @@ export const Content = styled.main`
     border-radius: 0.5rem;
     padding: 0.5rem;
     color: ${gray};
+    height: auto;
+    -ms-word-break: break-all;
+    word-break: break-all;
+
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   code {
@@ -92,6 +99,9 @@ export const Content = styled.main`
     border-radius: 0.5rem;
     padding: 0.5rem;
     color: ${brandColors.cyan};
+    white-space: pre-wrap;
+    word-break: break-word;
+    overflow-wrap: break-word;
   }
 
   &.preview {
