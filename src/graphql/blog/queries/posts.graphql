@@ -1,9 +1,10 @@
-query Posts {
-  posts(orderBy: publishedAt_DESC) {
+query Posts($locale: Locale!) {
+  posts(orderBy: publishedAt_DESC, locales: [$locale]) {
     title
     slug
     excerpt
     publishedAt
+    date
     tags
     coverImage {
       url(transformation: { image: { resize: { width: 400 } } })

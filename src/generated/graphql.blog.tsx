@@ -1374,7 +1374,8 @@ export type ImageTransformationInput = {
 /** Locale system enumeration */
 export enum Locale {
   /** System locale */
-  En = 'en'
+  En = 'en',
+  PtBr = 'pt_BR'
 }
 
 /** Representing a geolocation point with latitude and longitude */
@@ -1849,8 +1850,11 @@ export type MutationPublishManyPagesConnectionArgs = {
 
 
 export type MutationPublishManyPostsArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
   to?: Array<Stage>;
   where?: InputMaybe<PostManyWhereInput>;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1860,15 +1864,21 @@ export type MutationPublishManyPostsConnectionArgs = {
   first?: InputMaybe<Scalars['Int']>;
   from?: InputMaybe<Stage>;
   last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   to?: Array<Stage>;
   where?: InputMaybe<PostManyWhereInput>;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationPublishManySeosArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
   to?: Array<Stage>;
   where?: InputMaybe<SeoManyWhereInput>;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1878,9 +1888,12 @@ export type MutationPublishManySeosConnectionArgs = {
   first?: InputMaybe<Scalars['Int']>;
   from?: InputMaybe<Stage>;
   last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
   skip?: InputMaybe<Scalars['Int']>;
   to?: Array<Stage>;
   where?: InputMaybe<SeoManyWhereInput>;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1891,14 +1904,20 @@ export type MutationPublishPageArgs = {
 
 
 export type MutationPublishPostArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
   to?: Array<Stage>;
   where: PostWhereUniqueInput;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationPublishSeoArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
   to?: Array<Stage>;
   where: SeoWhereUniqueInput;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1930,18 +1949,24 @@ export type MutationSchedulePublishPageArgs = {
 
 
 export type MutationSchedulePublishPostArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   to?: Array<Stage>;
   where: PostWhereUniqueInput;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
 
 export type MutationSchedulePublishSeoArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   to?: Array<Stage>;
   where: SeoWhereUniqueInput;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
 
@@ -1973,16 +1998,20 @@ export type MutationScheduleUnpublishPageArgs = {
 
 export type MutationScheduleUnpublishPostArgs = {
   from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where: PostWhereUniqueInput;
 };
 
 
 export type MutationScheduleUnpublishSeoArgs = {
   from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where: SeoWhereUniqueInput;
 };
 
@@ -2061,6 +2090,8 @@ export type MutationUnpublishManyPagesConnectionArgs = {
 
 export type MutationUnpublishManyPostsArgs = {
   from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PostManyWhereInput>;
 };
 
@@ -2071,14 +2102,18 @@ export type MutationUnpublishManyPostsConnectionArgs = {
   first?: InputMaybe<Scalars['Int']>;
   from?: Array<Stage>;
   last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   stage?: InputMaybe<Stage>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PostManyWhereInput>;
 };
 
 
 export type MutationUnpublishManySeosArgs = {
   from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
@@ -2089,8 +2124,10 @@ export type MutationUnpublishManySeosConnectionArgs = {
   first?: InputMaybe<Scalars['Int']>;
   from?: Array<Stage>;
   last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   stage?: InputMaybe<Stage>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
@@ -2103,12 +2140,16 @@ export type MutationUnpublishPageArgs = {
 
 export type MutationUnpublishPostArgs = {
   from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where: PostWhereUniqueInput;
 };
 
 
 export type MutationUnpublishSeoArgs = {
   from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where: SeoWhereUniqueInput;
 };
 
@@ -2815,6 +2856,10 @@ export type Post = Node & {
   history: Array<Version>;
   /** The unique identifier */
   id: Scalars['ID'];
+  /** System Locale field */
+  locale: Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<Post>;
   /** The time the document was published. Null on documents in draft stage. */
   publishedAt?: Maybe<Scalars['DateTime']>;
   /** User that last published this document */
@@ -2847,6 +2892,11 @@ export type PostCoverImageArgs = {
 };
 
 
+export type PostCreatedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
+};
+
+
 export type PostCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
@@ -2863,6 +2913,17 @@ export type PostHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
+};
+
+
+export type PostLocalizationsArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  locales?: Array<Locale>;
+};
+
+
+export type PostPublishedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
 };
 
 
@@ -2884,6 +2945,11 @@ export type PostScheduledInArgs = {
 
 export type PostSeoArgs = {
   locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type PostUpdatedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
 };
 
 
@@ -2910,16 +2976,40 @@ export type PostConnection = {
 
 export type PostCreateInput = {
   author?: InputMaybe<AuthorCreateOneInlineInput>;
+  /** content input for default locale (en) */
   content: Scalars['RichTextAST'];
   coverImage?: InputMaybe<AssetCreateOneInlineInput>;
   createdAt?: InputMaybe<Scalars['DateTime']>;
   date: Scalars['Date'];
+  /** excerpt input for default locale (en) */
   excerpt?: InputMaybe<Scalars['String']>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: InputMaybe<PostCreateLocalizationsInput>;
   seo?: InputMaybe<SeoCreateOneInlineInput>;
   slug: Scalars['String'];
   tags?: InputMaybe<Array<Scalars['String']>>;
+  /** title input for default locale (en) */
   title: Scalars['String'];
   updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PostCreateLocalizationDataInput = {
+  content: Scalars['RichTextAST'];
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  title: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type PostCreateLocalizationInput = {
+  /** Localization input */
+  data: PostCreateLocalizationDataInput;
+  locale: Locale;
+};
+
+export type PostCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: InputMaybe<Array<PostCreateLocalizationInput>>;
 };
 
 export type PostCreateManyInlineInput = {
@@ -2988,25 +3078,6 @@ export type PostManyWhereInput = {
   date_not?: InputMaybe<Scalars['Date']>;
   /** All values that are not contained in given list. */
   date_not_in?: InputMaybe<Array<Scalars['Date']>>;
-  excerpt?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  excerpt_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  excerpt_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  excerpt_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values that are not equal to given value. */
-  excerpt_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  excerpt_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  excerpt_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  excerpt_not_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values not starting with the given string. */
-  excerpt_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  excerpt_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -3075,25 +3146,6 @@ export type PostManyWhereInput = {
   tags_contains_some?: InputMaybe<Array<Scalars['String']>>;
   /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
   tags_not?: InputMaybe<Array<Scalars['String']>>;
-  title?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  title_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  title_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  title_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values that are not equal to given value. */
-  title_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  title_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  title_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  title_not_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values not starting with the given string. */
-  title_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  title_starts_with?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -3135,14 +3187,40 @@ export enum PostOrderByInput {
 
 export type PostUpdateInput = {
   author?: InputMaybe<AuthorUpdateOneInlineInput>;
+  /** content input for default locale (en) */
   content?: InputMaybe<Scalars['RichTextAST']>;
   coverImage?: InputMaybe<AssetUpdateOneInlineInput>;
   date?: InputMaybe<Scalars['Date']>;
+  /** excerpt input for default locale (en) */
   excerpt?: InputMaybe<Scalars['String']>;
+  /** Manage document localizations */
+  localizations?: InputMaybe<PostUpdateLocalizationsInput>;
   seo?: InputMaybe<SeoUpdateOneInlineInput>;
   slug?: InputMaybe<Scalars['String']>;
   tags?: InputMaybe<Array<Scalars['String']>>;
+  /** title input for default locale (en) */
   title?: InputMaybe<Scalars['String']>;
+};
+
+export type PostUpdateLocalizationDataInput = {
+  content?: InputMaybe<Scalars['RichTextAST']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type PostUpdateLocalizationInput = {
+  data: PostUpdateLocalizationDataInput;
+  locale: Locale;
+};
+
+export type PostUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: InputMaybe<Array<PostCreateLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: InputMaybe<Array<Locale>>;
+  /** Localizations to update */
+  update?: InputMaybe<Array<PostUpdateLocalizationInput>>;
+  upsert?: InputMaybe<Array<PostUpsertLocalizationInput>>;
 };
 
 export type PostUpdateManyInlineInput = {
@@ -3163,11 +3241,32 @@ export type PostUpdateManyInlineInput = {
 };
 
 export type PostUpdateManyInput = {
+  /** content input for default locale (en) */
   content?: InputMaybe<Scalars['RichTextAST']>;
   date?: InputMaybe<Scalars['Date']>;
+  /** excerpt input for default locale (en) */
   excerpt?: InputMaybe<Scalars['String']>;
+  /** Optional updates to localizations */
+  localizations?: InputMaybe<PostUpdateManyLocalizationsInput>;
   tags?: InputMaybe<Array<Scalars['String']>>;
+  /** title input for default locale (en) */
   title?: InputMaybe<Scalars['String']>;
+};
+
+export type PostUpdateManyLocalizationDataInput = {
+  content?: InputMaybe<Scalars['RichTextAST']>;
+  excerpt?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type PostUpdateManyLocalizationInput = {
+  data: PostUpdateManyLocalizationDataInput;
+  locale: Locale;
+};
+
+export type PostUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: InputMaybe<Array<PostUpdateManyLocalizationInput>>;
 };
 
 export type PostUpdateManyWithNestedWhereInput = {
@@ -3204,6 +3303,12 @@ export type PostUpsertInput = {
   create: PostCreateInput;
   /** Update document if it exists */
   update: PostUpdateInput;
+};
+
+export type PostUpsertLocalizationInput = {
+  create: PostCreateLocalizationDataInput;
+  locale: Locale;
+  update: PostUpdateLocalizationDataInput;
 };
 
 export type PostUpsertWithNestedWhereUniqueInput = {
@@ -4789,6 +4894,10 @@ export type Seo = Node & {
   image?: Maybe<Asset>;
   /** Select your focus keywords */
   keywords: Array<Scalars['String']>;
+  /** System Locale field */
+  locale: Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<Seo>;
   /** What pages and blog posts would this SEO apply to? */
   parent?: Maybe<SeoParent>;
   /** The time the document was published. Null on documents in draft stage. */
@@ -4804,6 +4913,11 @@ export type Seo = Node & {
   updatedAt: Scalars['DateTime'];
   /** User that last updated this document */
   updatedBy?: Maybe<User>;
+};
+
+
+export type SeoCreatedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
 };
 
 
@@ -4831,8 +4945,19 @@ export type SeoImageArgs = {
 };
 
 
+export type SeoLocalizationsArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  locales?: Array<Locale>;
+};
+
+
 export type SeoParentArgs = {
   locales?: InputMaybe<Array<Locale>>;
+};
+
+
+export type SeoPublishedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
 };
 
 
@@ -4849,6 +4974,11 @@ export type SeoScheduledInArgs = {
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+
+export type SeoUpdatedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
 };
 
 
@@ -4875,12 +5005,34 @@ export type SeoConnection = {
 
 export type SeoCreateInput = {
   createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** description input for default locale (en) */
   description?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<AssetCreateOneInlineInput>;
   keywords?: InputMaybe<Array<Scalars['String']>>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: InputMaybe<SeoCreateLocalizationsInput>;
   parent?: InputMaybe<SeoParentCreateOneInlineInput>;
+  /** title input for default locale (en) */
   title?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type SeoCreateLocalizationDataInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  description?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type SeoCreateLocalizationInput = {
+  /** Localization input */
+  data: SeoCreateLocalizationDataInput;
+  locale: Locale;
+};
+
+export type SeoCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: InputMaybe<Array<SeoCreateLocalizationInput>>;
 };
 
 export type SeoCreateManyInlineInput = {
@@ -4932,25 +5084,6 @@ export type SeoManyWhereInput = {
   /** All values that are not contained in given list. */
   createdAt_not_in?: InputMaybe<Array<Scalars['DateTime']>>;
   createdBy?: InputMaybe<UserWhereInput>;
-  description?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  description_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  description_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  description_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values that are not equal to given value. */
-  description_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  description_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  description_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  description_not_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values not starting with the given string. */
-  description_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  description_starts_with?: InputMaybe<Scalars['String']>;
   id?: InputMaybe<Scalars['ID']>;
   /** All values containing the given string. */
   id_contains?: InputMaybe<Scalars['ID']>;
@@ -5000,25 +5133,6 @@ export type SeoManyWhereInput = {
   scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
   scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
-  title?: InputMaybe<Scalars['String']>;
-  /** All values containing the given string. */
-  title_contains?: InputMaybe<Scalars['String']>;
-  /** All values ending with the given string. */
-  title_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are contained in given list. */
-  title_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values that are not equal to given value. */
-  title_not?: InputMaybe<Scalars['String']>;
-  /** All values not containing the given string. */
-  title_not_contains?: InputMaybe<Scalars['String']>;
-  /** All values not ending with the given string */
-  title_not_ends_with?: InputMaybe<Scalars['String']>;
-  /** All values that are not contained in given list. */
-  title_not_in?: InputMaybe<Array<Scalars['String']>>;
-  /** All values not starting with the given string. */
-  title_not_starts_with?: InputMaybe<Scalars['String']>;
-  /** All values starting with the given string. */
-  title_starts_with?: InputMaybe<Scalars['String']>;
   updatedAt?: InputMaybe<Scalars['DateTime']>;
   /** All values greater than the given value. */
   updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
@@ -5143,11 +5257,35 @@ export type SeoParentWhereUniqueInput = {
 };
 
 export type SeoUpdateInput = {
+  /** description input for default locale (en) */
   description?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<AssetUpdateOneInlineInput>;
   keywords?: InputMaybe<Array<Scalars['String']>>;
+  /** Manage document localizations */
+  localizations?: InputMaybe<SeoUpdateLocalizationsInput>;
   parent?: InputMaybe<SeoParentUpdateOneInlineInput>;
+  /** title input for default locale (en) */
   title?: InputMaybe<Scalars['String']>;
+};
+
+export type SeoUpdateLocalizationDataInput = {
+  description?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type SeoUpdateLocalizationInput = {
+  data: SeoUpdateLocalizationDataInput;
+  locale: Locale;
+};
+
+export type SeoUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: InputMaybe<Array<SeoCreateLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: InputMaybe<Array<Locale>>;
+  /** Localizations to update */
+  update?: InputMaybe<Array<SeoUpdateLocalizationInput>>;
+  upsert?: InputMaybe<Array<SeoUpsertLocalizationInput>>;
 };
 
 export type SeoUpdateManyInlineInput = {
@@ -5168,9 +5306,28 @@ export type SeoUpdateManyInlineInput = {
 };
 
 export type SeoUpdateManyInput = {
+  /** description input for default locale (en) */
   description?: InputMaybe<Scalars['String']>;
   keywords?: InputMaybe<Array<Scalars['String']>>;
+  /** Optional updates to localizations */
+  localizations?: InputMaybe<SeoUpdateManyLocalizationsInput>;
+  /** title input for default locale (en) */
   title?: InputMaybe<Scalars['String']>;
+};
+
+export type SeoUpdateManyLocalizationDataInput = {
+  description?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type SeoUpdateManyLocalizationInput = {
+  data: SeoUpdateManyLocalizationDataInput;
+  locale: Locale;
+};
+
+export type SeoUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: InputMaybe<Array<SeoUpdateManyLocalizationInput>>;
 };
 
 export type SeoUpdateManyWithNestedWhereInput = {
@@ -5207,6 +5364,12 @@ export type SeoUpsertInput = {
   create: SeoCreateInput;
   /** Update document if it exists */
   update: SeoUpdateInput;
+};
+
+export type SeoUpsertLocalizationInput = {
+  create: SeoCreateLocalizationDataInput;
+  locale: Locale;
+  update: SeoUpdateLocalizationDataInput;
 };
 
 export type SeoUpsertWithNestedWhereUniqueInput = {
@@ -5833,23 +5996,27 @@ export enum _SystemDateTimeFieldVariation {
 
 export type PostQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
+  locale: Locale;
 }>;
 
 
-export type PostQuery = { __typename?: 'Query', post?: { __typename?: 'Post', title: string, excerpt?: string | null, publishedAt?: any | null, tags: Array<string>, seo?: { __typename?: 'Seo', title?: string | null, description?: string | null, image?: { __typename?: 'Asset', url: string } | null } | null, coverImage?: { __typename?: 'Asset', coverImagePost: Array<{ __typename?: 'Post', coverImage?: { __typename?: 'Asset', url: string } | null }> } | null, content: { __typename?: 'RichText', html: string } } | null };
+export type PostQuery = { __typename?: 'Query', post?: { __typename?: 'Post', title: string, excerpt?: string | null, publishedAt?: any | null, date: any, tags: Array<string>, seo?: { __typename?: 'Seo', title?: string | null, description?: string | null, image?: { __typename?: 'Asset', url: string } | null } | null, coverImage?: { __typename?: 'Asset', coverImagePost: Array<{ __typename?: 'Post', coverImage?: { __typename?: 'Asset', url: string } | null }> } | null, content: { __typename?: 'RichText', html: string } } | null };
 
-export type PostsQueryVariables = Exact<{ [key: string]: never; }>;
+export type PostsQueryVariables = Exact<{
+  locale: Locale;
+}>;
 
 
-export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, slug: string, excerpt?: string | null, publishedAt?: any | null, tags: Array<string>, coverImage?: { __typename?: 'Asset', url: string } | null, author?: { __typename?: 'Author', name: string, picture?: { __typename?: 'Asset', url: string } | null } | null }> };
+export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, slug: string, excerpt?: string | null, publishedAt?: any | null, date: any, tags: Array<string>, coverImage?: { __typename?: 'Asset', url: string } | null, author?: { __typename?: 'Author', name: string, picture?: { __typename?: 'Asset', url: string } | null } | null }> };
 
 
 export const PostDocument = gql`
-    query Post($slug: String) {
-  post(where: {slug: $slug}) {
+    query Post($slug: String, $locale: Locale!) {
+  post(where: {slug: $slug}, locales: [$locale]) {
     title
     excerpt
     publishedAt
+    date
     tags
     seo {
       image {
@@ -5872,16 +6039,17 @@ export const PostDocument = gql`
 }
     `;
 
-export function usePostQuery(options?: Omit<Urql.UseQueryArgs<PostQueryVariables>, 'query'>) {
+export function usePostQuery(options: Omit<Urql.UseQueryArgs<PostQueryVariables>, 'query'>) {
   return Urql.useQuery<PostQuery>({ query: PostDocument, ...options });
 };
 export const PostsDocument = gql`
-    query Posts {
-  posts(orderBy: publishedAt_DESC) {
+    query Posts($locale: Locale!) {
+  posts(orderBy: publishedAt_DESC, locales: [$locale]) {
     title
     slug
     excerpt
     publishedAt
+    date
     tags
     coverImage {
       url(transformation: {image: {resize: {width: 400}}})
@@ -5896,6 +6064,6 @@ export const PostsDocument = gql`
 }
     `;
 
-export function usePostsQuery(options?: Omit<Urql.UseQueryArgs<PostsQueryVariables>, 'query'>) {
+export function usePostsQuery(options: Omit<Urql.UseQueryArgs<PostsQueryVariables>, 'query'>) {
   return Urql.useQuery<PostsQuery>({ query: PostsDocument, ...options });
 };

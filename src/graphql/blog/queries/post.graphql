@@ -1,8 +1,9 @@
-query Post($slug: String) {
-  post(where: { slug: $slug }) {
+query Post($slug: String, $locale: Locale!) {
+  post(where: { slug: $slug }, locales: [$locale]) {
     title
     excerpt
     publishedAt
+    date
     tags
     seo {
       image {
