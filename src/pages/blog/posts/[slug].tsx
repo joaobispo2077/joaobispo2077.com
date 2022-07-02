@@ -1,4 +1,4 @@
-import { Flex, Heading, HStack, Icon, Tag, Text } from '@chakra-ui/react';
+import { Flex, Heading, HStack, Icon, Text } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { FiCalendar, FiUser } from 'react-icons/fi';
 import { useRouter } from 'next/router';

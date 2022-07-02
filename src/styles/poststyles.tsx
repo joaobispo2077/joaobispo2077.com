@@ -55,6 +55,45 @@ export const Content = styled.main`
     }
   }
 
+  div.centralize,
+  div.half-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: ${brandColors.command};
+    border-radius: 0.5rem;
+
+    padding: 2rem;
+
+    img {
+      border-radius: 0.5rem;
+    }
+  }
+
+  div.half-image {
+    flex-wrap: wrap;
+    gap: 1rem;
+
+    img {
+      border-radius: 0.5rem;
+    }
+  }
+
+  pre {
+    background-color: ${brandColors.command};
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    color: ${gray};
+  }
+
+  code {
+    background-color: ${brandColors.hover};
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    color: ${brandColors.cyan};
+  }
+
   &.preview {
     background: linear-gradient(${gray}, transparent);
     background-clip: text;
