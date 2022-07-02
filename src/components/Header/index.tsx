@@ -1,10 +1,17 @@
 import { FunctionComponent } from 'react';
 
 import { Box, Heading } from '@chakra-ui/react';
+import { useRouter } from 'next/router';
 
 import { Navbar } from '../Navigation';
 
 export const Header: FunctionComponent = () => {
+  const router = useRouter();
+
+  const goToHome = () => {
+    router.push('/');
+  };
+
   return (
     <Box
       as="header"
@@ -16,7 +23,14 @@ export const Header: FunctionComponent = () => {
       justifyContent={'space-between'}
       backgroundColor="brand.background"
     >
-      <Heading as="h1" fontSize="2rem" fontWeight="bold" color="brand.primary">
+      <Heading
+        as="h1"
+        fontSize="2rem"
+        fontWeight="bold"
+        color="brand.primary"
+        _hover={{ cursor: 'pointer' }}
+        onClick={goToHome}
+      >
         JB
       </Heading>
       <Navbar />
