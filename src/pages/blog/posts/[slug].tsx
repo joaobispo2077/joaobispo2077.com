@@ -80,13 +80,11 @@ export const getStaticPaths: GetStaticPaths = () => {
 export const getStaticProps: GetStaticProps = async (context) => {
   const { slug } = context.params || {};
   const locale = parseLocaleToGraphCmsLocale(context.locale);
-  console.info(`Fetching post ${slug} for locale ${locale}`);
 
   await ContentManagementClient.query(PostDocument, {
     slug,
     locale,
   }).toPromise();
-  console.info(`Fetched post ${slug} for locale ${locale}`);
 
   return {
     props: {

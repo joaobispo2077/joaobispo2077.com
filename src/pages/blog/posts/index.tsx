@@ -75,13 +75,11 @@ export default BlogPage;
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const locale = parseLocaleToGraphCmsLocale(context.locale);
-  console.info(`Fetching posts for locale ${locale}`);
 
-  const response = await ContentManagementClient.query(PostsDocument, {
+  await ContentManagementClient.query(PostsDocument, {
     locale,
   }).toPromise();
-  console.info(response);
-  console.info(`Fetched posts for locale ${locale}`);
+
   return {
     props: {
       urqlState: serverSideCache.extractData(),

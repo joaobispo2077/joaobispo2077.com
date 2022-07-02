@@ -28,7 +28,7 @@ export const PostCard: FunctionComponent<PostCardProps> = ({
   const { locale } = useTranslation();
   return (
     <Card>
-      <NextLink href={`/blog/posts/${slug}`} passHref>
+      <NextLink href={`/blog/posts/${slug}`} passHref locale={locale}>
         <Link>
           <Heading
             as="h2"
