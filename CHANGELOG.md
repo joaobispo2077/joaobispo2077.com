@@ -1,3 +1,15 @@
+# [1.1.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.0.0...v1.1.0) (2022-07-02)
+
+
+### Bug Fixes
+
+* break line when text leak to outside box ([0caf6f6](https://github.com/joaobispo2077/joaobispo2077.com/commit/0caf6f6a750d19c6daa31cac6bdef7c51abb0823))
+
+
+### Features
+
+* improve SEO component adding time and other og ([981cfd8](https://github.com/joaobispo2077/joaobispo2077.com/commit/981cfd8b1cceb4f1d47ff06ee14563d4367894d4))
+
 # 1.0.0 (2022-07-02)
 
 
