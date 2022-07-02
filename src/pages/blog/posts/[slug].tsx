@@ -1,4 +1,4 @@
-import { Flex, Heading, HStack, Icon, Text } from '@chakra-ui/react';
+import { Flex, Heading, HStack, Icon, Tag, Text } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
 import { FiCalendar, FiUser } from 'react-icons/fi';
 import { useRouter } from 'next/router';
@@ -10,6 +10,7 @@ import { serverSideCache } from '@src/services/ServerSideCache';
 import { PostDocument, usePostQuery } from '@src/generated/graphql.blog';
 import { Content } from '@src/styles/poststyles';
 import { SEO } from '@src/components/SEO';
+import { Tags } from '@src/components/Tags';
 
 const PostPage: NextPage = () => {
   const router = useRouter();
@@ -39,6 +40,7 @@ const PostPage: NextPage = () => {
         url={`/blog/posts/${slug}`}
       />
       <Heading color="brand.primary">{data?.post?.title}</Heading>
+      <Tags tags={data?.post?.tags} />
       <HStack spacing="2rem" marginTop={'2rem'}>
         <Flex alignItems="center" gap="1rem">
           <Icon as={FiCalendar} w={6} h={6} color="brand.secondary" />

@@ -8,6 +8,7 @@ import { formatDate } from '@src/utils/date';
 import { useTranslation } from '@src/hooks/useTranslation';
 
 import { Card } from '../Card';
+import { Tags } from '../Tags';
 
 export type PostCardProps = {
   title: string;
@@ -53,26 +54,7 @@ export const PostCard: FunctionComponent<PostCardProps> = ({
           <Text fontSize="lg" color="brand.secondary" marginTop=".75rem">
             {description}
           </Text>
-
-          <Flex
-            width="100%"
-            height="auto"
-            gap=".75rem"
-            flexWrap={'wrap'}
-            marginTop="1rem"
-          >
-            {tags?.map((tag) => (
-              <Tag
-                size="md"
-                key={tag}
-                variant="solid"
-                colorScheme={'whiteAlpha'}
-                textTransform="lowercase"
-              >
-                {tag}
-              </Tag>
-            ))}
-          </Flex>
+          <Tags tags={tags} />
         </Link>
       </NextLink>
     </Card>
