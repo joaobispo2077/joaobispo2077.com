@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 
+import { brandColors } from './theme';
+
 const gray = '#e1e1e6';
 
 export const Container = styled.div`
@@ -34,6 +36,15 @@ export const Content = styled.main`
   p,
   ul {
     margin: 1.5rem 0;
+  }
+
+  a {
+    color: ${brandColors.yellow};
+
+    &:hover {
+      color: ${brandColors.orange};
+      text-decoration: underline;
+    }
   }
 
   ul {
