@@ -1,5 +1,3 @@
-import { Locale } from '@src/generated/graphql.blog';
-
 import * as enUS from './enUS';
 import * as ptBR from './ptBR';
 

@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
 import { FiCalendar } from 'react-icons/fi';
-import { Flex, Heading, Text, Link, Tag, Icon } from '@chakra-ui/react';
+import { Flex, Heading, Text, Link, Icon } from '@chakra-ui/react';
 import NextLink from 'next/link';
 
 import { formatDate } from '@src/utils/date';
