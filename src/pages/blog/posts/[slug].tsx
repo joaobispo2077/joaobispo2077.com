@@ -11,15 +11,21 @@ import { PostDocument, usePostQuery } from '@src/generated/graphql.blog';
 import { Content } from '@src/styles/poststyles';
 import { SEO } from '@src/components/SEO';
 import { Tags } from '@src/components/Tags';
+import { parseLocaleToGraphCmsLocale } from '@src/utils/parseLocale';
 
 const PostPage: NextPage = () => {
+  const { graphCmsLocale } = useTranslation();
+
   const router = useRouter();
   const { slug } = router.query;
+
   const [{ data }] = usePostQuery({
     variables: {
       slug: slug as string,
+      locale: graphCmsLocale,
     },
   });
+
   const { locale } = useTranslation();
   // TODO: ADD image={data?.post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
 
@@ -71,18 +77,22 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const { slug } = params || {};
+export const getStaticProps: GetStaticProps = async (context) => {
+  const { slug } = context.params || {};
+  const locale = parseLocaleToGraphCmsLocale(context.locale);
+  console.info(`Fetching post ${slug} for locale ${locale}`);
 
   await ContentManagementClient.query(PostDocument, {
     slug,
+    locale,
   }).toPromise();
+  console.info(`Fetched post ${slug} for locale ${locale}`);
 
   return {
     props: {
       urqlState: serverSideCache.extractData(),
     },
-    revalidate: 60 * 30, // 30 minutes
+    revalidate: 60 * 60 * 24 * 7, // 7 days
   };
 };
 

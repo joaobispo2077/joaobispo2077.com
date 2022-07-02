@@ -9,10 +9,15 @@ import { SEO } from '@src/components/SEO';
 import { PostsDocument, usePostsQuery } from '@src/generated/graphql.blog';
 import { ContentManagementClient } from '@src/services/ContentManagementClient';
 import { PostCard } from '@src/components/PostCard';
+import { parseLocaleToGraphCmsLocale } from '@src/utils/parseLocale';
 
 const BlogPage: NextPage = () => {
-  const { blogTranslation } = useTranslation();
-  const [{ data }] = usePostsQuery({});
+  const { blogTranslation, graphCmsLocale } = useTranslation();
+  const [{ data }] = usePostsQuery({
+    variables: {
+      locale: graphCmsLocale,
+    },
+  });
 
   return (
     <Flex
@@ -68,9 +73,15 @@ const BlogPage: NextPage = () => {
 
 export default BlogPage;
 
-export const getStaticProps: GetStaticProps = async () => {
-  await ContentManagementClient.query(PostsDocument, {}).toPromise();
+export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = parseLocaleToGraphCmsLocale(context.locale);
+  console.info(`Fetching posts for locale ${locale}`);
 
+  const response = await ContentManagementClient.query(PostsDocument, {
+    locale,
+  }).toPromise();
+  console.info(response);
+  console.info(`Fetched posts for locale ${locale}`);
   return {
     props: {
       urqlState: serverSideCache.extractData(),
