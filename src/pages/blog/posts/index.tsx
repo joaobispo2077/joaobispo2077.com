@@ -10,6 +10,7 @@ import { PostsDocument, usePostsQuery } from '@src/generated/graphql.blog';
 import { ContentManagementClient } from '@src/services/ContentManagementClient';
 import { PostCard } from '@src/components/PostCard';
 import { parseLocaleToGraphCmsLocale } from '@src/utils/parseLocale';
+import { getRevalidateInDays } from '@src/utils/date';
 
 const BlogPage: NextPage = () => {
   const { blogTranslation, graphCmsLocale } = useTranslation();
@@ -89,5 +90,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       urqlState: serverSideCache.extractData(),
     },
+    revalidate: getRevalidateInDays(7),
   };
 };

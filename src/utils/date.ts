@@ -9,3 +9,7 @@ export function formatDate(
   }).format(new Date(date));
   return formattedDate;
 }
+
+export const getRevalidateInDays = (days: number) => {
+  return 60 * 60 * 24 * days;
+};
