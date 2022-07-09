@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useCallback, useMemo } from 'react';
 
 import { Flex, useMediaQuery } from '@chakra-ui/react';
 import { LayoutGroup } from 'framer-motion';
@@ -13,10 +13,14 @@ export const Navbar: FunctionComponent = () => {
   const { navbarTranslation } = useTranslation();
 
   const [isDesktopScreen] = useMediaQuery('(min-width: 576px)');
-  const localizedLinks = links.map((link) => ({
-    ...link,
-    text: navbarTranslation[link.name],
-  }));
+
+  const localizedLinks = useMemo(() => {
+    const localizedLinks = links.map((link) => ({
+      ...link,
+      text: navbarTranslation[link.name],
+    }));
+    return localizedLinks;
+  }, [navbarTranslation]);
 
   return (
     <Flex as="nav">
