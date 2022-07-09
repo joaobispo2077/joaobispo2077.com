@@ -5,11 +5,11 @@ export type Link = {
 };
 
 export const links: Link[] = [
-  // {
-  //   name: 'about',
-  //   text: 'Sobre',
-  //   url: '/about',
-  // },
+  {
+    name: 'about',
+    text: 'Sobre',
+    url: '/about',
+  },
   {
     name: 'blog',
     text: 'Blog',
