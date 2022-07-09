@@ -2,9 +2,15 @@ import gql from 'graphql-tag';
 import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type InputMaybe<T> = Maybe<T>;
-export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
-export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
-export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Exact<T extends { [key: string]: unknown }> = {
+  [K in keyof T]: T[K];
+};
+export type MakeOptional<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]?: Maybe<T[SubKey]>;
+};
+export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & {
+  [SubKey in K]: Maybe<T[SubKey]>;
+};
 export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
@@ -80,7 +86,6 @@ export type Asset = Node & {
   width?: Maybe<Scalars['Float']>;
 };
 
-
 /** Asset system model */
 export type AssetAuthorAvatarArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -92,7 +97,6 @@ export type AssetAuthorAvatarArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<AuthorWhereInput>;
 };
-
 
 /** Asset system model */
 export type AssetCoverImagePostArgs = {
@@ -106,18 +110,15 @@ export type AssetCoverImagePostArgs = {
   where?: InputMaybe<PostWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetDocumentInStagesArgs = {
@@ -126,7 +127,6 @@ export type AssetDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 /** Asset system model */
 export type AssetHistoryArgs = {
   limit?: Scalars['Int'];
@@ -134,25 +134,21 @@ export type AssetHistoryArgs = {
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 /** Asset system model */
 export type AssetLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean'];
   locales?: Array<Locale>;
 };
 
-
 /** Asset system model */
 export type AssetPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetScheduledInArgs = {
@@ -164,7 +160,6 @@ export type AssetScheduledInArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
-
 
 /** Asset system model */
 export type AssetSeoImageArgs = {
@@ -178,18 +173,15 @@ export type AssetSeoImageArgs = {
   where?: InputMaybe<SeoWhereInput>;
 };
 
-
 /** Asset system model */
 export type AssetUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 /** Asset system model */
 export type AssetUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Asset system model */
 export type AssetUrlArgs = {
@@ -385,7 +377,7 @@ export enum AssetOrderByInput {
   UpdatedAtAsc = 'updatedAt_ASC',
   UpdatedAtDesc = 'updatedAt_DESC',
   WidthAsc = 'width_ASC',
-  WidthDesc = 'width_DESC'
+  WidthDesc = 'width_DESC',
 }
 
 /** Transformations for Assets */
@@ -761,11 +753,9 @@ export type Author = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type AuthorCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type AuthorDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -773,18 +763,15 @@ export type AuthorDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type AuthorHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type AuthorPictureArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type AuthorPostsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -797,11 +784,9 @@ export type AuthorPostsArgs = {
   where?: InputMaybe<PostWhereInput>;
 };
 
-
 export type AuthorPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type AuthorScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -812,7 +797,6 @@ export type AuthorScheduledInArgs = {
   skip?: InputMaybe<Scalars['Int']>;
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
-
 
 export type AuthorUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1025,7 +1009,7 @@ export enum AuthorOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type AuthorUpdateInput = {
@@ -1297,7 +1281,7 @@ export enum DocumentFileTypes {
   Txt = 'txt',
   Webp = 'webp',
   Xls = 'xls',
-  Xlsx = 'xlsx'
+  Xlsx = 'xlsx',
 }
 
 export type DocumentOutputInput = {
@@ -1353,7 +1337,7 @@ export enum ImageFit {
   /** Resizes the image to fit within the parameters, but as opposed to 'fit:clip' will not scale the image if the image is smaller than the output size. */
   Max = 'max',
   /** Resizes the image to fit the specified parameters exactly by scaling the image to the desired size. The aspect ratio of the image is not respected and the image can be distorted using this method. */
-  Scale = 'scale'
+  Scale = 'scale',
 }
 
 export type ImageResizeInput = {
@@ -1375,7 +1359,7 @@ export type ImageTransformationInput = {
 export enum Locale {
   /** System locale */
   En = 'en',
-  PtBr = 'pt_BR'
+  PtBr = 'pt_BR',
 }
 
 /** Representing a geolocation point with latitude and longitude */
@@ -1385,7 +1369,6 @@ export type Location = {
   latitude: Scalars['Float'];
   longitude: Scalars['Float'];
 };
-
 
 /** Representing a geolocation point with latitude and longitude */
 export type LocationDistanceArgs = {
@@ -1633,51 +1616,41 @@ export type Mutation = {
   upsertSeo?: Maybe<Seo>;
 };
 
-
 export type MutationCreateAssetArgs = {
   data: AssetCreateInput;
 };
-
 
 export type MutationCreateAuthorArgs = {
   data: AuthorCreateInput;
 };
 
-
 export type MutationCreatePageArgs = {
   data: PageCreateInput;
 };
-
 
 export type MutationCreatePostArgs = {
   data: PostCreateInput;
 };
 
-
 export type MutationCreateScheduledReleaseArgs = {
   data: ScheduledReleaseCreateInput;
 };
-
 
 export type MutationCreateSeoArgs = {
   data: SeoCreateInput;
 };
 
-
 export type MutationDeleteAssetArgs = {
   where: AssetWhereUniqueInput;
 };
-
 
 export type MutationDeleteAuthorArgs = {
   where: AuthorWhereUniqueInput;
 };
 
-
 export type MutationDeleteManyAssetsArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationDeleteManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1688,11 +1661,9 @@ export type MutationDeleteManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationDeleteManyAuthorsArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
-
 
 export type MutationDeleteManyAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1703,11 +1674,9 @@ export type MutationDeleteManyAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
 
-
 export type MutationDeleteManyPagesArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationDeleteManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1718,11 +1687,9 @@ export type MutationDeleteManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationDeleteManyPostsArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
-
 
 export type MutationDeleteManyPostsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1733,11 +1700,9 @@ export type MutationDeleteManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
 
-
 export type MutationDeleteManySeosArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
-
 
 export type MutationDeleteManySeosConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1748,31 +1713,25 @@ export type MutationDeleteManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
-
 export type MutationDeletePageArgs = {
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationDeletePostArgs = {
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationDeleteScheduledOperationArgs = {
   where: ScheduledOperationWhereUniqueInput;
 };
-
 
 export type MutationDeleteScheduledReleaseArgs = {
   where: ScheduledReleaseWhereUniqueInput;
 };
 
-
 export type MutationDeleteSeoArgs = {
   where: SeoWhereUniqueInput;
 };
-
 
 export type MutationPublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1782,12 +1741,10 @@ export type MutationPublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishAuthorArgs = {
   to?: Array<Stage>;
   where: AuthorWhereUniqueInput;
 };
-
 
 export type MutationPublishManyAssetsArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1796,7 +1753,6 @@ export type MutationPublishManyAssetsArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationPublishManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1812,12 +1768,10 @@ export type MutationPublishManyAssetsConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishManyAuthorsArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<AuthorManyWhereInput>;
 };
-
 
 export type MutationPublishManyAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1830,12 +1784,10 @@ export type MutationPublishManyAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
 
-
 export type MutationPublishManyPagesArgs = {
   to?: Array<Stage>;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationPublishManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1848,7 +1800,6 @@ export type MutationPublishManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationPublishManyPostsArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']>;
@@ -1856,7 +1807,6 @@ export type MutationPublishManyPostsArgs = {
   where?: InputMaybe<PostManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationPublishManyPostsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1872,7 +1822,6 @@ export type MutationPublishManyPostsConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishManySeosArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']>;
@@ -1880,7 +1829,6 @@ export type MutationPublishManySeosArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationPublishManySeosConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -1896,12 +1844,10 @@ export type MutationPublishManySeosConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishPageArgs = {
   to?: Array<Stage>;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationPublishPostArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1911,7 +1857,6 @@ export type MutationPublishPostArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationPublishSeoArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']>;
@@ -1919,7 +1864,6 @@ export type MutationPublishSeoArgs = {
   where: SeoWhereUniqueInput;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
-
 
 export type MutationSchedulePublishAssetArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1931,7 +1875,6 @@ export type MutationSchedulePublishAssetArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationSchedulePublishAuthorArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
@@ -1939,14 +1882,12 @@ export type MutationSchedulePublishAuthorArgs = {
   where: AuthorWhereUniqueInput;
 };
 
-
 export type MutationSchedulePublishPageArgs = {
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   to?: Array<Stage>;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationSchedulePublishPostArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -1958,7 +1899,6 @@ export type MutationSchedulePublishPostArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationSchedulePublishSeoArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']>;
@@ -1969,7 +1909,6 @@ export type MutationSchedulePublishSeoArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
-
 export type MutationScheduleUnpublishAssetArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -1979,7 +1918,6 @@ export type MutationScheduleUnpublishAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationScheduleUnpublishAuthorArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
@@ -1987,14 +1925,12 @@ export type MutationScheduleUnpublishAuthorArgs = {
   where: AuthorWhereUniqueInput;
 };
 
-
 export type MutationScheduleUnpublishPageArgs = {
   from?: Array<Stage>;
   releaseAt?: InputMaybe<Scalars['DateTime']>;
   releaseId?: InputMaybe<Scalars['String']>;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationScheduleUnpublishPostArgs = {
   from?: Array<Stage>;
@@ -2005,7 +1941,6 @@ export type MutationScheduleUnpublishPostArgs = {
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationScheduleUnpublishSeoArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -2015,7 +1950,6 @@ export type MutationScheduleUnpublishSeoArgs = {
   where: SeoWhereUniqueInput;
 };
 
-
 export type MutationUnpublishAssetArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -2023,12 +1957,10 @@ export type MutationUnpublishAssetArgs = {
   where: AssetWhereUniqueInput;
 };
 
-
 export type MutationUnpublishAuthorArgs = {
   from?: Array<Stage>;
   where: AuthorWhereUniqueInput;
 };
-
 
 export type MutationUnpublishManyAssetsArgs = {
   from?: Array<Stage>;
@@ -2036,7 +1968,6 @@ export type MutationUnpublishManyAssetsArgs = {
   unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2051,12 +1982,10 @@ export type MutationUnpublishManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyAuthorsArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<AuthorManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2069,12 +1998,10 @@ export type MutationUnpublishManyAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyPagesArgs = {
   from?: Array<Stage>;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2087,14 +2014,12 @@ export type MutationUnpublishManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationUnpublishManyPostsArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<PostManyWhereInput>;
 };
-
 
 export type MutationUnpublishManyPostsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2109,14 +2034,12 @@ export type MutationUnpublishManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
 
-
 export type MutationUnpublishManySeosArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where?: InputMaybe<SeoManyWhereInput>;
 };
-
 
 export type MutationUnpublishManySeosConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2131,12 +2054,10 @@ export type MutationUnpublishManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
-
 export type MutationUnpublishPageArgs = {
   from?: Array<Stage>;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationUnpublishPostArgs = {
   from?: Array<Stage>;
@@ -2145,7 +2066,6 @@ export type MutationUnpublishPostArgs = {
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationUnpublishSeoArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -2153,24 +2073,20 @@ export type MutationUnpublishSeoArgs = {
   where: SeoWhereUniqueInput;
 };
 
-
 export type MutationUpdateAssetArgs = {
   data: AssetUpdateInput;
   where: AssetWhereUniqueInput;
 };
-
 
 export type MutationUpdateAuthorArgs = {
   data: AuthorUpdateInput;
   where: AuthorWhereUniqueInput;
 };
 
-
 export type MutationUpdateManyAssetsArgs = {
   data: AssetUpdateManyInput;
   where?: InputMaybe<AssetManyWhereInput>;
 };
-
 
 export type MutationUpdateManyAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2182,12 +2098,10 @@ export type MutationUpdateManyAssetsConnectionArgs = {
   where?: InputMaybe<AssetManyWhereInput>;
 };
 
-
 export type MutationUpdateManyAuthorsArgs = {
   data: AuthorUpdateManyInput;
   where?: InputMaybe<AuthorManyWhereInput>;
 };
-
 
 export type MutationUpdateManyAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2199,12 +2113,10 @@ export type MutationUpdateManyAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorManyWhereInput>;
 };
 
-
 export type MutationUpdateManyPagesArgs = {
   data: PageUpdateManyInput;
   where?: InputMaybe<PageManyWhereInput>;
 };
-
 
 export type MutationUpdateManyPagesConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2216,12 +2128,10 @@ export type MutationUpdateManyPagesConnectionArgs = {
   where?: InputMaybe<PageManyWhereInput>;
 };
 
-
 export type MutationUpdateManyPostsArgs = {
   data: PostUpdateManyInput;
   where?: InputMaybe<PostManyWhereInput>;
 };
-
 
 export type MutationUpdateManyPostsConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2233,12 +2143,10 @@ export type MutationUpdateManyPostsConnectionArgs = {
   where?: InputMaybe<PostManyWhereInput>;
 };
 
-
 export type MutationUpdateManySeosArgs = {
   data: SeoUpdateManyInput;
   where?: InputMaybe<SeoManyWhereInput>;
 };
-
 
 export type MutationUpdateManySeosConnectionArgs = {
   after?: InputMaybe<Scalars['ID']>;
@@ -2250,54 +2158,45 @@ export type MutationUpdateManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
-
 export type MutationUpdatePageArgs = {
   data: PageUpdateInput;
   where: PageWhereUniqueInput;
 };
-
 
 export type MutationUpdatePostArgs = {
   data: PostUpdateInput;
   where: PostWhereUniqueInput;
 };
 
-
 export type MutationUpdateScheduledReleaseArgs = {
   data: ScheduledReleaseUpdateInput;
   where: ScheduledReleaseWhereUniqueInput;
 };
-
 
 export type MutationUpdateSeoArgs = {
   data: SeoUpdateInput;
   where: SeoWhereUniqueInput;
 };
 
-
 export type MutationUpsertAssetArgs = {
   upsert: AssetUpsertInput;
   where: AssetWhereUniqueInput;
 };
-
 
 export type MutationUpsertAuthorArgs = {
   upsert: AuthorUpsertInput;
   where: AuthorWhereUniqueInput;
 };
 
-
 export type MutationUpsertPageArgs = {
   upsert: PageUpsertInput;
   where: PageWhereUniqueInput;
 };
 
-
 export type MutationUpsertPostArgs = {
   upsert: PostUpsertInput;
   where: PostWhereUniqueInput;
 };
-
 
 export type MutationUpsertSeoArgs = {
   upsert: SeoUpsertInput;
@@ -2347,11 +2246,9 @@ export type Page = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type PageCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PageDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -2359,18 +2256,15 @@ export type PageDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type PageHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type PagePublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PageScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2382,11 +2276,9 @@ export type PageScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type PageSeoArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PageUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -2611,7 +2503,7 @@ export enum PageOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type PageUpdateInput = {
@@ -2881,26 +2773,21 @@ export type Post = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type PostAuthorArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PostCoverImageArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 export type PostCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 export type PostCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PostDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -2908,29 +2795,24 @@ export type PostDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type PostHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type PostLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean'];
   locales?: Array<Locale>;
 };
 
-
 export type PostPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 export type PostPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type PostScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -2942,16 +2824,13 @@ export type PostScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type PostSeoArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 export type PostUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type PostUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -3182,7 +3061,7 @@ export enum PostOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type PostUpdateInput = {
@@ -3562,18 +3441,15 @@ export type Query = {
   usersConnection: UserConnection;
 };
 
-
 export type QueryAssetArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: AssetWhereUniqueInput;
 };
 
-
 export type QueryAssetVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryAssetsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3587,7 +3463,6 @@ export type QueryAssetsArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type QueryAssetsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3600,18 +3475,15 @@ export type QueryAssetsConnectionArgs = {
   where?: InputMaybe<AssetWhereInput>;
 };
 
-
 export type QueryAuthorArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: AuthorWhereUniqueInput;
 };
 
-
 export type QueryAuthorVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryAuthorsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3625,7 +3497,6 @@ export type QueryAuthorsArgs = {
   where?: InputMaybe<AuthorWhereInput>;
 };
 
-
 export type QueryAuthorsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3638,13 +3509,11 @@ export type QueryAuthorsConnectionArgs = {
   where?: InputMaybe<AuthorWhereInput>;
 };
 
-
 export type QueryNodeArgs = {
   id: Scalars['ID'];
   locales?: Array<Locale>;
   stage?: Stage;
 };
-
 
 export type QueryPageArgs = {
   locales?: Array<Locale>;
@@ -3652,11 +3521,9 @@ export type QueryPageArgs = {
   where: PageWhereUniqueInput;
 };
 
-
 export type QueryPageVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryPagesArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3670,7 +3537,6 @@ export type QueryPagesArgs = {
   where?: InputMaybe<PageWhereInput>;
 };
 
-
 export type QueryPagesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3683,18 +3549,15 @@ export type QueryPagesConnectionArgs = {
   where?: InputMaybe<PageWhereInput>;
 };
 
-
 export type QueryPostArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: PostWhereUniqueInput;
 };
 
-
 export type QueryPostVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QueryPostsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3708,7 +3571,6 @@ export type QueryPostsArgs = {
   where?: InputMaybe<PostWhereInput>;
 };
 
-
 export type QueryPostsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3721,13 +3583,11 @@ export type QueryPostsConnectionArgs = {
   where?: InputMaybe<PostWhereInput>;
 };
 
-
 export type QueryScheduledOperationArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ScheduledOperationWhereUniqueInput;
 };
-
 
 export type QueryScheduledOperationsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3741,7 +3601,6 @@ export type QueryScheduledOperationsArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type QueryScheduledOperationsConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3754,13 +3613,11 @@ export type QueryScheduledOperationsConnectionArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type QueryScheduledReleaseArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: ScheduledReleaseWhereUniqueInput;
 };
-
 
 export type QueryScheduledReleasesArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3774,7 +3631,6 @@ export type QueryScheduledReleasesArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>;
 };
 
-
 export type QueryScheduledReleasesConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3787,18 +3643,15 @@ export type QueryScheduledReleasesConnectionArgs = {
   where?: InputMaybe<ScheduledReleaseWhereInput>;
 };
 
-
 export type QuerySeoArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: SeoWhereUniqueInput;
 };
 
-
 export type QuerySeoVersionArgs = {
   where: VersionWhereInput;
 };
-
 
 export type QuerySeosArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3812,7 +3665,6 @@ export type QuerySeosArgs = {
   where?: InputMaybe<SeoWhereInput>;
 };
 
-
 export type QuerySeosConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
@@ -3825,13 +3677,11 @@ export type QuerySeosConnectionArgs = {
   where?: InputMaybe<SeoWhereInput>;
 };
 
-
 export type QueryUserArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
   where: UserWhereUniqueInput;
 };
-
 
 export type QueryUsersArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3844,7 +3694,6 @@ export type QueryUsersArgs = {
   stage?: Stage;
   where?: InputMaybe<UserWhereInput>;
 };
-
 
 export type QueryUsersConnectionArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3922,7 +3771,6 @@ export type ScheduledOperation = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationAffectedDocumentsArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -3933,12 +3781,10 @@ export type ScheduledOperationAffectedDocumentsArgs = {
   skip?: InputMaybe<Scalars['Int']>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Operation system model */
 export type ScheduledOperationDocumentInStagesArgs = {
@@ -3947,25 +3793,27 @@ export type ScheduledOperationDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Operation system model */
 export type ScheduledOperationReleaseArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-
 /** Scheduled Operation system model */
 export type ScheduledOperationUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
 
-export type ScheduledOperationAffectedDocument = Asset | Author | Page | Post | Seo;
+export type ScheduledOperationAffectedDocument =
+  | Asset
+  | Author
+  | Page
+  | Post
+  | Seo;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -4142,7 +3990,7 @@ export enum ScheduledOperationOrderByInput {
   StatusAsc = 'status_ASC',
   StatusDesc = 'status_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 /** System Scheduled Operation Status */
@@ -4151,7 +3999,7 @@ export enum ScheduledOperationStatus {
   Completed = 'COMPLETED',
   Failed = 'FAILED',
   InProgress = 'IN_PROGRESS',
-  Pending = 'PENDING'
+  Pending = 'PENDING',
 }
 
 export type ScheduledOperationUpdateManyInlineInput = {
@@ -4339,12 +4187,10 @@ export type ScheduledRelease = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleaseCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseDocumentInStagesArgs = {
@@ -4352,7 +4198,6 @@ export type ScheduledReleaseDocumentInStagesArgs = {
   inheritLocale?: Scalars['Boolean'];
   stages?: Array<Stage>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseOperationsArgs = {
@@ -4366,12 +4211,10 @@ export type ScheduledReleaseOperationsArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 /** Scheduled Release system model */
 export type ScheduledReleasePublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 /** Scheduled Release system model */
 export type ScheduledReleaseUpdatedByArgs = {
@@ -4617,7 +4460,7 @@ export enum ScheduledReleaseOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 /** System Scheduled Release Status */
@@ -4625,7 +4468,7 @@ export enum ScheduledReleaseStatus {
   Completed = 'COMPLETED',
   Failed = 'FAILED',
   InProgress = 'IN_PROGRESS',
-  Pending = 'PENDING'
+  Pending = 'PENDING',
 }
 
 export type ScheduledReleaseUpdateInput = {
@@ -4915,16 +4758,13 @@ export type Seo = Node & {
   updatedBy?: Maybe<User>;
 };
 
-
 export type SeoCreatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 export type SeoCreatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type SeoDocumentInStagesArgs = {
   includeCurrent?: Scalars['Boolean'];
@@ -4932,39 +4772,32 @@ export type SeoDocumentInStagesArgs = {
   stages?: Array<Stage>;
 };
 
-
 export type SeoHistoryArgs = {
   limit?: Scalars['Int'];
   skip?: Scalars['Int'];
   stageOverride?: InputMaybe<Stage>;
 };
 
-
 export type SeoImageArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type SeoLocalizationsArgs = {
   includeCurrent?: Scalars['Boolean'];
   locales?: Array<Locale>;
 };
 
-
 export type SeoParentArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type SeoPublishedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
 
-
 export type SeoPublishedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
 };
-
 
 export type SeoScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
@@ -4976,11 +4809,9 @@ export type SeoScheduledInArgs = {
   where?: InputMaybe<ScheduledOperationWhereInput>;
 };
 
-
 export type SeoUpdatedAtArgs = {
   variation?: SystemDateTimeFieldVariation;
 };
-
 
 export type SeoUpdatedByArgs = {
   locales?: InputMaybe<Array<Locale>>;
@@ -5165,7 +4996,7 @@ export enum SeoOrderByInput {
   TitleAsc = 'title_ASC',
   TitleDesc = 'title_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type SeoParent = Page | Post;
@@ -5520,13 +5351,13 @@ export enum Stage {
   /** The Draft is the default stage for all your content. */
   Draft = 'DRAFT',
   /** The Published stage is where you can publish your content to. */
-  Published = 'PUBLISHED'
+  Published = 'PUBLISHED',
 }
 
 export enum SystemDateTimeFieldVariation {
   Base = 'BASE',
   Combined = 'COMBINED',
-  Localization = 'LOCALIZATION'
+  Localization = 'LOCALIZATION',
 }
 
 export type UnpublishLocaleInput = {
@@ -5560,7 +5391,6 @@ export type User = Node & {
   /** The time the document was updated */
   updatedAt: Scalars['DateTime'];
 };
-
 
 /** User system model */
 export type UserDocumentInStagesArgs = {
@@ -5610,7 +5440,7 @@ export enum UserKind {
   Member = 'MEMBER',
   Pat = 'PAT',
   Public = 'PUBLIC',
-  Webhook = 'WEBHOOK'
+  Webhook = 'WEBHOOK',
 }
 
 /** Identifies documents */
@@ -5753,7 +5583,7 @@ export enum UserOrderByInput {
   PublishedAtAsc = 'publishedAt_ASC',
   PublishedAtDesc = 'publishedAt_DESC',
   UpdatedAtAsc = 'updatedAt_ASC',
-  UpdatedAtDesc = 'updatedAt_DESC'
+  UpdatedAtDesc = 'updatedAt_DESC',
 }
 
 export type UserUpdateManyInlineInput = {
@@ -5940,7 +5770,7 @@ export enum _FilterKind {
   RelationalSingle = 'relational_single',
   RelationalSome = 'relational_some',
   Search = 'search',
-  StartsWith = 'starts_with'
+  StartsWith = 'starts_with',
 }
 
 export enum _MutationInputFieldKind {
@@ -5950,7 +5780,7 @@ export enum _MutationInputFieldKind {
   RichTextWithEmbeds = 'richTextWithEmbeds',
   Scalar = 'scalar',
   Union = 'union',
-  Virtual = 'virtual'
+  Virtual = 'virtual',
 }
 
 export enum _MutationKind {
@@ -5965,33 +5795,33 @@ export enum _MutationKind {
   UnpublishMany = 'unpublishMany',
   Update = 'update',
   UpdateMany = 'updateMany',
-  Upsert = 'upsert'
+  Upsert = 'upsert',
 }
 
 export enum _OrderDirection {
   Asc = 'asc',
-  Desc = 'desc'
+  Desc = 'desc',
 }
 
 export enum _RelationInputCardinality {
   Many = 'many',
-  One = 'one'
+  One = 'one',
 }
 
 export enum _RelationInputKind {
   Create = 'create',
-  Update = 'update'
+  Update = 'update',
 }
 
 export enum _RelationKind {
   Regular = 'regular',
-  Union = 'union'
+  Union = 'union',
 }
 
 export enum _SystemDateTimeFieldVariation {
   Base = 'base',
   Combined = 'combined',
-  Localization = 'localization'
+  Localization = 'localization',
 }
 
 export type PostQueryVariables = Exact<{
@@ -5999,71 +5829,117 @@ export type PostQueryVariables = Exact<{
   locale: Locale;
 }>;
 
-
-export type PostQuery = { __typename?: 'Query', post?: { __typename?: 'Post', title: string, excerpt?: string | null, publishedAt?: any | null, date: any, tags: Array<string>, seo?: { __typename?: 'Seo', title?: string | null, description?: string | null, image?: { __typename?: 'Asset', url: string } | null } | null, coverImage?: { __typename?: 'Asset', coverImagePost: Array<{ __typename?: 'Post', coverImage?: { __typename?: 'Asset', url: string } | null }> } | null, content: { __typename?: 'RichText', html: string } } | null };
+export type PostQuery = {
+  __typename?: 'Query';
+  post?: {
+    __typename?: 'Post';
+    title: string;
+    excerpt?: string | null;
+    publishedAt?: any | null;
+    date: any;
+    tags: Array<string>;
+    seo?: {
+      __typename?: 'Seo';
+      title?: string | null;
+      description?: string | null;
+      image?: { __typename?: 'Asset'; url: string } | null;
+    } | null;
+    coverImage?: {
+      __typename?: 'Asset';
+      coverImagePost: Array<{
+        __typename?: 'Post';
+        coverImage?: { __typename?: 'Asset'; url: string } | null;
+      }>;
+    } | null;
+    content: { __typename?: 'RichText'; html: string };
+  } | null;
+};
 
 export type PostsQueryVariables = Exact<{
   locale: Locale;
 }>;
 
-
-export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, slug: string, excerpt?: string | null, publishedAt?: any | null, date: any, tags: Array<string>, coverImage?: { __typename?: 'Asset', url: string } | null, author?: { __typename?: 'Author', name: string, picture?: { __typename?: 'Asset', url: string } | null } | null }> };
-
+export type PostsQuery = {
+  __typename?: 'Query';
+  posts: Array<{
+    __typename?: 'Post';
+    title: string;
+    slug: string;
+    excerpt?: string | null;
+    publishedAt?: any | null;
+    date: any;
+    tags: Array<string>;
+    coverImage?: { __typename?: 'Asset'; url: string } | null;
+    author?: {
+      __typename?: 'Author';
+      name: string;
+      picture?: { __typename?: 'Asset'; url: string } | null;
+    } | null;
+  }>;
+};
 
 export const PostDocument = gql`
-    query Post($slug: String, $locale: Locale!) {
-  post(where: {slug: $slug}, locales: [$locale]) {
-    title
-    excerpt
-    publishedAt
-    date
-    tags
-    seo {
-      image {
-        url
-      }
+  query Post($slug: String, $locale: Locale!) {
+    post(where: { slug: $slug }, locales: [$locale]) {
       title
-      description
-    }
-    coverImage {
-      coverImagePost {
-        coverImage {
+      excerpt
+      publishedAt
+      date
+      tags
+      seo {
+        image {
           url
+        }
+        title
+        description
+      }
+      coverImage {
+        coverImagePost {
+          coverImage {
+            url
+          }
+        }
+      }
+      content {
+        html
+      }
+    }
+  }
+`;
+
+export function usePostQuery(
+  options: Omit<Urql.UseQueryArgs<PostQueryVariables>, 'query'>,
+) {
+  return Urql.useQuery<PostQuery>({ query: PostDocument, ...options });
+}
+export const PostsDocument = gql`
+  query Posts($locale: Locale!) {
+    posts(orderBy: publishedAt_DESC, locales: [$locale]) {
+      title
+      slug
+      excerpt
+      publishedAt
+      date
+      tags
+      coverImage {
+        url(transformation: { image: { resize: { width: 400 } } })
+      }
+      author {
+        name
+        picture {
+          url(
+            transformation: {
+              image: { resize: { height: 40, width: 40, fit: crop } }
+            }
+          )
         }
       }
     }
-    content {
-      html
-    }
   }
-}
-    `;
+`;
 
-export function usePostQuery(options: Omit<Urql.UseQueryArgs<PostQueryVariables>, 'query'>) {
-  return Urql.useQuery<PostQuery>({ query: PostDocument, ...options });
-};
-export const PostsDocument = gql`
-    query Posts($locale: Locale!) {
-  posts(orderBy: publishedAt_DESC, locales: [$locale]) {
-    title
-    slug
-    excerpt
-    publishedAt
-    date
-    tags
-    coverImage {
-      url(transformation: {image: {resize: {width: 400}}})
-    }
-    author {
-      name
-      picture {
-        url(transformation: {image: {resize: {height: 40, width: 40, fit: crop}}})
-      }
-    }
-  }
-}
-    `;
-
-export function usePostsQuery(options: Omit<Urql.UseQueryArgs<PostsQueryVariables>, 'query'>) {
+export function usePostsQuery(
+  options: Omit<Urql.UseQueryArgs<PostsQueryVariables>, 'query'>,
+) {
   return Urql.useQuery<PostsQuery>({ query: PostsDocument, ...options });
-};
+}

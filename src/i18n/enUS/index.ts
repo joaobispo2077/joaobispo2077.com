@@ -7,3 +7,16 @@ export const blogTranslation = {
   description: 'A blog about learning, career and software development.',
   seeAllPosts: 'All posts',
 };
+
+export const navbarTranslation = {
+  home: 'Home',
+  about: 'About',
+  blog: 'Blog',
+};
+
+export const aboutTranslation = {
+  title: 'Learning, Building, Sharing.',
+  seeAllJobs: 'Career',
+  years: 'yrs',
+  months: 'mos',
+};

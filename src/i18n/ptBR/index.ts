@@ -8,3 +8,16 @@ export const blogTranslation = {
     'Um blog sobre aprendizados, carreira, arquitetura, engenharia e desenvolvimento de software.',
   seeAllPosts: 'Todos os posts',
 };
+
+export const navbarTranslation = {
+  home: 'Início',
+  about: 'Sobre',
+  blog: 'Blog',
+};
+
+export const aboutTranslation = {
+  title: 'Aprendendo, Construindo e Compartilhando.',
+  seeAllJobs: 'Carreira',
+  years: 'anos',
+  months: 'meses',
+};

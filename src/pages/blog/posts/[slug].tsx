@@ -4,7 +4,7 @@ import { FiCalendar, FiUser } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 
 import { useTranslation } from '@src/hooks/useTranslation';
-import { formatDate } from '@src/utils/date';
+import { formatDate, getRevalidateInDays } from '@src/utils/date';
 import { ContentManagementClient } from '@src/services/ContentManagementClient';
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { PostDocument, usePostQuery } from '@src/generated/graphql.blog';
@@ -90,7 +90,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       urqlState: serverSideCache.extractData(),
     },
-    revalidate: 60 * 60 * 24 * 7, // 7 days
+    revalidate: getRevalidateInDays(7),
   };
 };
 

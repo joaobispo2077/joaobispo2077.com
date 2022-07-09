@@ -24,7 +24,9 @@
     "prebuild": "npm run codegen:graphql",
     "start": "next start",
     "lint": "next lint",
-    "codegen:graphql": "cross-env DOTENV_CONFIG_PATH=./.env.local graphql-codegen -r dotenv/config --config codegen.graphql.yml"
+    "codegen:graphql": "cross-env DOTENV_CONFIG_PATH=./.env.local graphql-codegen -r dotenv/config --config codegen.graphql.yml",
+    "lint:fix": "eslint ./src/**/*.{js,ts,tsx} --fix",
+    "style:fix": "prettier --write ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.1.7",
