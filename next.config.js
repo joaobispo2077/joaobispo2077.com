@@ -5,4 +5,7 @@ module.exports = {
     locales: ['en-us', 'pt-br'],
     defaultLocale: 'en-us',
   },
+  images: {
+    domains: ['github.com'],
+  },
 };
