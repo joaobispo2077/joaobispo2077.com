@@ -26,11 +26,8 @@ export const SEO: FunctionComponent<SEOProps> = ({
   const pageUpdatedTime = time ? `${time}` : new Date().getTime().toString();
   const isHttpsImage = image && image.startsWith('https');
 
-  const imageMeta = isHttpsImage ? (
-    <meta property="og:image:secure_url" itemProp="image" content={image} />
-  ) : (
-    <meta property="og:image" itemProp="image" content={image} />
-  );
+  const imageProperty = isHttpsImage ? 'og:image:secure_url' : 'og:image';
+
   return (
     <Head>
       <title>{fullTitle}</title>
@@ -44,7 +41,7 @@ export const SEO: FunctionComponent<SEOProps> = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:updated_time" content={pageUpdatedTime} />
-      {imageMeta}
+      <meta property={imageProperty} itemProp="image" content={image} />
 
       <meta property="twitter:card" content={image} />
       <meta property="twitter:url" content={fullUrl} />
