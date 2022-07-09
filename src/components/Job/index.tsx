@@ -24,7 +24,7 @@ export const Job: FunctionComponent<JobProps> = ({
 }) => {
   return (
     <VStack key={role} as="li" width="100%" alignItems="flex-start">
-      <Text as="p" fontSize="medium" color="brand.primary" fontWeight="bold">
+      <Text as="p" fontSize="large" color="brand.primary" fontWeight="bold">
         {role}
       </Text>
       <Flex as="p" fontSize="medium" color="brand.secondary">
@@ -34,26 +34,24 @@ export const Job: FunctionComponent<JobProps> = ({
           href={website || `https://${String(company).toLowerCase()}.com`}
           target="_blank"
           rel="noopener noreferrer"
+          textDecoration={'underline'}
+          textUnderlineOffset={2}
+          _hover={{
+            opacity: 0.8,
+            transition: 'opacity 0.2s ease-in-out',
+          }}
         >
           {company}
         </Link>
         <Text marginX="0.5rem">&bull;</Text>
-        <Text as="p" fontSize="medium" color="brand.secondary">
-          {location}
-        </Text>
+        <Text as="p">{location}</Text>
       </Flex>
       <Flex as="p" fontSize="medium" color="brand.secondary">
-        <Text as="p" fontSize="medium" color="brand.primary">
-          {startedAt}
-        </Text>
+        <Text as="p">{startedAt}</Text>
         <Text marginX="0.5rem">&mdash;</Text>
-        <Text as="p" fontSize="medium" color="brand.secondary">
-          {endedAt}
-        </Text>
+        <Text as="p">{endedAt}</Text>
         <Text marginX="0.5rem">&bull;</Text>
-        <Text as="p" fontSize="medium" color="brand.secondary">
-          {time}
-        </Text>
+        <Text as="p">{time}</Text>
       </Flex>
     </VStack>
   );
