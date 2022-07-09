@@ -1,3 +1,17 @@
+# [1.2.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.1.0...v1.2.0) (2022-07-09)
+
+
+### Features
+
+* add about translations ([3970d48](https://github.com/joaobispo2077/joaobispo2077.com/commit/3970d481f34b74640db3c699bfe5957db3ce86bc))
+* add custom MakePartial generic ([5f3e9ee](https://github.com/joaobispo2077/joaobispo2077.com/commit/5f3e9eed174cbe0e68ac592925cea9879301b315))
+* add get date difference functions ([60101b7](https://github.com/joaobispo2077/joaobispo2077.com/commit/60101b70e6c35917bd296e1e7ec5e51f1eec6f00))
+* add Job component ([effea38](https://github.com/joaobispo2077/joaobispo2077.com/commit/effea3898fe0d4d205e247b9749e6dbfc1095097))
+* add navlinks translation ([de14042](https://github.com/joaobispo2077/joaobispo2077.com/commit/de14042e87efb1491b67257a0721101fe0e49da4))
+* add static about page component ([4592604](https://github.com/joaobispo2077/joaobispo2077.com/commit/45926040653822e29023af2b6fe45e0e81c36347))
+* allow page load github.com images ([2efdf5d](https://github.com/joaobispo2077/joaobispo2077.com/commit/2efdf5d5fb8b95de944ea0580f69b4657f1016c4))
+* memorize localized links ([b16b298](https://github.com/joaobispo2077/joaobispo2077.com/commit/b16b29818d4b0e7806bf2192d94d4a66e140c65a))
+
 # [1.1.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.0.0...v1.1.0) (2022-07-02)
 
 
