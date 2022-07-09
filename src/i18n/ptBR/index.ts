@@ -14,3 +14,10 @@ export const navbarTranslation = {
   about: 'Sobre',
   blog: 'Blog',
 };
+
+export const aboutTranslation = {
+  title: 'Aprendendo, Construindo e Compartilhando.',
+  seeAllJobs: 'Carreira',
+  years: 'anos',
+  months: 'meses',
+};
