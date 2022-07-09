@@ -1,4 +1,4 @@
-import { FunctionComponent, useCallback, useMemo } from 'react';
+import { FunctionComponent, useMemo } from 'react';
 
 import { Flex, useMediaQuery } from '@chakra-ui/react';
 import { LayoutGroup } from 'framer-motion';
