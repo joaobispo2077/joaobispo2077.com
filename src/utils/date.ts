@@ -25,10 +25,10 @@ export const getMonthsDifferenceFromDates: ManipulateDatesSignature = (
   startDate,
   endDate = new Date(),
 ) => {
-  const diff = Math.abs(
+  const difference = Math.abs(
     new Date(endDate).getTime() - new Date(startDate).getTime(),
   );
-  return Math.ceil(diff / (1000 * 3600 * 24 * 30));
+  return Math.ceil(difference / (1000 * 3600 * 24 * 30));
 };
 
 export const getYearsDifferenceFromDates: ManipulateDatesSignature = (
