@@ -6,6 +6,9 @@ export const apis = {
   contentManagement: {
     url: String(process.env.NEXT_PUBLIC_BLOG_URL),
   },
+  analytics: {
+    trackingId: String(process.env.NEXT_PUBLIC_ANALYTICS_TRACKING_ID),
+  },
 };
 
 const isServerSide = typeof window === 'undefined';
