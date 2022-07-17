@@ -1,0 +1,22 @@
+query GetPageWithJobs($slug: String, $locale: Locale!) {
+  page(where: { slug: $slug }, locales: [$locale]) {
+    id
+    title
+    content {
+      html
+    }
+    seo {
+      description
+      title
+    }
+  }
+  jobs(orderBy: createdAt_DESC) {
+    company
+    contract
+    location
+    role
+    startedAt
+    endedAt
+    website
+  }
+}

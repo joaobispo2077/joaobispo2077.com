@@ -1,3 +1,39 @@
+# [1.3.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.2.0...v1.3.0) (2022-07-17)
+
+
+### Features
+
+* add analytics component ([4a4bd5e](https://github.com/joaobispo2077/joaobispo2077.com/commit/4a4bd5ec060afbd3d95402939ae2d2b302e782fa))
+* add analytics component ([f631ca9](https://github.com/joaobispo2077/joaobispo2077.com/commit/f631ca9976af3707c5e75613b4fd9dc369677980))
+* add ga tracking id env ([f33fdcf](https://github.com/joaobispo2077/joaobispo2077.com/commit/f33fdcf730d77d14b800b46a4720879117bd8348))
+* add gtag service ([4211a0e](https://github.com/joaobispo2077/joaobispo2077.com/commit/4211a0e079d91a7dc61f7c1171942cfe69da000d))
+
+# [1.2.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.1.0...v1.2.0) (2022-07-09)
+
+
+### Features
+
+* add about translations ([3970d48](https://github.com/joaobispo2077/joaobispo2077.com/commit/3970d481f34b74640db3c699bfe5957db3ce86bc))
+* add custom MakePartial generic ([5f3e9ee](https://github.com/joaobispo2077/joaobispo2077.com/commit/5f3e9eed174cbe0e68ac592925cea9879301b315))
+* add get date difference functions ([60101b7](https://github.com/joaobispo2077/joaobispo2077.com/commit/60101b70e6c35917bd296e1e7ec5e51f1eec6f00))
+* add Job component ([effea38](https://github.com/joaobispo2077/joaobispo2077.com/commit/effea3898fe0d4d205e247b9749e6dbfc1095097))
+* add navlinks translation ([de14042](https://github.com/joaobispo2077/joaobispo2077.com/commit/de14042e87efb1491b67257a0721101fe0e49da4))
+* add static about page component ([4592604](https://github.com/joaobispo2077/joaobispo2077.com/commit/45926040653822e29023af2b6fe45e0e81c36347))
+* allow page load github.com images ([2efdf5d](https://github.com/joaobispo2077/joaobispo2077.com/commit/2efdf5d5fb8b95de944ea0580f69b4657f1016c4))
+* memorize localized links ([b16b298](https://github.com/joaobispo2077/joaobispo2077.com/commit/b16b29818d4b0e7806bf2192d94d4a66e140c65a))
+
+# [1.1.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.0.0...v1.1.0) (2022-07-02)
+
+
+### Bug Fixes
+
+* break line when text leak to outside box ([0caf6f6](https://github.com/joaobispo2077/joaobispo2077.com/commit/0caf6f6a750d19c6daa31cac6bdef7c51abb0823))
+
+
+### Features
+
+* improve SEO component adding time and other og ([981cfd8](https://github.com/joaobispo2077/joaobispo2077.com/commit/981cfd8b1cceb4f1d47ff06ee14563d4367894d4))
+
 # 1.0.0 (2022-07-02)
 
 

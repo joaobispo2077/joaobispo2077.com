@@ -78,7 +78,7 @@ const AboutPage: NextPage = () => {
       paddingX={'1rem'}
     >
       <SEO
-        title="About"
+        title={aboutTranslation.seoTitle}
         description="João Bispo is a Brazilian creator and developer. He currently lives in São Paulo, Brazil, where he's the Software Engineer at IBM. His started to write first code lines in 2015 and since so he really like solving problems with software craftship using concepts of Software Engineering, algorithms efficiency and choose the right tool for the job."
         url="/about"
       />
@@ -88,7 +88,8 @@ const AboutPage: NextPage = () => {
           fontSize="5xl"
           color="brand.primary"
           {...generateTextLinearGradient('cyan', 'purple')}
-          whiteSpace="pre-line"
+          whiteSpace="pre-wrap"
+          wordBreak={'break-word'}
         >
           {aboutTranslation.title}
         </Heading>
