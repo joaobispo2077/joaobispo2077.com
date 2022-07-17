@@ -20,3 +20,8 @@ export const event = <T>({ action, category, label, value }: EventProps<T>) => {
     value: value,
   });
 };
+
+export const Gtag = {
+  pageview,
+  event,
+};
