@@ -42,7 +42,8 @@ const BlogPage: NextPage = () => {
           fontSize="5xl"
           color="brand.primary"
           {...generateTextLinearGradient('cyan', 'red')}
-          whiteSpace="pre-line"
+          whiteSpace="pre-wrap"
+          wordBreak={'break-word'}
         >
           {blogTranslation.title}
         </Heading>
