@@ -1,6 +1,6 @@
 export type ManipulateDatesSignature = (
   startDate: string | Date,
-  endDate?: string | Date,
+  endDate?: string | Date | null,
 ) => number;
 
 export function formatDate(
@@ -25,8 +25,9 @@ export const getMonthsDifferenceFromDates: ManipulateDatesSignature = (
   startDate,
   endDate = new Date(),
 ) => {
+  const endDateReceived = endDate ? new Date(endDate) : new Date();
   const difference = Math.abs(
-    new Date(endDate).getTime() - new Date(startDate).getTime(),
+    new Date(endDateReceived).getTime() - new Date(startDate).getTime(),
   );
   return Math.ceil(difference / (1000 * 3600 * 24 * 30));
 };
