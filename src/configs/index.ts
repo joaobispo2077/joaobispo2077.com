@@ -7,7 +7,7 @@ export const apis = {
     url: String(process.env.NEXT_PUBLIC_BLOG_URL),
   },
   analytics: {
-    trackingId: String(process.env.NEXT_PUBLIC_ANALYTICS_TRACKING_ID),
+    trackingId: String(process.env.NEXT_PUBLIC_GA_TRACKING_ID),
   },
 };
 
