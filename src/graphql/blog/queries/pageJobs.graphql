@@ -8,9 +8,18 @@ query GetPageWithJobs($slug: String, $locale: Locale!) {
     seo {
       description
       title
+      image {
+        coverImagePost {
+          coverImage {
+            url(
+              transformation: { image: { resize: { height: 300, width: 300 } } }
+            )
+          }
+        }
+      }
     }
   }
-  jobs(orderBy: createdAt_DESC) {
+  jobs(orderBy: startedAt_DESC) {
     company
     contract
     location

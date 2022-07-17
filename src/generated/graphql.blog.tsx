@@ -6864,6 +6864,22 @@ export enum _SystemDateTimeFieldVariation {
   Localization = 'localization'
 }
 
+export type PageQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+  locale: Locale;
+}>;
+
+
+export type PageQuery = { __typename?: 'Query', page?: { __typename?: 'Page', id: string, title: string, content: { __typename?: 'RichText', html: string }, seo?: { __typename?: 'Seo', description?: string | null, title?: string | null } | null } | null };
+
+export type GetPageWithJobsQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+  locale: Locale;
+}>;
+
+
+export type GetPageWithJobsQuery = { __typename?: 'Query', page?: { __typename?: 'Page', id: string, title: string, content: { __typename?: 'RichText', html: string }, seo?: { __typename?: 'Seo', description?: string | null, title?: string | null, image?: { __typename?: 'Asset', coverImagePost: Array<{ __typename?: 'Post', coverImage?: { __typename?: 'Asset', url: string } | null }> } | null } | null } | null, jobs: Array<{ __typename?: 'Job', company: string, contract?: string | null, location?: string | null, role: string, startedAt: any, endedAt?: any | null, website?: string | null }> };
+
 export type PostQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
   locale: Locale;
@@ -6880,6 +6896,60 @@ export type PostsQueryVariables = Exact<{
 export type PostsQuery = { __typename?: 'Query', posts: Array<{ __typename?: 'Post', title: string, slug: string, excerpt?: string | null, publishedAt?: any | null, date: any, tags: Array<string>, coverImage?: { __typename?: 'Asset', url: string } | null, author?: { __typename?: 'Author', name: string, picture?: { __typename?: 'Asset', url: string } | null } | null }> };
 
 
+export const PageDocument = gql`
+    query Page($slug: String, $locale: Locale!) {
+  page(where: {slug: $slug}, locales: [$locale]) {
+    id
+    title
+    content {
+      html
+    }
+    seo {
+      description
+      title
+    }
+  }
+}
+    `;
+
+export function usePageQuery(options: Omit<Urql.UseQueryArgs<PageQueryVariables>, 'query'>) {
+  return Urql.useQuery<PageQuery>({ query: PageDocument, ...options });
+};
+export const GetPageWithJobsDocument = gql`
+    query GetPageWithJobs($slug: String, $locale: Locale!) {
+  page(where: {slug: $slug}, locales: [$locale]) {
+    id
+    title
+    content {
+      html
+    }
+    seo {
+      description
+      title
+      image {
+        coverImagePost {
+          coverImage {
+            url(transformation: {image: {resize: {height: 300, width: 300}}})
+          }
+        }
+      }
+    }
+  }
+  jobs(orderBy: createdAt_DESC) {
+    company
+    contract
+    location
+    role
+    startedAt
+    endedAt
+    website
+  }
+}
+    `;
+
+export function useGetPageWithJobsQuery(options: Omit<Urql.UseQueryArgs<GetPageWithJobsQueryVariables>, 'query'>) {
+  return Urql.useQuery<GetPageWithJobsQuery>({ query: GetPageWithJobsDocument, ...options });
+};
 export const PostDocument = gql`
     query Post($slug: String, $locale: Locale!) {
   post(where: {slug: $slug}, locales: [$locale]) {
