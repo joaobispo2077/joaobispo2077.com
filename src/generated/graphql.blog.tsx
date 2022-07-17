@@ -6878,7 +6878,7 @@ export type GetPageWithJobsQueryVariables = Exact<{
 }>;
 
 
-export type GetPageWithJobsQuery = { __typename?: 'Query', page?: { __typename?: 'Page', id: string, title: string, content: { __typename?: 'RichText', html: string }, seo?: { __typename?: 'Seo', description?: string | null, title?: string | null, image?: { __typename?: 'Asset', coverImagePost: Array<{ __typename?: 'Post', coverImage?: { __typename?: 'Asset', url: string } | null }> } | null } | null } | null, jobs: Array<{ __typename?: 'Job', company: string, contract?: string | null, location?: string | null, role: string, startedAt: any, endedAt?: any | null, website?: string | null }> };
+export type GetPageWithJobsQuery = { __typename?: 'Query', page?: { __typename?: 'Page', id: string, title: string, content: { __typename?: 'RichText', html: string }, seo?: { __typename?: 'Seo', description?: string | null, title?: string | null, image?: { __typename?: 'Asset', url: string } | null } | null } | null, jobs: Array<{ __typename?: 'Job', company: string, contract?: string | null, location?: string | null, role: string, startedAt: any, endedAt?: any | null, website?: string | null }> };
 
 export type PostQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
@@ -6927,15 +6927,11 @@ export const GetPageWithJobsDocument = gql`
       description
       title
       image {
-        coverImagePost {
-          coverImage {
-            url(transformation: {image: {resize: {height: 300, width: 300}}})
-          }
-        }
+        url(transformation: {image: {resize: {height: 300, width: 300}}})
       }
     }
   }
-  jobs(orderBy: createdAt_DESC) {
+  jobs(orderBy: startedAt_DESC) {
     company
     contract
     location
