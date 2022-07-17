@@ -7,13 +7,13 @@ type EventProps<T> = {
   value: T;
 };
 
-export const pageview = (url: string) => {
+const pageview = (url: string) => {
   window.gtag('config', apis.analytics.trackingId, {
     page_path: url,
   });
 };
 
-export const event = <T>({ action, category, label, value }: EventProps<T>) => {
+const event = <T>({ action, category, label, value }: EventProps<T>) => {
   window.gtag('event', action, {
     event_category: category,
     event_label: label,

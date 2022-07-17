@@ -5,11 +5,11 @@ import { Flex, Link, Text, VStack } from '@chakra-ui/react';
 export type JobProps = {
   role: string;
   company: string;
-  location: string;
   startedAt: string;
   endedAt: string;
-  website?: string;
-  contract?: string;
+  location?: string | null;
+  website?: string | null;
+  contract?: string | null;
   time?: string;
 };
 
@@ -18,10 +18,14 @@ export const Job: FunctionComponent<JobProps> = ({
   startedAt,
   endedAt,
   company,
-  location,
+  location = 'Remote',
   website,
   time,
 }) => {
+  const jobWebsite = website
+    ? `https://${String(company).toLowerCase()}.com`
+    : `https://www.google.com.br/search?q=${String(company).toLowerCase()}`;
+
   return (
     <VStack key={role} as="li" width="100%" alignItems="flex-start">
       <Text as="p" fontSize="large" color="brand.primary" fontWeight="bold">
@@ -31,7 +35,7 @@ export const Job: FunctionComponent<JobProps> = ({
         <Link
           fontSize="medium"
           color="brand.primary"
-          href={website || `https://${String(company).toLowerCase()}.com`}
+          href={jobWebsite}
           target="_blank"
           rel="noopener noreferrer"
           textDecoration={'underline'}

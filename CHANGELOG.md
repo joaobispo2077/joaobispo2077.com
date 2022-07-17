@@ -1,3 +1,19 @@
+# [1.4.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.3.0...v1.4.0) (2022-07-17)
+
+
+### Bug Fixes
+
+* resolve hydratation problem updating chakra react dependency ([f891714](https://github.com/joaobispo2077/joaobispo2077.com/commit/f89171476384262361da485da0966e4ffb36519e))
+
+
+### Features
+
+* add about description styles ([5eb978d](https://github.com/joaobispo2077/joaobispo2077.com/commit/5eb978d759603683e6a8beea4b2509a92a714be0))
+* add about fallback ([3ee7efe](https://github.com/joaobispo2077/joaobispo2077.com/commit/3ee7efe330885f0cc1ba8f7868ba3948381b71df))
+* add custom scrollbar ([7dc3d54](https://github.com/joaobispo2077/joaobispo2077.com/commit/7dc3d5444be5574a2331526bab8bb84ff0ed5998))
+* add queries to fetch page with job experience ([10e5c7a](https://github.com/joaobispo2077/joaobispo2077.com/commit/10e5c7a23f94415487266ff7f10708d9db5ea20f))
+* consume presentation text and job exp from content API ([bca0b03](https://github.com/joaobispo2077/joaobispo2077.com/commit/bca0b03d06075982ca113dcc034a709039bbe789))
+
 # [1.3.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.2.0...v1.3.0) (2022-07-17)
 
 
