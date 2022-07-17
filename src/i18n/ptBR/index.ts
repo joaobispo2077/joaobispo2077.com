@@ -17,6 +17,7 @@ export const navbarTranslation = {
 
 export const aboutTranslation = {
   title: 'Aprendendo, Construindo e Compartilhando.',
+  seoTitle: 'Sobre',
   seeAllJobs: 'Carreira',
   years: 'anos',
   months: 'meses',
