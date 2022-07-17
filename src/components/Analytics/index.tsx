@@ -7,6 +7,8 @@ import { apis } from '@src/configs';
 import { Gtag } from '@src/services/Gtag';
 
 export const Analytics = () => {
+  console.log('Analytics');
+  console.log('apis.analytics.trackingId', apis.analytics.trackingId);
   const router = useRouter();
 
   useEffect(() => {

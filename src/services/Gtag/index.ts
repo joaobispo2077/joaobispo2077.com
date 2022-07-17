@@ -8,6 +8,8 @@ type EventProps<T> = {
 };
 
 export const pageview = (url: string) => {
+  console.debug('pageview', url);
+  console.debug('pagapis.analytics.trackingIdeview', apis.analytics.trackingId);
   window.gtag('config', apis.analytics.trackingId, {
     page_path: url,
   });

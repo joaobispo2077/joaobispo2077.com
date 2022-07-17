@@ -29,18 +29,18 @@
     "style:fix": "prettier --write ./src/**/*.{ts,tsx}"
   },
   "dependencies": {
-    "@chakra-ui/icons": "^1.1.7",
-    "@chakra-ui/react": "^1.8.8",
+    "@chakra-ui/icons": "^2.0.4",
+    "@chakra-ui/react": "^2.2.4",
     "@emotion/react": "^11.9.3",
-    "@emotion/styled": "^11.8.1",
+    "@emotion/styled": "^11.9.3",
     "@splinetool/react-spline": "^2.1.0",
     "cross-env": "^7.0.3",
-    "framer-motion": "^6.3.10",
+    "framer-motion": "^6.5.1",
     "graphql": "^16.4.0",
     "next": "^12.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.3.1",
+    "react-icons": "^4.4.0",
     "react-syntax-highlighter": "^15.5.0",
     "urql": "^2.2.2"
   },
