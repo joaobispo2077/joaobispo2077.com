@@ -1,3 +1,13 @@
+# [1.3.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.2.0...v1.3.0) (2022-07-17)
+
+
+### Features
+
+* add analytics component ([4a4bd5e](https://github.com/joaobispo2077/joaobispo2077.com/commit/4a4bd5ec060afbd3d95402939ae2d2b302e782fa))
+* add analytics component ([f631ca9](https://github.com/joaobispo2077/joaobispo2077.com/commit/f631ca9976af3707c5e75613b4fd9dc369677980))
+* add ga tracking id env ([f33fdcf](https://github.com/joaobispo2077/joaobispo2077.com/commit/f33fdcf730d77d14b800b46a4720879117bd8348))
+* add gtag service ([4211a0e](https://github.com/joaobispo2077/joaobispo2077.com/commit/4211a0e079d91a7dc61f7c1171942cfe69da000d))
+
 # [1.2.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.1.0...v1.2.0) (2022-07-09)
 
 
