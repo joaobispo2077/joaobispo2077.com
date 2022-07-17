@@ -20,6 +20,7 @@ export const aboutTranslation = {
   seoDescription:
     "João Bispo is a Brazilian creator and developer. He currently lives in São Paulo, Brazil, where he's the Software Engineer at IBM. His started to write first code lines in 2015 and since so he really like solving problems with software craftship using concepts of Software Engineering, algorithms efficiency and choose the right tool for the job.",
   seeAllJobs: 'Career',
+  current: 'Present',
   years: 'yrs',
   months: 'mos',
   fallbackContent:
