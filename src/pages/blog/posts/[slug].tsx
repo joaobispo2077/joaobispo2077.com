@@ -37,7 +37,7 @@ const PostPage: NextPage = () => {
       minHeight="calc(100vh - 8rem)"
       flexDirection="column"
       paddingTop={[4, 16]}
-      paddingX={'1rem'}
+      paddingX={'1.75rem'}
     >
       <SEO
         title={`${data?.post?.title}`}
