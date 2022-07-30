@@ -114,6 +114,7 @@ const AboutPage: NextPage = () => {
           />
 
           <Image
+            priority={true}
             src="https://github.com/joaobispo2077.png"
             alt="João Bispo - Software Engineer"
             title="João Bispo - Software Engineer"
