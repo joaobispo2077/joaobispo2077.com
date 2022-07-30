@@ -31,6 +31,7 @@
   "dependencies": {
     "@chakra-ui/icons": "^2.0.4",
     "@chakra-ui/react": "^2.2.4",
+    "@emotion/css": "^11.9.0",
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@splinetool/react-spline": "^2.1.0",
@@ -39,6 +40,7 @@
     "graphql": "^16.4.0",
     "next": "^12.2.2",
     "react": "^18.2.0",
+    "react-beautiful-dnd": "^13.1.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-syntax-highlighter": "^15.5.0",
@@ -57,6 +59,7 @@
     "@types/gtag.js": "^0.0.10",
     "@types/node": "^17.0.39",
     "@types/react": "^18.0.15",
+    "@types/react-beautiful-dnd": "^13.1.2",
     "@types/react-syntax-highlighter": "^15.5.3",
     "@typescript-eslint/eslint-plugin": "^5.22.0",
     "@typescript-eslint/parser": "^5.22.0",
