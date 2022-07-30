@@ -13,6 +13,7 @@ export const navbarTranslation = {
   home: 'Início',
   about: 'Sobre',
   blog: 'Blog',
+  roadmap: 'Roadmap',
 };
 
 export const aboutTranslation = {

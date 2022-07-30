@@ -11,15 +11,15 @@ export const links: Link[] = [
     url: '/about',
   },
   {
+    name: 'roadmap',
+    text: 'roadmap',
+    url: '/roadmap',
+  },
+  {
     name: 'blog',
     text: 'Blog',
     url: '/blog/posts',
   },
-  // {
-  //   name: 'roadmap',
-  //   text: 'roadmap',
-  //   url: '/roadmap',
-  // },
   // {
   //   name: 'repositories',
   //   text: 'Repositórios',

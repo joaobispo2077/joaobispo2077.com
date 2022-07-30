@@ -12,6 +12,7 @@ export const navbarTranslation = {
   home: 'Home',
   about: 'About',
   blog: 'Blog',
+  roadmap: 'Roadmap',
 };
 
 export const aboutTranslation = {
