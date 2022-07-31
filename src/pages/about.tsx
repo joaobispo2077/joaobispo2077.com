@@ -61,7 +61,7 @@ const AboutPage: NextPage = () => {
             month: 'short',
             day: undefined,
           })
-        : 'Present',
+        : aboutTranslation.current,
       time,
     };
   });
