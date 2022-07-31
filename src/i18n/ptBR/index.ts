@@ -21,6 +21,7 @@ export const aboutTranslation = {
   seoDescription:
     'João Bispo é um criador e desenvolvedor brasileiro. Atualmente mora em São Paulo, Brasil, onde é Engenheiro de Software na IBM. Começou a escrever as primeiras linhas de código em 2015 e desde então gosta muito de resolver problemas com a criação de software usando conceitos de Engenharia de Software, eficiência de algoritmos e escolha a ferramenta certa para o trabalho.',
   seeAllJobs: 'Carreira',
+  current: 'No momento',
   years: 'anos',
   months: 'meses',
   fallbackContent:
