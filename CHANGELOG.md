@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.4.0...v1.5.0) (2022-07-31)
+
+
+### Features
+
+* add current translation into about page ([7be71e1](https://github.com/joaobispo2077/joaobispo2077.com/commit/7be71e1da14879a75b7459b90011998a99dd0fc7))
+
 # [1.4.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.3.0...v1.4.0) (2022-07-17)
 
 
