@@ -4,6 +4,7 @@ import { Flex, Heading } from '@chakra-ui/react';
 
 import { generateTextLinearGradient } from '@src/utils/generateGradient';
 import { SEO } from '@src/components/SEO';
+import { KanbanBoard } from '@src/components/Kanban';
 
 export const PAGE_SLUG = 'roadmap';
 
@@ -16,7 +17,6 @@ const RoadmapPage: NextPage = () => {
       minHeight="calc(100vh - 8rem)"
       flexDirection="column"
       paddingTop={[4, 16]}
-      paddingX={'1rem'}
     >
       <SEO
         // title={page?.seo?.title ?? aboutTranslation.seoTitle}
@@ -37,8 +37,15 @@ const RoadmapPage: NextPage = () => {
           Higher. Further. Faster.
         </Heading>
       </Flex>
-      <Flex as="section" flexDirection="column" marginTop="1.5rem">
-        Roadmap
+      <Flex
+        as="section"
+        flexDirection="column"
+        marginTop="1.5rem"
+        overflowX={'auto'}
+        width="100%"
+      >
+        <KanbanBoard />
+        {/* Roadmap */}
       </Flex>
     </Flex>
   );

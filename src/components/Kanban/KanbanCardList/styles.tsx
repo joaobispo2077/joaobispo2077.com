@@ -19,11 +19,14 @@ export const Container = styled.section<KanbanCardListContainerProps>`
     justify-content: space-between;
     align-items: center;
     height: 42px;
+
     h2 {
       font-weight: 500;
       font-size: 16px;
       padding: 0 10px;
+      color: white;
     }
+
     button {
       width: 42px;
       height: 42px;
@@ -36,5 +39,6 @@ export const Container = styled.section<KanbanCardListContainerProps>`
 
   ul {
     margin-top: 30px;
+    list-style: none;
   }
 `;

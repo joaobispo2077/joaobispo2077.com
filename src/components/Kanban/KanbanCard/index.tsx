@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { FunctionComponent } from 'react';
 
 import { Draggable } from 'react-beautiful-dnd';
@@ -9,14 +10,6 @@ export interface KanbanCardData {
   content: string;
   labels?: string[];
   user?: string;
-}
-
-export interface KanbanCardList {
-  title: string;
-  creatable: boolean;
-  id: number;
-  done?: boolean;
-  cards: KanbanCardData[];
 }
 
 interface KanbanCardItemProps {
