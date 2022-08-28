@@ -4,7 +4,7 @@ import { Draggable } from 'react-beautiful-dnd';
 
 import { Container, Label, CloneContainer } from './styles';
 
-export interface KanbanCard {
+export interface KanbanCardData {
   id: number;
   content: string;
   labels?: string[];
@@ -16,11 +16,11 @@ export interface KanbanCardList {
   creatable: boolean;
   id: number;
   done?: boolean;
-  cards: KanbanCard[];
+  cards: KanbanCardData[];
 }
 
 interface KanbanCardItemProps {
-  card: KanbanCard;
+  card: KanbanCardData;
   index: number;
 }
 
