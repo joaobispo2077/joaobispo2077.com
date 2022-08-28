@@ -1,6 +1,6 @@
 import { ssrExchange } from 'urql';
 
-import { config } from '@src/config';
+import { config } from '@src/configs';
 
 const { isClientSide } = config.environment;
 

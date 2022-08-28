@@ -1,0 +1,13 @@
+query Page($slug: String, $locale: Locale!) {
+  page(where: { slug: $slug }, locales: [$locale]) {
+    id
+    title
+    content {
+      html
+    }
+    seo {
+      description
+      title
+    }
+  }
+}

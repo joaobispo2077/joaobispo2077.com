@@ -15,18 +15,21 @@ const Home: NextPage = () => {
       as="main"
       background="brand.background"
       width="100%"
-      height="calc(100vh - 8rem)"
+      minHeight="calc(100vh - 8rem)"
       flexDirection="column"
+      justifyContent="center"
+      paddingX={'1rem'}
     >
       <SEO
         description="Crafting software for the web"
         image="https://images.unsplash.com/photo-1604964432806-254d07c11f32?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&q=80"
+        url="/"
       />
       {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
       {/* <Box>
         <Element3DLazy />
       </Box> */}
-      <Box marginX="1rem" marginTop={['7rem', '16rem']}>
+      <Flex as="section" width="100%" flexDirection="column">
         <Heading as="h1" color="brand.primary" fontSize="5xl">
           João Bispo
         </Heading>
@@ -38,7 +41,7 @@ const Home: NextPage = () => {
             Crafting world-impact software that make people lives better.
           </Text>
         </Box>
-      </Box>
+      </Flex>
     </Flex>
   );
 };

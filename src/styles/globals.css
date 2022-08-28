@@ -23,3 +23,31 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+::-webkit-scrollbar {
+  width: 1rem;
+  height: 1rem;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color:  #2e3338;
+  border: .25rem solid transparent;
+  background-clip: padding-box;
+  border-radius: .5rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  filter: brightness(0.8);
+}
+
+::-webkit-scrollbar-track {
+  border: .25rem solid transparent;
+  background-clip: padding-box;
+  border-radius: .5rem;
+  background-color: #535e6f;
+}
