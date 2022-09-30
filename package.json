@@ -26,7 +26,8 @@
     "lint": "next lint",
     "codegen:graphql": "cross-env DOTENV_CONFIG_PATH=./.env.local graphql-codegen -r dotenv/config --config codegen.graphql.yml",
     "lint:fix": "eslint ./src/**/*.{js,ts,tsx} --fix",
-    "style:fix": "prettier --write ./src/**/*.{ts,tsx}"
+    "style:fix": "prettier --write ./src/**/*.{ts,tsx}",
+    "package:update": "npx npm-check -u"
   },
   "dependencies": {
     "@chakra-ui/icons": "^2.0.10",
