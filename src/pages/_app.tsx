@@ -9,6 +9,7 @@ import { GithubClient } from '@src/services/GithubClient';
 import { theme } from '@src/styles/theme';
 import { Shell } from '@src/components/layouts/Shell';
 import { Analytics } from '@src/components/Analytics';
+import { ShellProvider } from '@src/providers/ShellProvider';
 
 function App({ Component, pageProps }: AppProps) {
   if (pageProps.urqlState) {
@@ -20,9 +21,11 @@ function App({ Component, pageProps }: AppProps) {
       <Analytics />
       <UrqlProvider value={GithubClient}>
         <ChakraProvider theme={theme}>
-          <Shell>
-            <Component {...pageProps} />
-          </Shell>
+          <ShellProvider>
+            <Shell>
+              <Component {...pageProps} />
+            </Shell>
+          </ShellProvider>
         </ChakraProvider>
       </UrqlProvider>
     </>
