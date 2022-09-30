@@ -45,7 +45,7 @@
     "react-dom": "^18.2.0",
     "react-icons": "^4.4.0",
     "react-syntax-highlighter": "^15.5.0",
-    "urql": "^2.2.2"
+    "urql": "^3.0.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^16.2.4",
