@@ -8,7 +8,7 @@ import { Navbar } from '../Navigation';
 export const Header: FunctionComponent = () => {
   const router = useRouter();
 
-  const goToHome = () => {
+  const handleNavigateToHome = () => {
     router.push('/');
   };
 
@@ -29,7 +29,7 @@ export const Header: FunctionComponent = () => {
         fontWeight="bold"
         color="brand.primary"
         _hover={{ cursor: 'pointer' }}
-        onClick={goToHome}
+        onClick={handleNavigateToHome}
       >
         JB
       </Heading>
