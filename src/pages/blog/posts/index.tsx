@@ -62,12 +62,12 @@ const BlogPage: NextPage = () => {
           {blogTranslation.seeAllPosts}
         </Text>
         <VStack width="100%">
-          {data?.posts.map(({ title, excerpt, publishedAt, slug, tags }) => (
+          {data?.posts.map(({ title, excerpt, date, slug, tags }) => (
             <PostCard
               key={slug}
               title={title}
               description={excerpt || ''}
-              createdAt={publishedAt}
+              createdAt={date}
               slug={slug}
               tags={tags}
             />

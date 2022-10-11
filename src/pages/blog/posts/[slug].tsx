@@ -51,7 +51,7 @@ const PostPage: NextPage = () => {
         <Flex alignItems="center" gap="1rem">
           <Icon as={FiCalendar} w={6} h={6} color="brand.secondary" />
           <Text as="span" color="brand.secondary">
-            {formatDate(data?.post?.publishedAt, locale)}
+            {formatDate(data?.post?.date, locale)}
           </Text>
         </Flex>
         <Flex alignItems="center" gap="1rem">
