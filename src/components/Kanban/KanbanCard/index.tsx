@@ -40,7 +40,6 @@ export const KanbanCard: FunctionComponent<KanbanCardItemProps> = ({
           </Container>
           {snapshot.isDragging && (
             <CloneContainer isDragging={snapshot.isDragging}>
-              {' '}
               <header>
                 {card.labels &&
                   card.labels.map((label) => (

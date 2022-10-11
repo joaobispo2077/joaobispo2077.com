@@ -1,6 +1,8 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 
+import { FunctionComponent, ReactNode } from 'react';
+
 import { Provider as UrqlProvider } from 'urql';
 import { ChakraProvider } from '@chakra-ui/react';
 
@@ -16,10 +18,56 @@ type CustomApp = {
   urqlState: Record<string, object>;
 };
 
+type MountProvider = {
+  component: any | (({ children }: { children: ReactNode }) => JSX.Element);
+  props?: Record<string, any>;
+};
+
 function App({ Component, pageProps }: AppProps<CustomApp>) {
   if (pageProps.urqlState) {
     serverSideCache.restoreData(pageProps.urqlState);
   }
+
+  const providers: MountProvider[] = [
+    {
+      component: ShellProvider,
+    },
+    {
+      component: ChakraProvider,
+      props: {
+        theme,
+      },
+    },
+    {
+      component: UrqlProvider,
+      props: {
+        value: ContentManagementClient,
+      },
+    },
+    {
+      component: UrqlProvider,
+      props: {
+        value: GithubClient,
+      },
+    },
+  ];
+
+  const mountProviders = (
+    components: MountProvider[],
+    rootChildren: ReactNode,
+  ) => {
+    const makeProvider = (
+      children: ReactNode,
+      Component: MountProvider['component'],
+      props?: Record<string, any>,
+    ) => {
+      return <Component {...props}>{children}</Component>;
+    };
+
+    return components.reduce((children, { component, props }) => {
+      return makeProvider(children, component, props);
+    }, rootChildren);
+  };
 
   return (
     <>
