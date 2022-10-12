@@ -7132,7 +7132,7 @@ export function usePostQuery(
 }
 export const PostsDocument = gql`
   query Posts($locale: Locale!) {
-    posts(orderBy: publishedAt_DESC, locales: [$locale]) {
+    posts(orderBy: date_DESC, locales: [$locale]) {
       title
       slug
       excerpt
