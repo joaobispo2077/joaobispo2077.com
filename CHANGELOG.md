@@ -1,3 +1,10 @@
+## [1.6.1](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.6.0...v1.6.1) (2022-10-12)
+
+
+### Bug Fixes
+
+* remove unfound imports ([ae653aa](https://github.com/joaobispo2077/joaobispo2077.com/commit/ae653aa5827450970c7130824d7eca781bfc256b))
+
 # [1.6.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.5.0...v1.6.0) (2022-10-12)
 
 
