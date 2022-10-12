@@ -1,6 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 
-import Head from 'next/head';
+import { Flex, Heading } from '@chakra-ui/react';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 import { GithubClient } from '@src/services/GithubClient';
@@ -10,6 +10,7 @@ import {
 } from '@src/generated/graphql.github';
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { parseRepositories } from '@src/utils/parseRepositories';
+import { SEO } from '@src/components/SEO';
 
 // type HomeProps = {
 //   initialRepositories: Repository[];
@@ -25,25 +26,24 @@ const ProjectsPage: NextPage = () => {
   const { repositoryTotalCount = 0 } = parseRepositories(repositories);
 
   return (
-    <div className="">
-      <Head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>João Bispo | Portfólio</title>
-        <meta name="description" content="Crafting software for the web" />
-        <link
-          rel="shortcut icon"
-          href="/assets/icons/lightning.png"
-          type="image/png"
-        />
-        {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
-      </Head>
+    <Flex
+      as="main"
+      background="brand.background"
+      width="100%"
+      minHeight="calc(100vh - 8rem)"
+      flexDirection="column"
+      paddingTop={[4, 16]}
+      paddingX={'1rem'}
+    >
+      <SEO title={'Projects'} description={'Projects'} url="/projects" />
 
-      <main className="">
-        <h1>Quantidade total de repositórios: {repositoryTotalCount}</h1>
+      <Flex as="section" flexDirection="column" marginTop="1.5rem">
+        <Heading>
+          Quantidade total de repositórios: {repositoryTotalCount}
+        </Heading>
         {homeTranslation.helloWorld}
-      </main>
-    </div>
+      </Flex>
+    </Flex>
   );
 };
 
