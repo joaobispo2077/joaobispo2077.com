@@ -3,7 +3,6 @@ import type { GetStaticProps, NextPage } from 'next';
 import Head from 'next/head';
 
 import { useTranslation } from '@src/hooks/useTranslation';
-import styles from '@src/styles/Home.module.css';
 import { GithubClient } from '@src/services/GithubClient';
 import {
   RepositoriesDocument,
@@ -26,7 +25,7 @@ const ProjectsPage: NextPage = () => {
   const { repositoryTotalCount = 0 } = parseRepositories(repositories);
 
   return (
-    <div className={styles.container}>
+    <div className="">
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -40,7 +39,7 @@ const ProjectsPage: NextPage = () => {
         {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
       </Head>
 
-      <main className={styles.main}>
+      <main className="">
         <h1>Quantidade total de repositórios: {repositoryTotalCount}</h1>
         {homeTranslation.helloWorld}
       </main>
