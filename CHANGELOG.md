@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.6.1...v1.7.0) (2022-10-12)
+
+
+### Features
+
+* add new components into /projects page ([66b873d](https://github.com/joaobispo2077/joaobispo2077.com/commit/66b873d2fc16a0c734a4d17a119df85a0fe6e6df))
+
 ## [1.6.1](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.6.0...v1.6.1) (2022-10-12)
 
 
