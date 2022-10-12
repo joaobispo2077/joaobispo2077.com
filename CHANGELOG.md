@@ -1,3 +1,22 @@
+# [1.6.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.5.0...v1.6.0) (2022-10-12)
+
+
+### Bug Fixes
+
+* adapt urql to v3 ([1aab751](https://github.com/joaobispo2077/joaobispo2077.com/commit/1aab751f367fc5ba8809d2dbf2b15a336a8111c1))
+
+
+### Features
+
+* add kanban board and styles ([ff8f96c](https://github.com/joaobispo2077/joaobispo2077.com/commit/ff8f96c6e89b0bf4be2b48d34a1b58271fef22f7))
+* **wip:** add kanban card ([7db44e6](https://github.com/joaobispo2077/joaobispo2077.com/commit/7db44e6c00f37f4b7ffb368a52f14f9e10284bfa))
+* add KanbanCardList component and styles ([a33908f](https://github.com/joaobispo2077/joaobispo2077.com/commit/a33908fa5630e64e7040d6392ee062ed03928e70))
+* add routing for /roadmap page ([5282959](https://github.com/joaobispo2077/joaobispo2077.com/commit/52829592f6859776d473ee017e67c2f148ca188e))
+* add shell context to manage components outside shell ([5dca8ac](https://github.com/joaobispo2077/joaobispo2077.com/commit/5dca8ac185ebfb22e7abf4f9d2869eb8abbdfaf6))
+* enable /roadmap page link ([57d6059](https://github.com/joaobispo2077/joaobispo2077.com/commit/57d605975128a1a84677a5d2a565fc3572c99222))
+* increase load priority from image into about page ([c6161cb](https://github.com/joaobispo2077/joaobispo2077.com/commit/c6161cb6fed7019240784e9a728fee9fb4c88b14))
+* render kanban cards from api ([7af2158](https://github.com/joaobispo2077/joaobispo2077.com/commit/7af2158fc9de83d35642c0ed780f8ae0e4c69727))
+
 # [1.5.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.4.0...v1.5.0) (2022-07-31)
 
 
