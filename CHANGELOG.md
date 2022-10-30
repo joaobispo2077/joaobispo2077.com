@@ -1,3 +1,12 @@
+# [1.8.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.7.0...v1.8.0) (2022-10-30)
+
+
+### Features
+
+* add bold title into post ([c45bd16](https://github.com/joaobispo2077/joaobispo2077.com/commit/c45bd16af24288930f20e8563c3abab3c96d5997))
+* add custom after element into external links ([acb28dd](https://github.com/joaobispo2077/joaobispo2077.com/commit/acb28dd0511d4d8ddd8777ed3e62ea80a101d399))
+* add custom before element into headings ([c5df39f](https://github.com/joaobispo2077/joaobispo2077.com/commit/c5df39fde8cd5243313e1d2e54a947d53c8ce5e4))
+
 # [1.7.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.6.1...v1.7.0) (2022-10-12)
 
 
