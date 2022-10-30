@@ -33,6 +33,43 @@ export const Content = styled.main`
   font-size: 1.125rem;
   color: ${gray};
 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 800;
+    color: ${brandColors.primary};
+    margin: 2rem 0 1rem;
+
+    cursor: pointer;
+  }
+
+  h1 {
+    font-size: 2rem;
+
+    &:before {
+      content: '# ';
+    }
+  }
+
+  h2 {
+    font-size: 1.5rem;
+
+    &:before {
+      content: '## ';
+    }
+  }
+
+  h3 {
+    font-size: 1.25rem;
+
+    &:before {
+      content: '### ';
+    }
+  }
+
   p,
   ul {
     margin: 1.5rem 0;
