@@ -45,7 +45,9 @@ const PostPage: NextPage = () => {
         image={data?.post?.seo?.image?.url}
         url={`/blog/posts/${slug}`}
       />
-      <Heading color="brand.primary">{data?.post?.title}</Heading>
+      <Heading color="brand.primary" fontWeight={900}>
+        {data?.post?.title}
+      </Heading>
       <Tags tags={data?.post?.tags} />
       <HStack spacing="2rem" marginTop={'2rem'}>
         <Flex alignItems="center" gap="1rem">
