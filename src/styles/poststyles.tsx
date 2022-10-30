@@ -38,12 +38,16 @@ export const Content = styled.main`
     margin: 1.5rem 0;
   }
 
-  a {
+  a[target='_blank'] {
     color: ${brandColors.yellow};
 
     &:hover {
       color: ${brandColors.orange};
       text-decoration: underline;
+    }
+
+    &:after {
+      content: ' ↗️';
     }
   }
 
