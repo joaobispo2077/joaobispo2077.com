@@ -47,33 +47,6 @@ export default (
       ],
     },
     {
-      title: 'Fazendo',
-      creatable: false,
-      id: 2,
-      cards: [
-        {
-          id: 6,
-          content:
-            'Testando Serverless Framework com Dynamo DB, Athena e TypeScript',
-          labels: [],
-          user: 'https://avatars.githubusercontent.com/u/43768058?s=400&u=88f13aa1305b0a1d36270179b7f2fbf3725b792b&v=4',
-        },
-        {
-          id: 7,
-          content: 'Fazer um clone do Pipefy com suporte a acessibilidade',
-          labels: ['#5BBA6F'],
-          user: 'https://avatars.githubusercontent.com/u/43768058?s=400&u=88f13aa1305b0a1d36270179b7f2fbf3725b792b&v=4',
-        },
-        {
-          id: 8,
-          content:
-            'Selecionar resources de documentação de APIs no estilo Swagger',
-          labels: ['#5BBA6F'],
-          user: 'https://avatars.githubusercontent.com/u/43768058?s=400&u=88f13aa1305b0a1d36270179b7f2fbf3725b792b&v=4',
-        },
-      ],
-    },
-    {
       title: 'Pausado',
       creatable: false,
       id: 3,
@@ -104,6 +77,34 @@ export default (
         },
       ],
     },
+    {
+      title: 'Fazendo',
+      creatable: false,
+      id: 2,
+      cards: [
+        {
+          id: 6,
+          content:
+            'Testando Serverless Framework com Dynamo DB, Athena e TypeScript',
+          labels: [],
+          user: 'https://avatars.githubusercontent.com/u/43768058?s=400&u=88f13aa1305b0a1d36270179b7f2fbf3725b792b&v=4',
+        },
+        {
+          id: 7,
+          content: 'Fazer um clone do Pipefy com suporte a acessibilidade',
+          labels: ['#5BBA6F'],
+          user: 'https://avatars.githubusercontent.com/u/43768058?s=400&u=88f13aa1305b0a1d36270179b7f2fbf3725b792b&v=4',
+        },
+        {
+          id: 8,
+          content:
+            'Selecionar resources de documentação de APIs no estilo Swagger',
+          labels: ['#5BBA6F'],
+          user: 'https://avatars.githubusercontent.com/u/43768058?s=400&u=88f13aa1305b0a1d36270179b7f2fbf3725b792b&v=4',
+        },
+      ],
+    },
+
     {
       title: 'Concluído',
       creatable: false,

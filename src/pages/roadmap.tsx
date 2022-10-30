@@ -20,9 +20,9 @@ const RoadmapPage: NextPage = () => {
     setBeforeFooterComponent(
       <>
         <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
+          initial={{ height: '100vh' }}
+          animate={{ height: '100%' }}
+          transition={{ duration: 0.5 }}
           style={{
             overflow: 'auto',
             width: '100%',
@@ -34,17 +34,27 @@ const RoadmapPage: NextPage = () => {
             overflowX={'auto'}
             width="100%"
             direction="column"
-            // justifyContent="center"
-            // alignItems="center"
+            justifyContent="center"
+            alignItems="center"
             paddingX="1rem"
           >
-            <KanbanBoard />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.5 }}
+              style={{
+                overflow: 'auto',
+                width: '100%',
+              }}
+            >
+              <KanbanBoard />
+            </motion.div>
           </Flex>
         </motion.div>
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2 }}
+          transition={{ duration: 3 }}
         >
           <Flex
             as="section"
