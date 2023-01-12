@@ -5,10 +5,10 @@ export interface KanbanCardListContainerProps {
 }
 
 export const Container = styled.section<KanbanCardListContainerProps>`
-  padding: 0 15px;
+  padding: 0 4px;
   height: 100%;
   opacity: ${(props) => (props.done ? 0.6 : 1)};
-  flex: 0 0 320px;
+  flex: 1;
 
   & + section {
     border-left: 1px solid rgba(0, 0, 0, 0.05);

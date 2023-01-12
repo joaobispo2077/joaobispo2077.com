@@ -98,6 +98,7 @@ export const KanbanBoard: FunctionComponent = () => {
       <DragDropContext onDragEnd={onDragEnd}>
         <Container>
           {cardlists &&
+            cardlists.length > 0 &&
             cardlists.map((cardList, index) => (
               <KanbanCardList
                 index={index}
