@@ -1,4 +1,3 @@
-import { MdAdd } from 'react-icons/md';
 import { Droppable } from 'react-beautiful-dnd';
 
 import { KanbanCard, KanbanCardData } from '../KanbanCard';
@@ -23,11 +22,6 @@ export const KanbanCardList = ({ cardList, index }: KanbanCardListProps) => {
     <Container done={cardList.done ? cardList.done : false}>
       <header>
         <h2>{cardList.title}</h2>
-        {cardList.creatable && (
-          <button type="button">
-            <MdAdd size={24} color="#FFF" />
-          </button>
-        )}
       </header>
       <Droppable droppableId={String(index)}>
         {(provided) => (
