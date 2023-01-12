@@ -4,6 +4,8 @@ import Head from 'next/head';
 
 import { useTranslation } from '@src/hooks/useTranslation';
 
+// import dynamic from 'next/dynamic';
+// const Element3DLazy = dynamic(() => import('@src/components/Element3D'));
 const ThinkPage: NextPage = () => {
   const { homeTranslation } = useTranslation();
 
@@ -21,8 +23,11 @@ const ThinkPage: NextPage = () => {
         />
         {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
       </Head>
-
       <main className="">{homeTranslation.helloWorld}</main>
+      {/* https://www.flaticon.com/premium-icon/lightning_2985698?term=lightning&related_id=2985698# */}
+      {/* <Box>
+        <Element3DLazy />
+      </Box> */}
     </div>
   );
 };
