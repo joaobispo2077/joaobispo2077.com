@@ -6,6 +6,6 @@ module.exports = {
     defaultLocale: 'en-us',
   },
   images: {
-    domains: ['github.com', 'lh3.googleusercontent.com'],
+    domains: ['github.com'],
   },
 };
