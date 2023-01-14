@@ -13,9 +13,19 @@ import {
 
 import { KanbanCardsContext } from '@src/contexts/KanbanCardsContext';
 
-import { KanbanCardList, KanbanCardListData } from '../KanbanCardList';
+import { KanbanCardListData, KanbanCardList } from '../KanbanCardList';
 
 import { Container } from './styles';
+
+interface DropItem {
+  cardIndex: number;
+  columnIndex: number;
+}
+
+export type KanbanBoardProps = {
+  taskStatuses: KanbanCardListData[];
+};
+
 interface DropItem {
   cardIndex: number;
   columnIndex: number;
@@ -32,44 +42,54 @@ const isDropInActualPosition = (
   return isSameCard;
 };
 
-export const KanbanBoard: FunctionComponent = () => {
-  const [cardlists, setCardLists] = useState<KanbanCardListData[]>();
+export const KanbanBoard: FunctionComponent<KanbanBoardProps> = ({
+  taskStatuses,
+}) => {
+  const [isWindowReady, setIsWindowReady] = useState(false);
 
-  const moveCard = (
-    from: DropItem,
-    to: DropItem,
-    cards: KanbanCardListData[] | undefined,
-  ): void => {
-    if (!cards) return;
+  const [cardlists, setCardLists] = useState<KanbanCardListData[]>(
+    taskStatuses as KanbanCardListData[],
+  );
 
-    const newCardList = Array.from(cards);
+  const moveCard = useCallback(
+    (
+      from: DropItem,
+      to: DropItem,
+      cards: KanbanCardListData[] | undefined,
+    ): void => {
+      if (!cards) {
+        return;
+      }
 
-    const dragged = newCardList[from.columnIndex].cards[from.cardIndex];
+      const newCardList = Array.from(cards);
 
-    newCardList[from.columnIndex].cards.splice(from.cardIndex, 1);
+      const dragged = newCardList[from.columnIndex].cards[from.cardIndex];
+      if (!dragged) {
+        return;
+      }
 
-    newCardList[to.columnIndex].cards.splice(to.cardIndex, 0, dragged);
+      newCardList[from.columnIndex].cards.splice(from.cardIndex, 1);
 
-    console.log(newCardList);
+      newCardList[to.columnIndex].cards.splice(to.cardIndex, 0, dragged);
 
-    setCardLists(newCardList);
-  };
-
-  const getCardLists = async (): Promise<KanbanCardListData[]> => {
-    const response = await fetch('/api/cards');
-    const cardsLists = await response.json();
-    return cardsLists;
-  };
+      setCardLists(newCardList);
+    },
+    [],
+  );
 
   const onDragEnd = useCallback(
     (result: DropResult) => {
       const { source, destination, draggableId } = result;
 
-      if (!destination) return;
+      if (!destination) {
+        return;
+      }
 
-      if (isDropInActualPosition(source, destination)) return;
+      if (isDropInActualPosition(source, destination)) {
+        return;
+      }
 
-      console.log('draggableId!', draggableId);
+      console.debug('draggableId!', draggableId);
 
       const draggedItem = {
         cardIndex: source.index,
@@ -81,24 +101,22 @@ export const KanbanBoard: FunctionComponent = () => {
         columnIndex: Number(destination.droppableId),
       };
 
-      console.log('cardlists', cardlists);
-
       moveCard(draggedItem, droppedItem, cardlists);
     },
-    [cardlists],
+    [cardlists, moveCard],
   );
 
   useEffect(() => {
-    if (!cardlists)
-      getCardLists().then((cardsLists) => setCardLists(cardsLists));
-  }, [cardlists]);
+    setIsWindowReady(true);
+  }, []);
+
+  const canRenderBoard = cardlists && cardlists.length > 0 && isWindowReady;
 
   return (
     <KanbanCardsContext.Provider value={{ cardlists, moveCard }}>
       <DragDropContext onDragEnd={onDragEnd}>
         <Container>
-          {cardlists &&
-            cardlists.length > 0 &&
+          {canRenderBoard &&
             cardlists.map((cardList, index) => (
               <KanbanCardList
                 index={index}
