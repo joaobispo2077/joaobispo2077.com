@@ -122,6 +122,7 @@ const RoadmapPage: NextPage = () => {
             justifyContent="center"
             alignItems="center"
             paddingX="1rem"
+            gap="1rem"
           >
             <Heading
               as="h2"
