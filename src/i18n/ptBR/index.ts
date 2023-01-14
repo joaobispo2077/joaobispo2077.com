@@ -37,4 +37,7 @@ export const roadmapTranslation = {
   seoTitle: 'Roadmap',
   seoDescription:
     'Este é meu roadmap, eu irei atualizá-lo conforme eu aprender coisas novas e melhorar minhas habilidades.',
+  titleTimeManage: 'A matriz de Eisenhower',
+  imageTimeManageDescription:
+    'A matriz de Eisenhower é uma ferramenta de gestão de tempo que ajuda a priorizar as tarefas de acordo com a importância eurgência.',
 };

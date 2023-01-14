@@ -131,16 +131,13 @@ const RoadmapPage: NextPage = () => {
               whiteSpace="pre-wrap"
               wordBreak={'break-word'}
             >
-              Matriz de Eisenhower
+              {roadmapTranslation.titleTimeManage}
             </Heading>
             <Image
               priority={true}
-              src="https://lh3.googleusercontent.com/dch2B4a5V9zpXzv01YbI9prVfYlOhBFfO6Go2hWXEiKC3R7eQhUrr5RFM550AFPdDN5tG56b3lRIz2rl8ZHVH9TPF4ojRkKPjB7cS-gEzOZl1l285dXkqR1-0QoyWeKqwlZPLq4"
-              title="Matriz de Eisenhower"
-              alt="A matriz de Eisenhower é uma ferramenta de gestão de tempo que ajuda a
-          priorizar as tarefas de acordo com a importância e urgência. A matriz
-          foi criada pelo general americano Dwight D. Eisenhower, que usava-a
-          para priorizar as tarefas do seu dia a dia."
+              src="/assets/images/The-Eisenhower-Decision-Matrix.png"
+              title={roadmapTranslation.titleTimeManage}
+              alt={roadmapTranslation.imageTimeManageDescription}
               maxWidth={800}
               maxHeight={800}
               minWidth={300}
@@ -159,9 +156,7 @@ const RoadmapPage: NextPage = () => {
               maxHeight={800}
               marginBottom="5rem"
             >
-              A matriz de Eisenhower é uma ferramenta de gestão de tempo que
-              ajuda a priorizar as tarefas de acordo com a importância e
-              urgência.
+              {roadmapTranslation.imageTimeManageDescription}
             </Text>
           </Flex>
         </motion.div>

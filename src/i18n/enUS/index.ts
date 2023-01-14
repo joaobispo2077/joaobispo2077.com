@@ -36,4 +36,7 @@ export const roadmapTranslation = {
   seoTitle: 'Roadmap',
   seoDescription:
     'This is my roadmap, I will update it as I learn new things and improve my skills.',
+  titleTimeManage: 'The Eisenhower Matrix',
+  imageTimeManageDescription:
+    'The Eisenhower Matrix is a time management tool that helps you prioritize tasks according to importance and urgency.',
 };
