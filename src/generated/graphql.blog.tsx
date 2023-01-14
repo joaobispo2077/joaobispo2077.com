@@ -86,6 +86,7 @@ export type AssetAuthorAvatarArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<AuthorOrderByInput>;
@@ -98,6 +99,7 @@ export type AssetCoverImagePostArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<PostOrderByInput>;
@@ -112,6 +114,7 @@ export type AssetCreatedAtArgs = {
 
 /** Asset system model */
 export type AssetCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -142,6 +145,7 @@ export type AssetPublishedAtArgs = {
 
 /** Asset system model */
 export type AssetPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -150,6 +154,7 @@ export type AssetScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
@@ -161,6 +166,7 @@ export type AssetSeoImageArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<SeoOrderByInput>;
@@ -175,6 +181,7 @@ export type AssetUpdatedAtArgs = {
 
 /** Asset system model */
 export type AssetUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -775,6 +782,7 @@ export type Author = Node & {
 };
 
 export type AuthorCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -791,6 +799,7 @@ export type AuthorHistoryArgs = {
 };
 
 export type AuthorPictureArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -798,6 +807,7 @@ export type AuthorPostsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<PostOrderByInput>;
@@ -806,6 +816,7 @@ export type AuthorPostsArgs = {
 };
 
 export type AuthorPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -813,6 +824,7 @@ export type AuthorScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
@@ -820,6 +832,7 @@ export type AuthorScheduledInArgs = {
 };
 
 export type AuthorUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -1444,6 +1457,7 @@ export type Job = Node & {
 
 /** Work experience */
 export type JobCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -1463,6 +1477,7 @@ export type JobHistoryArgs = {
 
 /** Work experience */
 export type JobPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -1471,6 +1486,7 @@ export type JobScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
@@ -1479,6 +1495,7 @@ export type JobScheduledInArgs = {
 
 /** Work experience */
 export type JobUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -2129,6 +2146,10 @@ export type Mutation = {
   createScheduledRelease?: Maybe<ScheduledRelease>;
   /** Create one seo */
   createSeo?: Maybe<Seo>;
+  /** Create one task */
+  createTask?: Maybe<Task>;
+  /** Create one taskStatus */
+  createTaskStatus?: Maybe<TaskStatus>;
   /** Delete one asset from _all_ existing stages. Returns deleted document. */
   deleteAsset?: Maybe<Asset>;
   /** Delete one author from _all_ existing stages. Returns deleted document. */
@@ -2177,6 +2198,20 @@ export type Mutation = {
   deleteManySeos: BatchPayload;
   /** Delete many Seo documents, return deleted documents */
   deleteManySeosConnection: SeoConnection;
+  /**
+   * Delete many TaskStatus documents
+   * @deprecated Please use the new paginated many mutation (deleteManyTaskStatusesConnection)
+   */
+  deleteManyTaskStatuses: BatchPayload;
+  /** Delete many TaskStatus documents, return deleted documents */
+  deleteManyTaskStatusesConnection: TaskStatusConnection;
+  /**
+   * Delete many Task documents
+   * @deprecated Please use the new paginated many mutation (deleteManyTasksConnection)
+   */
+  deleteManyTasks: BatchPayload;
+  /** Delete many Task documents, return deleted documents */
+  deleteManyTasksConnection: TaskConnection;
   /** Delete one page from _all_ existing stages. Returns deleted document. */
   deletePage?: Maybe<Page>;
   /** Delete one post from _all_ existing stages. Returns deleted document. */
@@ -2187,6 +2222,10 @@ export type Mutation = {
   deleteScheduledRelease?: Maybe<ScheduledRelease>;
   /** Delete one seo from _all_ existing stages. Returns deleted document. */
   deleteSeo?: Maybe<Seo>;
+  /** Delete one task from _all_ existing stages. Returns deleted document. */
+  deleteTask?: Maybe<Task>;
+  /** Delete one taskStatus from _all_ existing stages. Returns deleted document. */
+  deleteTaskStatus?: Maybe<TaskStatus>;
   /** Publish one asset */
   publishAsset?: Maybe<Asset>;
   /** Publish one author */
@@ -2235,12 +2274,30 @@ export type Mutation = {
   publishManySeos: BatchPayload;
   /** Publish many Seo documents */
   publishManySeosConnection: SeoConnection;
+  /**
+   * Publish many TaskStatus documents
+   * @deprecated Please use the new paginated many mutation (publishManyTaskStatusesConnection)
+   */
+  publishManyTaskStatuses: BatchPayload;
+  /** Publish many TaskStatus documents */
+  publishManyTaskStatusesConnection: TaskStatusConnection;
+  /**
+   * Publish many Task documents
+   * @deprecated Please use the new paginated many mutation (publishManyTasksConnection)
+   */
+  publishManyTasks: BatchPayload;
+  /** Publish many Task documents */
+  publishManyTasksConnection: TaskConnection;
   /** Publish one page */
   publishPage?: Maybe<Page>;
   /** Publish one post */
   publishPost?: Maybe<Post>;
   /** Publish one seo */
   publishSeo?: Maybe<Seo>;
+  /** Publish one task */
+  publishTask?: Maybe<Task>;
+  /** Publish one taskStatus */
+  publishTaskStatus?: Maybe<TaskStatus>;
   /** Schedule to publish one asset */
   schedulePublishAsset?: Maybe<Asset>;
   /** Schedule to publish one author */
@@ -2253,6 +2310,10 @@ export type Mutation = {
   schedulePublishPost?: Maybe<Post>;
   /** Schedule to publish one seo */
   schedulePublishSeo?: Maybe<Seo>;
+  /** Schedule to publish one task */
+  schedulePublishTask?: Maybe<Task>;
+  /** Schedule to publish one taskStatus */
+  schedulePublishTaskStatus?: Maybe<TaskStatus>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishAsset?: Maybe<Asset>;
   /** Unpublish one author from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2265,6 +2326,10 @@ export type Mutation = {
   scheduleUnpublishPost?: Maybe<Post>;
   /** Unpublish one seo from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   scheduleUnpublishSeo?: Maybe<Seo>;
+  /** Unpublish one task from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishTask?: Maybe<Task>;
+  /** Unpublish one taskStatus from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  scheduleUnpublishTaskStatus?: Maybe<TaskStatus>;
   /** Unpublish one asset from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishAsset?: Maybe<Asset>;
   /** Unpublish one author from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
@@ -2313,12 +2378,30 @@ export type Mutation = {
   unpublishManySeos: BatchPayload;
   /** Find many Seo documents that match criteria in specified stage and unpublish from target stages */
   unpublishManySeosConnection: SeoConnection;
+  /**
+   * Unpublish many TaskStatus documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyTaskStatusesConnection)
+   */
+  unpublishManyTaskStatuses: BatchPayload;
+  /** Find many TaskStatus documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyTaskStatusesConnection: TaskStatusConnection;
+  /**
+   * Unpublish many Task documents
+   * @deprecated Please use the new paginated many mutation (unpublishManyTasksConnection)
+   */
+  unpublishManyTasks: BatchPayload;
+  /** Find many Task documents that match criteria in specified stage and unpublish from target stages */
+  unpublishManyTasksConnection: TaskConnection;
   /** Unpublish one page from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishPage?: Maybe<Page>;
   /** Unpublish one post from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishPost?: Maybe<Post>;
   /** Unpublish one seo from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
   unpublishSeo?: Maybe<Seo>;
+  /** Unpublish one task from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishTask?: Maybe<Task>;
+  /** Unpublish one taskStatus from selected stages. Unpublish either the complete document with its relations, localizations and base data or specific localizations only. */
+  unpublishTaskStatus?: Maybe<TaskStatus>;
   /** Update one asset */
   updateAsset?: Maybe<Asset>;
   /** Update one author */
@@ -2367,6 +2450,20 @@ export type Mutation = {
   updateManySeos: BatchPayload;
   /** Update many Seo documents */
   updateManySeosConnection: SeoConnection;
+  /**
+   * Update many taskStatuses
+   * @deprecated Please use the new paginated many mutation (updateManyTaskStatusesConnection)
+   */
+  updateManyTaskStatuses: BatchPayload;
+  /** Update many TaskStatus documents */
+  updateManyTaskStatusesConnection: TaskStatusConnection;
+  /**
+   * Update many tasks
+   * @deprecated Please use the new paginated many mutation (updateManyTasksConnection)
+   */
+  updateManyTasks: BatchPayload;
+  /** Update many Task documents */
+  updateManyTasksConnection: TaskConnection;
   /** Update one page */
   updatePage?: Maybe<Page>;
   /** Update one post */
@@ -2375,6 +2472,10 @@ export type Mutation = {
   updateScheduledRelease?: Maybe<ScheduledRelease>;
   /** Update one seo */
   updateSeo?: Maybe<Seo>;
+  /** Update one task */
+  updateTask?: Maybe<Task>;
+  /** Update one taskStatus */
+  updateTaskStatus?: Maybe<TaskStatus>;
   /** Upsert one asset */
   upsertAsset?: Maybe<Asset>;
   /** Upsert one author */
@@ -2387,6 +2488,10 @@ export type Mutation = {
   upsertPost?: Maybe<Post>;
   /** Upsert one seo */
   upsertSeo?: Maybe<Seo>;
+  /** Upsert one task */
+  upsertTask?: Maybe<Task>;
+  /** Upsert one taskStatus */
+  upsertTaskStatus?: Maybe<TaskStatus>;
 };
 
 export type MutationCreateAssetArgs = {
@@ -2415,6 +2520,14 @@ export type MutationCreateScheduledReleaseArgs = {
 
 export type MutationCreateSeoArgs = {
   data: SeoCreateInput;
+};
+
+export type MutationCreateTaskArgs = {
+  data: TaskCreateInput;
+};
+
+export type MutationCreateTaskStatusArgs = {
+  data: TaskStatusCreateInput;
 };
 
 export type MutationDeleteAssetArgs = {
@@ -2507,6 +2620,32 @@ export type MutationDeleteManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
+export type MutationDeleteManyTaskStatusesArgs = {
+  where?: InputMaybe<TaskStatusManyWhereInput>;
+};
+
+export type MutationDeleteManyTaskStatusesConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TaskStatusManyWhereInput>;
+};
+
+export type MutationDeleteManyTasksArgs = {
+  where?: InputMaybe<TaskManyWhereInput>;
+};
+
+export type MutationDeleteManyTasksConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TaskManyWhereInput>;
+};
+
 export type MutationDeletePageArgs = {
   where: PageWhereUniqueInput;
 };
@@ -2525,6 +2664,14 @@ export type MutationDeleteScheduledReleaseArgs = {
 
 export type MutationDeleteSeoArgs = {
   where: SeoWhereUniqueInput;
+};
+
+export type MutationDeleteTaskArgs = {
+  where: TaskWhereUniqueInput;
+};
+
+export type MutationDeleteTaskStatusArgs = {
+  where: TaskStatusWhereUniqueInput;
 };
 
 export type MutationPublishAssetArgs = {
@@ -2665,6 +2812,50 @@ export type MutationPublishManySeosConnectionArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type MutationPublishManyTaskStatusesArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<TaskStatusManyWhereInput>;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type MutationPublishManyTaskStatusesConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<TaskStatusManyWhereInput>;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type MutationPublishManyTasksArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<TaskManyWhereInput>;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type MutationPublishManyTasksConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  from?: InputMaybe<Stage>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  to?: Array<Stage>;
+  where?: InputMaybe<TaskManyWhereInput>;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type MutationPublishPageArgs = {
   locales?: InputMaybe<Array<Locale>>;
   publishBase?: InputMaybe<Scalars['Boolean']>;
@@ -2686,6 +2877,22 @@ export type MutationPublishSeoArgs = {
   publishBase?: InputMaybe<Scalars['Boolean']>;
   to?: Array<Stage>;
   where: SeoWhereUniqueInput;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type MutationPublishTaskArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
+  to?: Array<Stage>;
+  where: TaskWhereUniqueInput;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type MutationPublishTaskStatusArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
+  to?: Array<Stage>;
+  where: TaskStatusWhereUniqueInput;
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
@@ -2743,6 +2950,26 @@ export type MutationSchedulePublishSeoArgs = {
   withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type MutationSchedulePublishTaskArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
+  releaseAt?: InputMaybe<Scalars['DateTime']>;
+  releaseId?: InputMaybe<Scalars['String']>;
+  to?: Array<Stage>;
+  where: TaskWhereUniqueInput;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type MutationSchedulePublishTaskStatusArgs = {
+  locales?: InputMaybe<Array<Locale>>;
+  publishBase?: InputMaybe<Scalars['Boolean']>;
+  releaseAt?: InputMaybe<Scalars['DateTime']>;
+  releaseId?: InputMaybe<Scalars['String']>;
+  to?: Array<Stage>;
+  where: TaskStatusWhereUniqueInput;
+  withDefaultLocale?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type MutationScheduleUnpublishAssetArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -2791,6 +3018,24 @@ export type MutationScheduleUnpublishSeoArgs = {
   releaseId?: InputMaybe<Scalars['String']>;
   unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where: SeoWhereUniqueInput;
+};
+
+export type MutationScheduleUnpublishTaskArgs = {
+  from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  releaseAt?: InputMaybe<Scalars['DateTime']>;
+  releaseId?: InputMaybe<Scalars['String']>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
+  where: TaskWhereUniqueInput;
+};
+
+export type MutationScheduleUnpublishTaskStatusArgs = {
+  from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  releaseAt?: InputMaybe<Scalars['DateTime']>;
+  releaseId?: InputMaybe<Scalars['String']>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
+  where: TaskStatusWhereUniqueInput;
 };
 
 export type MutationUnpublishAssetArgs = {
@@ -2922,6 +3167,46 @@ export type MutationUnpublishManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
+export type MutationUnpublishManyTaskStatusesArgs = {
+  from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<TaskStatusManyWhereInput>;
+};
+
+export type MutationUnpublishManyTaskStatusesConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: InputMaybe<Stage>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<TaskStatusManyWhereInput>;
+};
+
+export type MutationUnpublishManyTasksArgs = {
+  from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<TaskManyWhereInput>;
+};
+
+export type MutationUnpublishManyTasksConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  first?: InputMaybe<Scalars['Int']>;
+  from?: Array<Stage>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: InputMaybe<Stage>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
+  where?: InputMaybe<TaskManyWhereInput>;
+};
+
 export type MutationUnpublishPageArgs = {
   from?: Array<Stage>;
   locales?: InputMaybe<Array<Locale>>;
@@ -2941,6 +3226,20 @@ export type MutationUnpublishSeoArgs = {
   locales?: InputMaybe<Array<Locale>>;
   unpublishBase?: InputMaybe<Scalars['Boolean']>;
   where: SeoWhereUniqueInput;
+};
+
+export type MutationUnpublishTaskArgs = {
+  from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
+  where: TaskWhereUniqueInput;
+};
+
+export type MutationUnpublishTaskStatusArgs = {
+  from?: Array<Stage>;
+  locales?: InputMaybe<Array<Locale>>;
+  unpublishBase?: InputMaybe<Scalars['Boolean']>;
+  where: TaskStatusWhereUniqueInput;
 };
 
 export type MutationUpdateAssetArgs = {
@@ -3048,6 +3347,36 @@ export type MutationUpdateManySeosConnectionArgs = {
   where?: InputMaybe<SeoManyWhereInput>;
 };
 
+export type MutationUpdateManyTaskStatusesArgs = {
+  data: TaskStatusUpdateManyInput;
+  where?: InputMaybe<TaskStatusManyWhereInput>;
+};
+
+export type MutationUpdateManyTaskStatusesConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  data: TaskStatusUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TaskStatusManyWhereInput>;
+};
+
+export type MutationUpdateManyTasksArgs = {
+  data: TaskUpdateManyInput;
+  where?: InputMaybe<TaskManyWhereInput>;
+};
+
+export type MutationUpdateManyTasksConnectionArgs = {
+  after?: InputMaybe<Scalars['ID']>;
+  before?: InputMaybe<Scalars['ID']>;
+  data: TaskUpdateManyInput;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TaskManyWhereInput>;
+};
+
 export type MutationUpdatePageArgs = {
   data: PageUpdateInput;
   where: PageWhereUniqueInput;
@@ -3066,6 +3395,16 @@ export type MutationUpdateScheduledReleaseArgs = {
 export type MutationUpdateSeoArgs = {
   data: SeoUpdateInput;
   where: SeoWhereUniqueInput;
+};
+
+export type MutationUpdateTaskArgs = {
+  data: TaskUpdateInput;
+  where: TaskWhereUniqueInput;
+};
+
+export type MutationUpdateTaskStatusArgs = {
+  data: TaskStatusUpdateInput;
+  where: TaskStatusWhereUniqueInput;
 };
 
 export type MutationUpsertAssetArgs = {
@@ -3096,6 +3435,16 @@ export type MutationUpsertPostArgs = {
 export type MutationUpsertSeoArgs = {
   upsert: SeoUpsertInput;
   where: SeoWhereUniqueInput;
+};
+
+export type MutationUpsertTaskArgs = {
+  upsert: TaskUpsertInput;
+  where: TaskWhereUniqueInput;
+};
+
+export type MutationUpsertTaskStatusArgs = {
+  upsert: TaskStatusUpsertInput;
+  where: TaskStatusWhereUniqueInput;
 };
 
 /** An object with an ID */
@@ -3150,6 +3499,7 @@ export type PageCreatedAtArgs = {
 };
 
 export type PageCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3175,6 +3525,7 @@ export type PagePublishedAtArgs = {
 };
 
 export type PagePublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3182,6 +3533,7 @@ export type PageScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
@@ -3189,6 +3541,7 @@ export type PageScheduledInArgs = {
 };
 
 export type PageSeoArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3197,6 +3550,7 @@ export type PageUpdatedAtArgs = {
 };
 
 export type PageUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3755,10 +4109,12 @@ export type Post = Node & {
 };
 
 export type PostAuthorArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
 export type PostCoverImageArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3767,6 +4123,7 @@ export type PostCreatedAtArgs = {
 };
 
 export type PostCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3792,6 +4149,7 @@ export type PostPublishedAtArgs = {
 };
 
 export type PostPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3799,6 +4157,7 @@ export type PostScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
@@ -3806,6 +4165,7 @@ export type PostScheduledInArgs = {
 };
 
 export type PostSeoArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -3814,6 +4174,7 @@ export type PostUpdatedAtArgs = {
 };
 
 export type PostUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -4448,6 +4809,22 @@ export type Query = {
   seos: Array<Seo>;
   /** Retrieve multiple seos using the Relay connection interface */
   seosConnection: SeoConnection;
+  /** Retrieve a single task */
+  task?: Maybe<Task>;
+  /** Retrieve a single taskStatus */
+  taskStatus?: Maybe<TaskStatus>;
+  /** Retrieve document version */
+  taskStatusVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple taskStatuses */
+  taskStatuses: Array<TaskStatus>;
+  /** Retrieve multiple taskStatuses using the Relay connection interface */
+  taskStatusesConnection: TaskStatusConnection;
+  /** Retrieve document version */
+  taskVersion?: Maybe<DocumentVersion>;
+  /** Retrieve multiple tasks */
+  tasks: Array<Task>;
+  /** Retrieve multiple tasks using the Relay connection interface */
+  tasksConnection: TaskConnection;
   /** Retrieve a single user */
   user?: Maybe<User>;
   /** Retrieve multiple users */
@@ -4726,6 +5103,74 @@ export type QuerySeosConnectionArgs = {
   where?: InputMaybe<SeoWhereInput>;
 };
 
+export type QueryTaskArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: TaskWhereUniqueInput;
+};
+
+export type QueryTaskStatusArgs = {
+  locales?: Array<Locale>;
+  stage?: Stage;
+  where: TaskStatusWhereUniqueInput;
+};
+
+export type QueryTaskStatusVersionArgs = {
+  where: VersionWhereInput;
+};
+
+export type QueryTaskStatusesArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<TaskStatusOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: Stage;
+  where?: InputMaybe<TaskStatusWhereInput>;
+};
+
+export type QueryTaskStatusesConnectionArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<TaskStatusOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: Stage;
+  where?: InputMaybe<TaskStatusWhereInput>;
+};
+
+export type QueryTaskVersionArgs = {
+  where: VersionWhereInput;
+};
+
+export type QueryTasksArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<TaskOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: Stage;
+  where?: InputMaybe<TaskWhereInput>;
+};
+
+export type QueryTasksConnectionArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: Array<Locale>;
+  orderBy?: InputMaybe<TaskOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  stage?: Stage;
+  where?: InputMaybe<TaskWhereInput>;
+};
+
 export type QueryUserArgs = {
   locales?: Array<Locale>;
   stage?: Stage;
@@ -4825,6 +5270,7 @@ export type ScheduledOperationAffectedDocumentsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
@@ -4832,6 +5278,7 @@ export type ScheduledOperationAffectedDocumentsArgs = {
 
 /** Scheduled Operation system model */
 export type ScheduledOperationCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -4844,16 +5291,19 @@ export type ScheduledOperationDocumentInStagesArgs = {
 
 /** Scheduled Operation system model */
 export type ScheduledOperationPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
 /** Scheduled Operation system model */
 export type ScheduledOperationReleaseArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
 /** Scheduled Operation system model */
 export type ScheduledOperationUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -4863,7 +5313,9 @@ export type ScheduledOperationAffectedDocument =
   | Job
   | Page
   | Post
-  | Seo;
+  | Seo
+  | Task
+  | TaskStatus;
 
 export type ScheduledOperationConnectInput = {
   /** Allow to specify document position in list of connected documents, will default to appending at end of list */
@@ -5239,6 +5691,7 @@ export type ScheduledRelease = Node & {
 
 /** Scheduled Release system model */
 export type ScheduledReleaseCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -5254,6 +5707,7 @@ export type ScheduledReleaseOperationsArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   orderBy?: InputMaybe<ScheduledOperationOrderByInput>;
@@ -5263,11 +5717,13 @@ export type ScheduledReleaseOperationsArgs = {
 
 /** Scheduled Release system model */
 export type ScheduledReleasePublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
 /** Scheduled Release system model */
 export type ScheduledReleaseUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -5813,6 +6269,7 @@ export type SeoCreatedAtArgs = {
 };
 
 export type SeoCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -5829,6 +6286,7 @@ export type SeoHistoryArgs = {
 };
 
 export type SeoImageArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -5838,6 +6296,7 @@ export type SeoLocalizationsArgs = {
 };
 
 export type SeoParentArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -5846,6 +6305,7 @@ export type SeoPublishedAtArgs = {
 };
 
 export type SeoPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -5853,6 +6313,7 @@ export type SeoScheduledInArgs = {
   after?: InputMaybe<Scalars['String']>;
   before?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   last?: InputMaybe<Scalars['Int']>;
   locales?: InputMaybe<Array<Locale>>;
   skip?: InputMaybe<Scalars['Int']>;
@@ -5864,6 +6325,7 @@ export type SeoUpdatedAtArgs = {
 };
 
 export type SeoUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
   locales?: InputMaybe<Array<Locale>>;
 };
 
@@ -6436,6 +6898,1169 @@ export enum SystemDateTimeFieldVariation {
   Localization = 'LOCALIZATION',
 }
 
+/** A task in progress or finished. It is relationed with a goal. */
+export type Task = Node & {
+  __typename?: 'Task';
+  /** The description of task */
+  content?: Maybe<Scalars['String']>;
+  /** The time the document was created */
+  createdAt: Scalars['DateTime'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** Get the document in other stages */
+  documentInStages: Array<Task>;
+  /** List of Task versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  isActive?: Maybe<Scalars['Boolean']>;
+  /** If task is finished */
+  isDone?: Maybe<Scalars['Boolean']>;
+  /** Color of priority of task */
+  labels: Array<Scalars['String']>;
+  /** System Locale field */
+  locale: Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<Task>;
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  /** System stage field */
+  stage: Stage;
+  taskStatusRelation?: Maybe<TaskStatus>;
+  /** It is the status of the task, something like "in qeue", "stopped", "'doing" , "finished" */
+  title: Scalars['String'];
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskCreatedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+  stages?: Array<Stage>;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskLocalizationsArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  locales?: Array<Locale>;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskPublishedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskTaskStatusRelationArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskUpdatedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
+};
+
+/** A task in progress or finished. It is relationed with a goal. */
+export type TaskUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type TaskConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: TaskWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type TaskConnection = {
+  __typename?: 'TaskConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<TaskEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type TaskCreateInput = {
+  /** content input for default locale (en) */
+  content?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
+  isDone?: InputMaybe<Scalars['Boolean']>;
+  labels?: InputMaybe<Array<Scalars['String']>>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: InputMaybe<TaskCreateLocalizationsInput>;
+  taskStatusRelation?: InputMaybe<TaskStatusCreateOneInlineInput>;
+  /** title input for default locale (en) */
+  title: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type TaskCreateLocalizationDataInput = {
+  content?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  title: Scalars['String'];
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type TaskCreateLocalizationInput = {
+  /** Localization input */
+  data: TaskCreateLocalizationDataInput;
+  locale: Locale;
+};
+
+export type TaskCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: InputMaybe<Array<TaskCreateLocalizationInput>>;
+};
+
+export type TaskCreateManyInlineInput = {
+  /** Connect multiple existing Task documents */
+  connect?: InputMaybe<Array<TaskWhereUniqueInput>>;
+  /** Create and connect multiple existing Task documents */
+  create?: InputMaybe<Array<TaskCreateInput>>;
+};
+
+export type TaskCreateOneInlineInput = {
+  /** Connect one existing Task document */
+  connect?: InputMaybe<TaskWhereUniqueInput>;
+  /** Create and connect one Task document */
+  create?: InputMaybe<TaskCreateInput>;
+};
+
+/** An edge in a connection. */
+export type TaskEdge = {
+  __typename?: 'TaskEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node: Task;
+};
+
+/** Identifies documents */
+export type TaskManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TaskWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TaskWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TaskWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<TaskWhereStageInput>;
+  documentInStages_none?: InputMaybe<TaskWhereStageInput>;
+  documentInStages_some?: InputMaybe<TaskWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  isActive_not?: InputMaybe<Scalars['Boolean']>;
+  isDone?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  isDone_not?: InputMaybe<Scalars['Boolean']>;
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  labels?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array contains *all* items provided to the filter */
+  labels_contains_all?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  labels_contains_none?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array contains at least one item provided to the filter */
+  labels_contains_some?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  labels_not?: InputMaybe<Array<Scalars['String']>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  taskStatusRelation?: InputMaybe<TaskStatusWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum TaskOrderByInput {
+  ContentAsc = 'content_ASC',
+  ContentDesc = 'content_DESC',
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  IsActiveAsc = 'isActive_ASC',
+  IsActiveDesc = 'isActive_DESC',
+  IsDoneAsc = 'isDone_ASC',
+  IsDoneDesc = 'isDone_DESC',
+  LabelsAsc = 'labels_ASC',
+  LabelsDesc = 'labels_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC',
+}
+
+/** Status of a task */
+export type TaskStatus = Node & {
+  __typename?: 'TaskStatus';
+  /** Color of status */
+  color: Array<Scalars['String']>;
+  /** The time the document was created */
+  createdAt: Scalars['DateTime'];
+  /** User that created this document */
+  createdBy?: Maybe<User>;
+  /** Get the document in other stages */
+  documentInStages: Array<TaskStatus>;
+  /** It is done */
+  done?: Maybe<Scalars['Boolean']>;
+  /** List of TaskStatus versions */
+  history: Array<Version>;
+  /** The unique identifier */
+  id: Scalars['ID'];
+  /** System Locale field */
+  locale: Locale;
+  /** Get the other localizations for this document */
+  localizations: Array<TaskStatus>;
+  /** The time the document was published. Null on documents in draft stage. */
+  publishedAt?: Maybe<Scalars['DateTime']>;
+  /** User that last published this document */
+  publishedBy?: Maybe<User>;
+  scheduledIn: Array<ScheduledOperation>;
+  /** System stage field */
+  stage: Stage;
+  tasks: Array<Task>;
+  /** Title of status */
+  title?: Maybe<Scalars['String']>;
+  /** The time the document was updated */
+  updatedAt: Scalars['DateTime'];
+  /** User that last updated this document */
+  updatedBy?: Maybe<User>;
+};
+
+/** Status of a task */
+export type TaskStatusCreatedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
+};
+
+/** Status of a task */
+export type TaskStatusCreatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+/** Status of a task */
+export type TaskStatusDocumentInStagesArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  inheritLocale?: Scalars['Boolean'];
+  stages?: Array<Stage>;
+};
+
+/** Status of a task */
+export type TaskStatusHistoryArgs = {
+  limit?: Scalars['Int'];
+  skip?: Scalars['Int'];
+  stageOverride?: InputMaybe<Stage>;
+};
+
+/** Status of a task */
+export type TaskStatusLocalizationsArgs = {
+  includeCurrent?: Scalars['Boolean'];
+  locales?: Array<Locale>;
+};
+
+/** Status of a task */
+export type TaskStatusPublishedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
+};
+
+/** Status of a task */
+export type TaskStatusPublishedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+/** Status of a task */
+export type TaskStatusScheduledInArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<ScheduledOperationWhereInput>;
+};
+
+/** Status of a task */
+export type TaskStatusTasksArgs = {
+  after?: InputMaybe<Scalars['String']>;
+  before?: InputMaybe<Scalars['String']>;
+  first?: InputMaybe<Scalars['Int']>;
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  last?: InputMaybe<Scalars['Int']>;
+  locales?: InputMaybe<Array<Locale>>;
+  orderBy?: InputMaybe<TaskOrderByInput>;
+  skip?: InputMaybe<Scalars['Int']>;
+  where?: InputMaybe<TaskWhereInput>;
+};
+
+/** Status of a task */
+export type TaskStatusUpdatedAtArgs = {
+  variation?: SystemDateTimeFieldVariation;
+};
+
+/** Status of a task */
+export type TaskStatusUpdatedByArgs = {
+  forceParentLocale?: InputMaybe<Scalars['Boolean']>;
+  locales?: InputMaybe<Array<Locale>>;
+};
+
+export type TaskStatusConnectInput = {
+  /** Allow to specify document position in list of connected documents, will default to appending at end of list */
+  position?: InputMaybe<ConnectPositionInput>;
+  /** Document to connect */
+  where: TaskStatusWhereUniqueInput;
+};
+
+/** A connection to a list of items. */
+export type TaskStatusConnection = {
+  __typename?: 'TaskStatusConnection';
+  aggregate: Aggregate;
+  /** A list of edges. */
+  edges: Array<TaskStatusEdge>;
+  /** Information to aid in pagination. */
+  pageInfo: PageInfo;
+};
+
+export type TaskStatusCreateInput = {
+  color?: InputMaybe<Array<Scalars['String']>>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  done?: InputMaybe<Scalars['Boolean']>;
+  /** Inline mutations for managing document localizations excluding the default locale */
+  localizations?: InputMaybe<TaskStatusCreateLocalizationsInput>;
+  tasks?: InputMaybe<TaskCreateManyInlineInput>;
+  /** title input for default locale (en) */
+  title?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type TaskStatusCreateLocalizationDataInput = {
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  title?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+};
+
+export type TaskStatusCreateLocalizationInput = {
+  /** Localization input */
+  data: TaskStatusCreateLocalizationDataInput;
+  locale: Locale;
+};
+
+export type TaskStatusCreateLocalizationsInput = {
+  /** Create localizations for the newly-created document */
+  create?: InputMaybe<Array<TaskStatusCreateLocalizationInput>>;
+};
+
+export type TaskStatusCreateManyInlineInput = {
+  /** Connect multiple existing TaskStatus documents */
+  connect?: InputMaybe<Array<TaskStatusWhereUniqueInput>>;
+  /** Create and connect multiple existing TaskStatus documents */
+  create?: InputMaybe<Array<TaskStatusCreateInput>>;
+};
+
+export type TaskStatusCreateOneInlineInput = {
+  /** Connect one existing TaskStatus document */
+  connect?: InputMaybe<TaskStatusWhereUniqueInput>;
+  /** Create and connect one TaskStatus document */
+  create?: InputMaybe<TaskStatusCreateInput>;
+};
+
+/** An edge in a connection. */
+export type TaskStatusEdge = {
+  __typename?: 'TaskStatusEdge';
+  /** A cursor for use in pagination. */
+  cursor: Scalars['String'];
+  /** The item at the end of the edge. */
+  node: TaskStatus;
+};
+
+/** Identifies documents */
+export type TaskStatusManyWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TaskStatusWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TaskStatusWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TaskStatusWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  color?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array contains *all* items provided to the filter */
+  color_contains_all?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  color_contains_none?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array contains at least one item provided to the filter */
+  color_contains_some?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  color_not?: InputMaybe<Array<Scalars['String']>>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<TaskStatusWhereStageInput>;
+  documentInStages_none?: InputMaybe<TaskStatusWhereStageInput>;
+  documentInStages_some?: InputMaybe<TaskStatusWhereStageInput>;
+  done?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  done_not?: InputMaybe<Scalars['Boolean']>;
+  id?: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  tasks_every?: InputMaybe<TaskWhereInput>;
+  tasks_none?: InputMaybe<TaskWhereInput>;
+  tasks_some?: InputMaybe<TaskWhereInput>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+export enum TaskStatusOrderByInput {
+  ColorAsc = 'color_ASC',
+  ColorDesc = 'color_DESC',
+  CreatedAtAsc = 'createdAt_ASC',
+  CreatedAtDesc = 'createdAt_DESC',
+  DoneAsc = 'done_ASC',
+  DoneDesc = 'done_DESC',
+  IdAsc = 'id_ASC',
+  IdDesc = 'id_DESC',
+  PublishedAtAsc = 'publishedAt_ASC',
+  PublishedAtDesc = 'publishedAt_DESC',
+  TitleAsc = 'title_ASC',
+  TitleDesc = 'title_DESC',
+  UpdatedAtAsc = 'updatedAt_ASC',
+  UpdatedAtDesc = 'updatedAt_DESC',
+}
+
+export type TaskStatusUpdateInput = {
+  color?: InputMaybe<Array<Scalars['String']>>;
+  done?: InputMaybe<Scalars['Boolean']>;
+  /** Manage document localizations */
+  localizations?: InputMaybe<TaskStatusUpdateLocalizationsInput>;
+  tasks?: InputMaybe<TaskUpdateManyInlineInput>;
+  /** title input for default locale (en) */
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type TaskStatusUpdateLocalizationDataInput = {
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type TaskStatusUpdateLocalizationInput = {
+  data: TaskStatusUpdateLocalizationDataInput;
+  locale: Locale;
+};
+
+export type TaskStatusUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: InputMaybe<Array<TaskStatusCreateLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: InputMaybe<Array<Locale>>;
+  /** Localizations to update */
+  update?: InputMaybe<Array<TaskStatusUpdateLocalizationInput>>;
+  upsert?: InputMaybe<Array<TaskStatusUpsertLocalizationInput>>;
+};
+
+export type TaskStatusUpdateManyInlineInput = {
+  /** Connect multiple existing TaskStatus documents */
+  connect?: InputMaybe<Array<TaskStatusConnectInput>>;
+  /** Create and connect multiple TaskStatus documents */
+  create?: InputMaybe<Array<TaskStatusCreateInput>>;
+  /** Delete multiple TaskStatus documents */
+  delete?: InputMaybe<Array<TaskStatusWhereUniqueInput>>;
+  /** Disconnect multiple TaskStatus documents */
+  disconnect?: InputMaybe<Array<TaskStatusWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing TaskStatus documents */
+  set?: InputMaybe<Array<TaskStatusWhereUniqueInput>>;
+  /** Update multiple TaskStatus documents */
+  update?: InputMaybe<Array<TaskStatusUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple TaskStatus documents */
+  upsert?: InputMaybe<Array<TaskStatusUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type TaskStatusUpdateManyInput = {
+  color?: InputMaybe<Array<Scalars['String']>>;
+  done?: InputMaybe<Scalars['Boolean']>;
+  /** Optional updates to localizations */
+  localizations?: InputMaybe<TaskStatusUpdateManyLocalizationsInput>;
+  /** title input for default locale (en) */
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type TaskStatusUpdateManyLocalizationDataInput = {
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type TaskStatusUpdateManyLocalizationInput = {
+  data: TaskStatusUpdateManyLocalizationDataInput;
+  locale: Locale;
+};
+
+export type TaskStatusUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: InputMaybe<Array<TaskStatusUpdateManyLocalizationInput>>;
+};
+
+export type TaskStatusUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: TaskStatusUpdateManyInput;
+  /** Document search */
+  where: TaskStatusWhereInput;
+};
+
+export type TaskStatusUpdateOneInlineInput = {
+  /** Connect existing TaskStatus document */
+  connect?: InputMaybe<TaskStatusWhereUniqueInput>;
+  /** Create and connect one TaskStatus document */
+  create?: InputMaybe<TaskStatusCreateInput>;
+  /** Delete currently connected TaskStatus document */
+  delete?: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected TaskStatus document */
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  /** Update single TaskStatus document */
+  update?: InputMaybe<TaskStatusUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single TaskStatus document */
+  upsert?: InputMaybe<TaskStatusUpsertWithNestedWhereUniqueInput>;
+};
+
+export type TaskStatusUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: TaskStatusUpdateInput;
+  /** Unique document search */
+  where: TaskStatusWhereUniqueInput;
+};
+
+export type TaskStatusUpsertInput = {
+  /** Create document if it didn't exist */
+  create: TaskStatusCreateInput;
+  /** Update document if it exists */
+  update: TaskStatusUpdateInput;
+};
+
+export type TaskStatusUpsertLocalizationInput = {
+  create: TaskStatusCreateLocalizationDataInput;
+  locale: Locale;
+  update: TaskStatusUpdateLocalizationDataInput;
+};
+
+export type TaskStatusUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: TaskStatusUpsertInput;
+  /** Unique document search */
+  where: TaskStatusWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type TaskStatusWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** Identifies documents */
+export type TaskStatusWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TaskStatusWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TaskStatusWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TaskStatusWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  color?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array contains *all* items provided to the filter */
+  color_contains_all?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  color_contains_none?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array contains at least one item provided to the filter */
+  color_contains_some?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  color_not?: InputMaybe<Array<Scalars['String']>>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<TaskStatusWhereStageInput>;
+  documentInStages_none?: InputMaybe<TaskStatusWhereStageInput>;
+  documentInStages_some?: InputMaybe<TaskStatusWhereStageInput>;
+  done?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  done_not?: InputMaybe<Scalars['Boolean']>;
+  id?: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  tasks_every?: InputMaybe<TaskWhereInput>;
+  tasks_none?: InputMaybe<TaskWhereInput>;
+  tasks_some?: InputMaybe<TaskWhereInput>;
+  title?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  title_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  title_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type TaskStatusWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TaskStatusWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TaskStatusWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TaskStatusWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<TaskStatusWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References TaskStatus record uniquely */
+export type TaskStatusWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
+export type TaskUpdateInput = {
+  /** content input for default locale (en) */
+  content?: InputMaybe<Scalars['String']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
+  isDone?: InputMaybe<Scalars['Boolean']>;
+  labels?: InputMaybe<Array<Scalars['String']>>;
+  /** Manage document localizations */
+  localizations?: InputMaybe<TaskUpdateLocalizationsInput>;
+  taskStatusRelation?: InputMaybe<TaskStatusUpdateOneInlineInput>;
+  /** title input for default locale (en) */
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type TaskUpdateLocalizationDataInput = {
+  content?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type TaskUpdateLocalizationInput = {
+  data: TaskUpdateLocalizationDataInput;
+  locale: Locale;
+};
+
+export type TaskUpdateLocalizationsInput = {
+  /** Localizations to create */
+  create?: InputMaybe<Array<TaskCreateLocalizationInput>>;
+  /** Localizations to delete */
+  delete?: InputMaybe<Array<Locale>>;
+  /** Localizations to update */
+  update?: InputMaybe<Array<TaskUpdateLocalizationInput>>;
+  upsert?: InputMaybe<Array<TaskUpsertLocalizationInput>>;
+};
+
+export type TaskUpdateManyInlineInput = {
+  /** Connect multiple existing Task documents */
+  connect?: InputMaybe<Array<TaskConnectInput>>;
+  /** Create and connect multiple Task documents */
+  create?: InputMaybe<Array<TaskCreateInput>>;
+  /** Delete multiple Task documents */
+  delete?: InputMaybe<Array<TaskWhereUniqueInput>>;
+  /** Disconnect multiple Task documents */
+  disconnect?: InputMaybe<Array<TaskWhereUniqueInput>>;
+  /** Override currently-connected documents with multiple existing Task documents */
+  set?: InputMaybe<Array<TaskWhereUniqueInput>>;
+  /** Update multiple Task documents */
+  update?: InputMaybe<Array<TaskUpdateWithNestedWhereUniqueInput>>;
+  /** Upsert multiple Task documents */
+  upsert?: InputMaybe<Array<TaskUpsertWithNestedWhereUniqueInput>>;
+};
+
+export type TaskUpdateManyInput = {
+  /** content input for default locale (en) */
+  content?: InputMaybe<Scalars['String']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
+  isDone?: InputMaybe<Scalars['Boolean']>;
+  labels?: InputMaybe<Array<Scalars['String']>>;
+  /** Optional updates to localizations */
+  localizations?: InputMaybe<TaskUpdateManyLocalizationsInput>;
+  /** title input for default locale (en) */
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type TaskUpdateManyLocalizationDataInput = {
+  content?: InputMaybe<Scalars['String']>;
+  title?: InputMaybe<Scalars['String']>;
+};
+
+export type TaskUpdateManyLocalizationInput = {
+  data: TaskUpdateManyLocalizationDataInput;
+  locale: Locale;
+};
+
+export type TaskUpdateManyLocalizationsInput = {
+  /** Localizations to update */
+  update?: InputMaybe<Array<TaskUpdateManyLocalizationInput>>;
+};
+
+export type TaskUpdateManyWithNestedWhereInput = {
+  /** Update many input */
+  data: TaskUpdateManyInput;
+  /** Document search */
+  where: TaskWhereInput;
+};
+
+export type TaskUpdateOneInlineInput = {
+  /** Connect existing Task document */
+  connect?: InputMaybe<TaskWhereUniqueInput>;
+  /** Create and connect one Task document */
+  create?: InputMaybe<TaskCreateInput>;
+  /** Delete currently connected Task document */
+  delete?: InputMaybe<Scalars['Boolean']>;
+  /** Disconnect currently connected Task document */
+  disconnect?: InputMaybe<Scalars['Boolean']>;
+  /** Update single Task document */
+  update?: InputMaybe<TaskUpdateWithNestedWhereUniqueInput>;
+  /** Upsert single Task document */
+  upsert?: InputMaybe<TaskUpsertWithNestedWhereUniqueInput>;
+};
+
+export type TaskUpdateWithNestedWhereUniqueInput = {
+  /** Document to update */
+  data: TaskUpdateInput;
+  /** Unique document search */
+  where: TaskWhereUniqueInput;
+};
+
+export type TaskUpsertInput = {
+  /** Create document if it didn't exist */
+  create: TaskCreateInput;
+  /** Update document if it exists */
+  update: TaskUpdateInput;
+};
+
+export type TaskUpsertLocalizationInput = {
+  create: TaskCreateLocalizationDataInput;
+  locale: Locale;
+  update: TaskUpdateLocalizationDataInput;
+};
+
+export type TaskUpsertWithNestedWhereUniqueInput = {
+  /** Upsert data */
+  data: TaskUpsertInput;
+  /** Unique document search */
+  where: TaskWhereUniqueInput;
+};
+
+/** This contains a set of filters that can be used to compare values internally */
+export type TaskWhereComparatorInput = {
+  /** This field can be used to request to check if the entry is outdated by internal comparison */
+  outdated_to?: InputMaybe<Scalars['Boolean']>;
+};
+
+/** Identifies documents */
+export type TaskWhereInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TaskWhereInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TaskWhereInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TaskWhereInput>>;
+  /** Contains search across all appropriate fields. */
+  _search?: InputMaybe<Scalars['String']>;
+  content?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  content_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  content_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  content_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  content_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  content_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  content_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  content_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  content_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  content_starts_with?: InputMaybe<Scalars['String']>;
+  createdAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  createdAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  createdAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  createdAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  createdAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  createdAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  createdAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  createdAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  createdBy?: InputMaybe<UserWhereInput>;
+  documentInStages_every?: InputMaybe<TaskWhereStageInput>;
+  documentInStages_none?: InputMaybe<TaskWhereStageInput>;
+  documentInStages_some?: InputMaybe<TaskWhereStageInput>;
+  id?: InputMaybe<Scalars['ID']>;
+  /** All values containing the given string. */
+  id_contains?: InputMaybe<Scalars['ID']>;
+  /** All values ending with the given string. */
+  id_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are contained in given list. */
+  id_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values that are not equal to given value. */
+  id_not?: InputMaybe<Scalars['ID']>;
+  /** All values not containing the given string. */
+  id_not_contains?: InputMaybe<Scalars['ID']>;
+  /** All values not ending with the given string */
+  id_not_ends_with?: InputMaybe<Scalars['ID']>;
+  /** All values that are not contained in given list. */
+  id_not_in?: InputMaybe<Array<InputMaybe<Scalars['ID']>>>;
+  /** All values not starting with the given string. */
+  id_not_starts_with?: InputMaybe<Scalars['ID']>;
+  /** All values starting with the given string. */
+  id_starts_with?: InputMaybe<Scalars['ID']>;
+  isActive?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  isActive_not?: InputMaybe<Scalars['Boolean']>;
+  isDone?: InputMaybe<Scalars['Boolean']>;
+  /** All values that are not equal to given value. */
+  isDone_not?: InputMaybe<Scalars['Boolean']>;
+  /** Matches if the field array contains *all* items provided to the filter and order does match */
+  labels?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array contains *all* items provided to the filter */
+  labels_contains_all?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array does not contain any of the items provided to the filter */
+  labels_contains_none?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array contains at least one item provided to the filter */
+  labels_contains_some?: InputMaybe<Array<Scalars['String']>>;
+  /** Matches if the field array does not contains *all* items provided to the filter or order does not match */
+  labels_not?: InputMaybe<Array<Scalars['String']>>;
+  publishedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  publishedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  publishedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  publishedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  publishedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  publishedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  publishedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  publishedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  publishedBy?: InputMaybe<UserWhereInput>;
+  scheduledIn_every?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_none?: InputMaybe<ScheduledOperationWhereInput>;
+  scheduledIn_some?: InputMaybe<ScheduledOperationWhereInput>;
+  taskStatusRelation?: InputMaybe<TaskStatusWhereInput>;
+  title?: InputMaybe<Scalars['String']>;
+  /** All values containing the given string. */
+  title_contains?: InputMaybe<Scalars['String']>;
+  /** All values ending with the given string. */
+  title_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are contained in given list. */
+  title_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values that are not equal to given value. */
+  title_not?: InputMaybe<Scalars['String']>;
+  /** All values not containing the given string. */
+  title_not_contains?: InputMaybe<Scalars['String']>;
+  /** All values not ending with the given string */
+  title_not_ends_with?: InputMaybe<Scalars['String']>;
+  /** All values that are not contained in given list. */
+  title_not_in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
+  /** All values not starting with the given string. */
+  title_not_starts_with?: InputMaybe<Scalars['String']>;
+  /** All values starting with the given string. */
+  title_starts_with?: InputMaybe<Scalars['String']>;
+  updatedAt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than the given value. */
+  updatedAt_gt?: InputMaybe<Scalars['DateTime']>;
+  /** All values greater than or equal the given value. */
+  updatedAt_gte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are contained in given list. */
+  updatedAt_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  /** All values less than the given value. */
+  updatedAt_lt?: InputMaybe<Scalars['DateTime']>;
+  /** All values less than or equal the given value. */
+  updatedAt_lte?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not equal to given value. */
+  updatedAt_not?: InputMaybe<Scalars['DateTime']>;
+  /** All values that are not contained in given list. */
+  updatedAt_not_in?: InputMaybe<Array<InputMaybe<Scalars['DateTime']>>>;
+  updatedBy?: InputMaybe<UserWhereInput>;
+};
+
+/** The document in stages filter allows specifying a stage entry to cross compare the same document between different stages */
+export type TaskWhereStageInput = {
+  /** Logical AND on all given filters. */
+  AND?: InputMaybe<Array<TaskWhereStageInput>>;
+  /** Logical NOT on all given filters combined by AND. */
+  NOT?: InputMaybe<Array<TaskWhereStageInput>>;
+  /** Logical OR on all given filters. */
+  OR?: InputMaybe<Array<TaskWhereStageInput>>;
+  /** This field contains fields which can be set as true or false to specify an internal comparison */
+  compareWithParent?: InputMaybe<TaskWhereComparatorInput>;
+  /** Specify the stage to compare with */
+  stage?: InputMaybe<Stage>;
+};
+
+/** References Task record uniquely */
+export type TaskWhereUniqueInput = {
+  id?: InputMaybe<Scalars['ID']>;
+};
+
 export type UnpublishLocaleInput = {
   /** Locales to unpublish */
   locale: Locale;
@@ -6977,6 +8602,39 @@ export type GetPageWithJobsQuery = {
   }>;
 };
 
+export type GetPageWithTasksByStatusQueryVariables = Exact<{
+  slug?: InputMaybe<Scalars['String']>;
+  locale: Locale;
+}>;
+
+export type GetPageWithTasksByStatusQuery = {
+  __typename?: 'Query';
+  taskStatuses: Array<{
+    __typename?: 'TaskStatus';
+    id: string;
+    title?: string | null;
+    done?: boolean | null;
+    tasks: Array<{
+      __typename?: 'Task';
+      content?: string | null;
+      labels: Array<string>;
+      id: string;
+    }>;
+  }>;
+  page?: {
+    __typename?: 'Page';
+    id: string;
+    title: string;
+    content: { __typename?: 'RichText'; html: string };
+    seo?: {
+      __typename?: 'Seo';
+      description?: string | null;
+      title?: string | null;
+      image?: { __typename?: 'Asset'; url: string } | null;
+    } | null;
+  } | null;
+};
+
 export type PostQueryVariables = Exact<{
   slug?: InputMaybe<Scalars['String']>;
   locale: Locale;
@@ -7092,6 +8750,52 @@ export function useGetPageWithJobsQuery(
     query: GetPageWithJobsDocument,
     ...options,
   });
+}
+export const GetPageWithTasksByStatusDocument = gql`
+  query GetPageWithTasksByStatus($slug: String, $locale: Locale!) {
+    taskStatuses(locales: [$locale], orderBy: createdAt_DESC) {
+      id
+      title
+      done
+      tasks(
+        orderBy: updatedAt_DESC
+        locales: [$locale]
+        where: { isActive: true }
+      ) {
+        content
+        labels
+        id
+      }
+    }
+    page(where: { slug: $slug }, locales: [$locale]) {
+      id
+      title
+      content {
+        html
+      }
+      seo {
+        description
+        title
+        image {
+          url(
+            transformation: { image: { resize: { height: 300, width: 300 } } }
+          )
+        }
+      }
+    }
+  }
+`;
+
+export function useGetPageWithTasksByStatusQuery(
+  options: Omit<
+    Urql.UseQueryArgs<GetPageWithTasksByStatusQueryVariables>,
+    'query'
+  >,
+) {
+  return Urql.useQuery<
+    GetPageWithTasksByStatusQuery,
+    GetPageWithTasksByStatusQueryVariables
+  >({ query: GetPageWithTasksByStatusDocument, ...options });
 }
 export const PostDocument = gql`
   query Post($slug: String, $locale: Locale!) {
