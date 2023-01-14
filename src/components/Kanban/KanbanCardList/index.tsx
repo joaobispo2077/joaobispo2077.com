@@ -6,8 +6,7 @@ import { Container } from './styles';
 
 export interface KanbanCardListData {
   title: string;
-  creatable: boolean;
-  id: number;
+  id: string;
   done?: boolean;
   cards: KanbanCardData[];
 }
@@ -31,7 +30,7 @@ export const KanbanCardList = ({ cardList, index }: KanbanCardListProps) => {
               <KanbanCard
                 index={index}
                 {...provided.droppableProps}
-                key={card.id}
+                key={String(card?.id)}
                 card={card}
               />
             ))}
