@@ -1,0 +1,26 @@
+query GetPageWithTasksByStatus($slug: String, $locale: Locale!) {
+  taskStatuses(locales: [$locale], orderBy: createdAt_DESC) {
+    id
+    title
+    done
+    tasks(orderBy: updatedAt_DESC, locales: [$locale]) {
+      content
+      labels
+      id
+    }
+  }
+  page(where: { slug: $slug }, locales: [$locale]) {
+    id
+    title
+    content {
+      html
+    }
+    seo {
+      description
+      title
+      image {
+        url(transformation: { image: { resize: { height: 300, width: 300 } } })
+      }
+    }
+  }
+}
