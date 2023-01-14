@@ -1,3 +1,19 @@
+# [1.9.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.8.0...v1.9.0) (2023-01-14)
+
+
+### Features
+
+* add dynamic Eisenhower Matrix ([ba31def](https://github.com/joaobispo2077/joaobispo2077.com/commit/ba31def0187815a59a3b1a3c60dc621989c03506))
+* add fallback translation for roadmap page ([c3b47cf](https://github.com/joaobispo2077/joaobispo2077.com/commit/c3b47cfdfe1c39277e890e879ab9e96ec3e0676e))
+* add page subtitle into /roadmap ([486cb25](https://github.com/joaobispo2077/joaobispo2077.com/commit/486cb25fbe1018d7cf4872327765b3ca608460bd))
+* add query get page with task by status ([b7729b8](https://github.com/joaobispo2077/joaobispo2077.com/commit/b7729b805753aac7cb74ca4009889dbbc5a4ee24))
+* add where task is active ([3e8f9da](https://github.com/joaobispo2077/joaobispo2077.com/commit/3e8f9dafa54c106fff928405df8b8d2a3e1c6267))
+* check if card exists ([1ae4e09](https://github.com/joaobispo2077/joaobispo2077.com/commit/1ae4e09e86fc9fd648cdc30d0d162bc4e524353f))
+* improve fade animation ([e6a6092](https://github.com/joaobispo2077/joaobispo2077.com/commit/e6a6092d19a6486ca2c8f1eff6589f39d8a384ac))
+* receive board cards from props ([2dd32d1](https://github.com/joaobispo2077/joaobispo2077.com/commit/2dd32d1f804086624c61ac6376f423f8e3691069))
+* sync SSR cards with client ([f63519b](https://github.com/joaobispo2077/joaobispo2077.com/commit/f63519b20ae0eb38365a3970b1a759dda0a12cba))
+* update urql custom hooks ([ede0948](https://github.com/joaobispo2077/joaobispo2077.com/commit/ede09487324f72860f8ebeee9e1cb1554da1c122))
+
 # [1.8.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.7.0...v1.8.0) (2022-10-30)
 
 
