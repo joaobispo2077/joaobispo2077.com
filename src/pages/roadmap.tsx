@@ -71,7 +71,7 @@ const RoadmapPage: NextPage = () => {
         </Heading>
       </Flex>
       <Text color="brand.secondary" fontSize="xl" marginTop="1rem">
-        {page?.seo?.description ?? roadmapTranslation.description}
+        {page?.subtitle ?? roadmapTranslation.subtitle}
       </Text>
       <Box>
         <motion.div

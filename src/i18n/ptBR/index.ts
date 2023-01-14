@@ -32,7 +32,7 @@ export const aboutTranslation = {
 
 export const roadmapTranslation = {
   title: 'Mais alto. Mais longe. Mais ágil.',
-  description:
+  subtitle:
     'Este é meu roadmap, eu irei atualizá-lo conforme eu aprender coisas novas e melhorar minhas habilidades que eu deseje compartilhar o progresso.',
   seoTitle: 'Roadmap',
   seoDescription:

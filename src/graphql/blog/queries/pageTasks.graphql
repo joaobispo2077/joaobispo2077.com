@@ -16,9 +16,7 @@ query GetPageWithTasksByStatus($slug: String, $locale: Locale!) {
   page(where: { slug: $slug }, locales: [$locale]) {
     id
     title
-    content {
-      html
-    }
+    subtitle
     seo {
       description
       title
