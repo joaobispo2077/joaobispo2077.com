@@ -56,12 +56,6 @@ const PostPage: NextPage = () => {
             {formatDate(data?.post?.date, locale)}
           </Text>
         </Flex>
-        <Flex alignItems="center" gap="1rem">
-          <Icon as={FiUser} w={6} h={6} color="brand.secondary" />
-          <Text as="span" color="brand.secondary">
-            {'João Bispo'}
-          </Text>
-        </Flex>
       </HStack>
       <Content
         dangerouslySetInnerHTML={{
