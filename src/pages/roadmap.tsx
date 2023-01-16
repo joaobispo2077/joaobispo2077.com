@@ -3,7 +3,6 @@ import type { GetStaticProps, NextPage } from 'next';
 import { useMemo } from 'react';
 
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 
 import { generateTextLinearGradient } from '@src/utils/generateGradient';
 import { SEO } from '@src/components/SEO';
@@ -74,93 +73,68 @@ const RoadmapPage: NextPage = () => {
         {page?.subtitle ?? roadmapTranslation.subtitle}
       </Text>
       <Box>
-        <motion.div
-          initial={{ height: '100vh' }}
-          animate={{ height: '100%' }}
-          transition={{ duration: 0.5 }}
-          style={{
-            overflow: 'auto',
-            width: '100%',
-          }}
+        <Flex
+          as="section"
+          marginTop="1.5rem"
+          overflowX={'auto'}
+          width="100%"
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          paddingX="1rem"
         >
-          <Flex
-            as="section"
-            marginTop="1.5rem"
-            overflowX={'auto'}
-            width="100%"
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            paddingX="1rem"
-          >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1.5 }}
-              style={{
-                overflow: 'auto',
-                width: '100%',
-              }}
-            >
-              <KanbanBoard
-                taskStatuses={(taskStatuses as KanbanCardListData[]) ?? []}
-              />
-            </motion.div>
-          </Flex>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 3 }}
+          <KanbanBoard
+            taskStatuses={(taskStatuses as KanbanCardListData[]) ?? []}
+          />
+        </Flex>
+
+        <Flex
+          as="section"
+          marginTop="1.5rem"
+          overflowX={'auto'}
+          width="100%"
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          paddingX="1rem"
+          gap="1rem"
         >
-          <Flex
-            as="section"
-            marginTop="1.5rem"
-            overflowX={'auto'}
-            width="100%"
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            paddingX="1rem"
-            gap="1rem"
+          <Heading
+            as="h2"
+            fontSize="4xl"
+            color="brand.primary"
+            {...generateTextLinearGradient('background', 'orange')}
+            whiteSpace="pre-wrap"
+            wordBreak={'break-word'}
           >
-            <Heading
-              as="h2"
-              fontSize="4xl"
-              color="brand.primary"
-              {...generateTextLinearGradient('background', 'orange')}
-              whiteSpace="pre-wrap"
-              wordBreak={'break-word'}
-            >
-              {roadmapTranslation.titleTimeManage}
-            </Heading>
-            <Image
-              priority={true}
-              src="/assets/images/The-Eisenhower-Decision-Matrix.png"
-              title={roadmapTranslation.titleTimeManage}
-              alt={roadmapTranslation.imageTimeManageDescription}
-              maxWidth={800}
-              maxHeight={800}
-              minWidth={300}
-              minHeight={300}
-              width={320}
-              height={320}
-              borderRadius={8}
-              flexShrink={0}
-              flex={1}
-            />
-            <Text
-              color="brand.secondary"
-              fontSize="xl"
-              marginTop="1rem"
-              maxWidth={800}
-              maxHeight={800}
-              marginBottom="5rem"
-            >
-              {roadmapTranslation.imageTimeManageDescription}
-            </Text>
-          </Flex>
-        </motion.div>
+            {roadmapTranslation.titleTimeManage}
+          </Heading>
+          <Image
+            priority={true}
+            src="/assets/images/The-Eisenhower-Decision-Matrix.png"
+            title={roadmapTranslation.titleTimeManage}
+            alt={roadmapTranslation.imageTimeManageDescription}
+            maxWidth={800}
+            maxHeight={800}
+            minWidth={300}
+            minHeight={300}
+            width={320}
+            height={320}
+            borderRadius={8}
+            flexShrink={0}
+            flex={1}
+          />
+          <Text
+            color="brand.secondary"
+            fontSize="xl"
+            marginTop="1rem"
+            maxWidth={800}
+            maxHeight={800}
+            marginBottom="5rem"
+          >
+            {roadmapTranslation.imageTimeManageDescription}
+          </Text>
+        </Flex>
       </Box>
     </Flex>
   );
