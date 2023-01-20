@@ -45,7 +45,7 @@ const RoadmapPage: NextPage = () => {
       as="main"
       background="brand.background"
       flexDirection="column"
-      paddingTop={[4, 16]}
+      paddingTop={[4, 8]}
       paddingX={'1rem'}
       minHeight="100vh"
     >

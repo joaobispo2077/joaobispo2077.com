@@ -27,7 +27,7 @@ const BlogPage: NextPage = () => {
       width="100%"
       minHeight="calc(100vh - 8rem)"
       flexDirection="column"
-      paddingTop={[4, 16]}
+      paddingTop={[4, 8]}
       paddingX={'1rem'}
     >
       <SEO
