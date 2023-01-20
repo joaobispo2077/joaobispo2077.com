@@ -1,3 +1,12 @@
+# [1.10.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.9.0...v1.10.0) (2023-01-20)
+
+
+### Features
+
+* add share on social media modal ([c0386a1](https://github.com/joaobispo2077/joaobispo2077.com/commit/c0386a1f8eff62585de61a11e16575ef7a6647a4))
+* collect data about post sharing ([d7dc130](https://github.com/joaobispo2077/joaobispo2077.com/commit/d7dc130968c285d0242f3c74ecab27f354396bef))
+* update generated types ([fa15b21](https://github.com/joaobispo2077/joaobispo2077.com/commit/fa15b2188b23caab7ddb6e8c180906b89f7f7118))
+
 # [1.9.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.8.0...v1.9.0) (2023-01-14)
 
 
