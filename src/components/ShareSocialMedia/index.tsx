@@ -20,11 +20,17 @@ import {
 import { FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
 import { FaWhatsapp, FaTelegramPlane } from 'react-icons/fa';
 
+import { Gtag } from '@src/services/Gtag';
 import { theme } from '@src/styles/theme';
 
 export type ShareSocialMediaModalProps = {
   isOpen: boolean;
   onClose: () => void;
+  content: string;
+};
+
+export type OnShareSocialMediaProps = {
+  socialmedia: string;
   content: string;
 };
 
@@ -67,8 +73,16 @@ export const ShareSocialMediaModal: FunctionComponent<
   ];
 
   const handleCopyToClipboard = (text: string) => {
+    Gtag.event({
+      action: 'copy_to_clipboard',
+      category: 'share',
+      label: 'share',
+      value: text,
+    });
+
     navigator.clipboard.writeText(text);
     toast.closeAll();
+
     toast({
       title: 'Copiado',
       description: 'Link copiado para a área de transferência',
@@ -79,6 +93,22 @@ export const ShareSocialMediaModal: FunctionComponent<
       status: 'success',
     });
   };
+
+  const handleShareOnSocialMedia = ({
+    socialmedia,
+    content,
+  }: OnShareSocialMediaProps) => {
+    Gtag.event({
+      action: 'share_on_social_media',
+      category: 'share',
+      label: socialmedia
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase(),
+      value: content,
+    });
+  };
+
   return (
     <>
       <Modal
@@ -117,6 +147,12 @@ export const ShareSocialMediaModal: FunctionComponent<
                 <IconButton
                   aria-label={socialmedia.name}
                   as="a"
+                  onClick={() =>
+                    handleShareOnSocialMedia({
+                      socialmedia: socialmedia.name,
+                      content,
+                    })
+                  }
                   href={socialmedia.link}
                   target="_blank"
                   rel="noopener noreferrer"
