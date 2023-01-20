@@ -19,4 +19,6 @@ const colors = {
   brand: brandColors,
 } as const;
 
-export const theme = extendTheme({ colors });
+export const theme = extendTheme({
+  colors,
+});
