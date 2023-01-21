@@ -6,6 +6,8 @@ export const Container = styled.section`
   height: 100%;
   width: 100%;
 
+  gap: 4px;
+
   @media (min-width: 1300px) {
     justify-content: center;
   }

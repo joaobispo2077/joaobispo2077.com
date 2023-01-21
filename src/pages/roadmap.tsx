@@ -1,126 +1,60 @@
-import type { NextPage } from 'next';
+import type { GetStaticProps, NextPage } from 'next';
 
-import { useEffect } from 'react';
+import { useMemo } from 'react';
 
 import { Box, Flex, Heading, Text } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
 
 import { generateTextLinearGradient } from '@src/utils/generateGradient';
 import { SEO } from '@src/components/SEO';
-import { KanbanBoard } from '@src/components/Kanban';
-import { useShell } from '@src/hooks/useShell';
+import { KanbanBoard, KanbanCardListData } from '@src/components/Kanban';
 import { Image } from '@src/components/Image';
+import { parseLocaleToGraphCmsLocale } from '@src/utils/parseLocale';
+import { ContentManagementClient } from '@src/services/ContentManagementClient';
+import {
+  GetPageWithTasksByStatusDocument,
+  useGetPageWithTasksByStatusQuery,
+} from '@src/generated/graphql.blog';
+import { serverSideCache } from '@src/services/ServerSideCache';
+import { getRevalidateInDays } from '@src/utils/date';
+import { useTranslation } from '@src/hooks/useTranslation';
 
 export const PAGE_SLUG = 'roadmap';
 
 const RoadmapPage: NextPage = () => {
-  const { setBeforeFooterComponent } = useShell();
+  const { roadmapTranslation, graphCmsLocale } = useTranslation();
 
-  useEffect(() => {
-    setBeforeFooterComponent(
-      <>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.5 }}
-          style={{
-            overflow: 'auto',
-            width: '100%',
-          }}
-        >
-          <Flex
-            as="section"
-            marginTop="1.5rem"
-            overflowX={'auto'}
-            width="100%"
-            direction="column"
-            // justifyContent="center"
-            // alignItems="center"
-            paddingX="1rem"
-          >
-            <KanbanBoard />
-          </Flex>
-        </motion.div>
-        <motion.div
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 2 }}
-        >
-          <Flex
-            as="section"
-            marginTop="1.5rem"
-            overflowX={'auto'}
-            width="100%"
-            direction="column"
-            justifyContent="center"
-            alignItems="center"
-            paddingX="1rem"
-          >
-            <Heading
-              as="h1"
-              fontSize="5xl"
-              color="brand.primary"
-              {...generateTextLinearGradient('background', 'orange')}
-              whiteSpace="pre-wrap"
-              wordBreak={'break-word'}
-            >
-              Matriz de Eisenhower
-            </Heading>
-            <Image
-              priority={true}
-              src="https://lh3.googleusercontent.com/dch2B4a5V9zpXzv01YbI9prVfYlOhBFfO6Go2hWXEiKC3R7eQhUrr5RFM550AFPdDN5tG56b3lRIz2rl8ZHVH9TPF4ojRkKPjB7cS-gEzOZl1l285dXkqR1-0QoyWeKqwlZPLq4"
-              alt="A matriz de Eisenhower é uma ferramenta de gestão de tempo que ajuda a
-          priorizar as tarefas de acordo com a importância e urgência. A matriz
-          foi criada pelo general americano Dwight D. Eisenhower, que usava-a
-          para priorizar as tarefas do seu dia a dia."
-              title="Matriz de Eisenhower"
-              maxWidth={800}
-              maxHeight={800}
-              minWidth={300}
-              minHeight={300}
-              width={320}
-              height={320}
-              borderRadius={8}
-              flexShrink={0}
-              flex={1}
-            />
-            <Text
-              color="brand.secondary"
-              fontSize="xl"
-              marginTop="1rem"
-              maxWidth={800}
-              maxHeight={800}
-              marginBottom="5rem"
-            >
-              A matriz de Eisenhower é uma ferramenta de gestão de tempo que
-              ajuda a priorizar as tarefas de acordo com a importância e
-              urgência. A matriz foi criada pelo general americano Dwight D.
-              Eisenhower, que usava-a para priorizar as tarefas do seu dia a
-              dia.
-            </Text>
-          </Flex>
-        </motion.div>
-      </>,
-    );
+  const [{ data }] = useGetPageWithTasksByStatusQuery({
+    variables: {
+      slug: PAGE_SLUG,
+      locale: graphCmsLocale,
+    },
+  });
 
-    return () => {
-      setBeforeFooterComponent(null);
-    };
-  }, [setBeforeFooterComponent]);
+  const page = data?.page;
+  const taskStatuses = useMemo(
+    () =>
+      data?.taskStatuses.map((taskStatus) => ({
+        ...taskStatus,
+        cards: taskStatus.tasks,
+      })) ?? [],
+    [data?.taskStatuses],
+  );
 
   return (
     <Flex
       as="main"
       background="brand.background"
-      width="100%"
       flexDirection="column"
-      paddingTop={[4, 16]}
+      paddingTop={[4, 8]}
       paddingX={'1rem'}
+      minHeight="100vh"
     >
       <SEO
-        // title={page?.seo?.title ?? aboutTranslation.seoTitle}
-        // description={page?.seo?.description ?? aboutTranslation.seoDescription}
-        // image={page?.seo?.image?.url ?? ''}
+        title={page?.seo?.title ?? roadmapTranslation.seoTitle}
+        description={
+          page?.seo?.description ?? roadmapTranslation.seoDescription
+        }
+        image={page?.seo?.image?.url ?? ''}
         url="/roadmap"
       />
       <Flex width="100%" minHeight="4rem" justifyContent="flex-start">
@@ -132,19 +66,26 @@ const RoadmapPage: NextPage = () => {
           whiteSpace="pre-wrap"
           wordBreak={'break-word'}
         >
-          {/* {page?.title ?? aboutTranslation.title} */}
-          Higher. Further. Faster.
+          {page?.title ?? roadmapTranslation.title}
         </Heading>
       </Flex>
-      <Box display="none" visibility={'hidden'}>
+      <Text color="brand.secondary" fontSize="xl" marginTop="1rem">
+        {page?.subtitle ?? roadmapTranslation.subtitle}
+      </Text>
+      <Box>
         <Flex
           as="section"
-          flexDirection="column"
           marginTop="1.5rem"
           overflowX={'auto'}
           width="100%"
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          paddingX="1rem"
         >
-          <KanbanBoard />
+          <KanbanBoard
+            taskStatuses={(taskStatuses as KanbanCardListData[]) ?? []}
+          />
         </Flex>
 
         <Flex
@@ -156,25 +97,23 @@ const RoadmapPage: NextPage = () => {
           justifyContent="center"
           alignItems="center"
           paddingX="1rem"
+          gap="1rem"
         >
           <Heading
-            as="h1"
-            fontSize="5xl"
+            as="h2"
+            fontSize="4xl"
             color="brand.primary"
             {...generateTextLinearGradient('background', 'orange')}
             whiteSpace="pre-wrap"
             wordBreak={'break-word'}
           >
-            Matriz de Eisenhower
+            {roadmapTranslation.titleTimeManage}
           </Heading>
           <Image
             priority={true}
-            src="https://lh3.googleusercontent.com/dch2B4a5V9zpXzv01YbI9prVfYlOhBFfO6Go2hWXEiKC3R7eQhUrr5RFM550AFPdDN5tG56b3lRIz2rl8ZHVH9TPF4ojRkKPjB7cS-gEzOZl1l285dXkqR1-0QoyWeKqwlZPLq4"
-            alt="A matriz de Eisenhower é uma ferramenta de gestão de tempo que ajuda a
-          priorizar as tarefas de acordo com a importância e urgência. A matriz
-          foi criada pelo general americano Dwight D. Eisenhower, que usava-a
-          para priorizar as tarefas do seu dia a dia."
-            title="Matriz de Eisenhower"
+            src="/assets/images/The-Eisenhower-Decision-Matrix.png"
+            title={roadmapTranslation.titleTimeManage}
+            alt={roadmapTranslation.imageTimeManageDescription}
             maxWidth={800}
             maxHeight={800}
             minWidth={300}
@@ -191,16 +130,30 @@ const RoadmapPage: NextPage = () => {
             marginTop="1rem"
             maxWidth={800}
             maxHeight={800}
+            marginBottom="5rem"
           >
-            A matriz de Eisenhower é uma ferramenta de gestão de tempo que ajuda
-            a priorizar as tarefas de acordo com a importância e urgência. A
-            matriz foi criada pelo general americano Dwight D. Eisenhower, que
-            usava-a para priorizar as tarefas do seu dia a dia.
+            {roadmapTranslation.imageTimeManageDescription}
           </Text>
         </Flex>
       </Box>
     </Flex>
   );
+};
+
+export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = parseLocaleToGraphCmsLocale(context.locale);
+
+  await ContentManagementClient.query(GetPageWithTasksByStatusDocument, {
+    slug: PAGE_SLUG,
+    locale,
+  }).toPromise();
+
+  return {
+    props: {
+      urqlState: serverSideCache.extractData(),
+    },
+    revalidate: getRevalidateInDays(14),
+  };
 };
 
 export default RoadmapPage;
