@@ -17,6 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@src/*": ["src/*"],
+      "@vercel/analytics/react": ["./node_modules/@vercel/analytics/dist/react"]
     },
     "rootDirs": ["src"],
   },

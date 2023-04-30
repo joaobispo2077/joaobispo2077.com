@@ -1,3 +1,10 @@
+# [1.11.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.10.0...v1.11.0) (2023-04-30)
+
+
+### Features
+
+* add vercel analytics path ([0555433](https://github.com/joaobispo2077/joaobispo2077.com/commit/05554334e66f84a14dcbfce745976a431215929a))
+
 # [1.10.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.9.0...v1.10.0) (2023-01-20)
 
 

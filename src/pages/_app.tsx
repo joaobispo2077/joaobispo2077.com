@@ -3,6 +3,7 @@ import type { AppProps } from 'next/app';
 
 import { Provider as UrqlProvider } from 'urql';
 import { ChakraProvider } from '@chakra-ui/react';
+import { Analytics as VercelAnalyticsProvider } from '@vercel/analytics/react';
 
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { GithubClient } from '@src/services/GithubClient';
@@ -24,6 +25,7 @@ function App({ Component, pageProps }: AppProps<CustomApp>) {
   return (
     <>
       <Analytics />
+      <VercelAnalyticsProvider />
       <UrqlProvider value={GithubClient}>
         <UrqlProvider value={ContentManagementClient}>
           <ChakraProvider theme={theme}>
