@@ -21,6 +21,7 @@ import {
   useGetPageWithJobsQuery,
 } from '@src/generated/graphql.blog';
 import { AboutDescriptionStyles } from '@src/styles/pages/about.styles';
+import { educations } from '@src/@data/about/education';
 
 const PAGE_SLUG = 'about';
 
@@ -145,6 +146,20 @@ const AboutPage: NextPage = () => {
         <VStack as="ul" spacing="1.5rem">
           {parsedJobs?.map((job) => (
             <Job key={job.startedAt} {...job} />
+          ))}
+        </VStack>
+        <Text
+          as="p"
+          fontSize="xl"
+          color="brand.primary"
+          fontWeight="bold"
+          marginY={['1rem', '1rem', '2rem', '2rem']}
+        >
+          Education
+        </Text>
+        <VStack as="ul" spacing="1.5rem">
+          {educations.map((education) => (
+            <Job key={education.startedAt} {...education} />
           ))}
         </VStack>
       </Flex>
