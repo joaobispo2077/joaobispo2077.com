@@ -123,8 +123,8 @@ const AboutPage: NextPage = () => {
           <Image
             priority
             src="https://github.com/joaobispo2077.png"
-            alt="João Bispo - Software Engineer"
-            title="João Bispo - Software Engineer"
+            alt="João Bispo - Senior Software Engineer"
+            title="João Bispo - Senior Software Engineer"
             width={400}
             height={400}
             objectFit="cover"
