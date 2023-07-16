@@ -1,3 +1,10 @@
+# [1.12.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.11.0...v1.12.0) (2023-07-16)
+
+
+### Features
+
+* increment alt/title from image on page about ([218b191](https://github.com/joaobispo2077/joaobispo2077.com/commit/218b19169afaa273215a9444e30c8aa914964b4f))
+
 # [1.11.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.10.0...v1.11.0) (2023-04-30)
 
 
