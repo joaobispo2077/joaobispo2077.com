@@ -1,3 +1,10 @@
+# [1.13.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.12.0...v1.13.0) (2023-07-27)
+
+
+### Features
+
+* update job role label ([3e7e1bd](https://github.com/joaobispo2077/joaobispo2077.com/commit/3e7e1bde5ba804e94d6242061d34fc55fd71b20a))
+
 # [1.12.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.11.0...v1.12.0) (2023-07-16)
 
 
