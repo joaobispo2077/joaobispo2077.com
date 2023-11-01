@@ -29,7 +29,7 @@ const Home: NextPage = () => {
         </Heading>
         <Box marginTop="1.5rem">
           <Text color="brand.primary" fontWeight={'bold'}>
-            Software Engineer
+            Senior Software Engineer
           </Text>
           <Text color="brand.secondary">
             Crafting world-impact software that make people lives better.
