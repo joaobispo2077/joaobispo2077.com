@@ -60,25 +60,26 @@ const UsesPage: NextPage = () => {
         <Heading as="h2" fontSize="2xl" color="brand.primary">
           Gaming machine: Predator Helios 300
         </Heading>
-        <UnorderedList>
+        <UnorderedList color="brand.secondary">
           <ListItem>Intel® Core™ i7-11800H 8 cores 4.60 GHz</ListItem>
           <ListItem>Nvidia® GeForce® RTX 3070 8 GB</ListItem>
           <ListItem>16 GB RAM DDR4 3200 MHz (2 x 8 GB)</ListItem>
           <ListItem>512 GB SSD PCIe 4.0 NVMe</ListItem>
           <ListItem>
-            Screen 144Hz 15.6” Full HD (1920 x 1080) 16:9 250 nits 45% NTSC
+            Monitor/Screen 144Hz 15.6” Full HD (1920 x 1080) 16:9 250 nits 45%
+            NTSC
           </ListItem>
         </UnorderedList>
         <Heading as="h2" fontSize="2xl" color="brand.primary">
-          Work machine: Macbook Pro (16-inch 2019)
+          Work machine: Macbook Pro (16-inch) 2019
         </Heading>
-        <UnorderedList>
+        <UnorderedList color="brand.secondary">
           <ListItem>Intel® Core™ i7 6 cores 2.60 GHz</ListItem>
           <ListItem>AMD Radeon Pro 5300M 4 GB</ListItem>
           <ListItem>16 GB RAM DDR4 2666 MHz</ListItem>
           <ListItem>512 GB SSD</ListItem>
           <ListItem>
-            Screen 60Hz 16” near 4K (3072 x 1920) 16:9 500 nits P3
+            Monitor/Screen 60Hz 16” near 4K (3072 x 1920) 16:9 500 nits P3
           </ListItem>
         </UnorderedList>
       </Flex>

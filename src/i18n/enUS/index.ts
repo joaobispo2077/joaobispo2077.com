@@ -40,3 +40,27 @@ export const roadmapTranslation = {
   imageTimeManageDescription:
     'The Eisenhower Matrix is a time management tool that helps you prioritize tasks according to importance and urgency.',
 };
+
+// export const usesTranslation = {
+//   title: 'What I use',
+//   subtitle:
+//     'This is a list of the tools, hardware and services that I use to build my projects.',
+//   seoTitle: 'Uses',
+//   seoDescription:
+//     'This is a list of the tools, hardware and services that I use to build my projects.',
+//   titleWorkMachine: 'Work machine: Macbook Pro (16-inch) 2019',
+//   titlePersonalMachine: ' Personal machine: Predator Helios 300',
+//   bulletCodeEditor: 'Code editor: Visual Studio Code',
+//   bulletTerminal: 'Terminal: iTerm2',
+//   bulletShell: 'Shell: ZSH',
+//   bulletBrowser: 'Browser: Mozilla Firefox',
+//   bulletNotes: 'Notes: Notion',
+//   bulletDesign: 'Design: Figma',
+// };
+
+export const usesTranslation = {
+  title: 'O que eu uso',
+  subtitle:
+    'Esta é uma lista das ferramentas, hardware e serviços que eu uso para construir meus projetos.',
+  seoTitle: 'Uses',
+};

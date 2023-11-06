@@ -41,3 +41,20 @@ export const roadmapTranslation = {
   imageTimeManageDescription:
     'A matriz de Eisenhower é uma ferramenta de gestão de tempo que ajuda a priorizar as tarefas de acordo com a importância eurgência.',
 };
+
+export const usesTranslation = {
+  title: 'What I use',
+  subtitle:
+    'This is a list of the tools, hardware and services that I use to build my projects.',
+  seoTitle: 'Uses',
+  seoDescription:
+    'This is a list of the tools, hardware and services that I use to build my projects.',
+  titleWorkMachine: 'Work machine: Macbook Pro (16-inch) 2019',
+  titlePersonalMachine: ' Personal machine: Predator Helios 300',
+  bulletCodeEditor: 'Code editor: Visual Studio Code',
+  bulletTerminal: 'Terminal: iTerm2',
+  bulletShell: 'Shell: ZSH',
+  bulletBrowser: 'Browser: Mozilla Firefox',
+  bulletNotes: 'Notes: Notion',
+  bulletDesign: 'Design: Figma',
+};
