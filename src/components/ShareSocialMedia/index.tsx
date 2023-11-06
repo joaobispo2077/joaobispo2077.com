@@ -22,6 +22,7 @@ import { FaWhatsapp, FaTelegramPlane } from 'react-icons/fa';
 
 import { Gtag } from '@src/services/Gtag';
 import { theme } from '@src/styles/theme';
+import { useTranslation } from '@src/hooks/useTranslation';
 
 export type ShareSocialMediaModalProps = {
   isOpen: boolean;
@@ -37,6 +38,7 @@ export type OnShareSocialMediaProps = {
 export const ShareSocialMediaModal: FunctionComponent<
   ShareSocialMediaModalProps
 > = ({ isOpen, onClose, content }) => {
+  const { socialMediaSharingArticleTranslation } = useTranslation();
   const toast = useToast();
 
   const socialmedias = [
@@ -84,8 +86,8 @@ export const ShareSocialMediaModal: FunctionComponent<
     toast.closeAll();
 
     toast({
-      title: 'Copiado',
-      description: 'Link copiado para a área de transferência',
+      title: socialMediaSharingArticleTranslation.copied,
+      description: socialMediaSharingArticleTranslation.copiedDescription,
       duration: 2000,
       isClosable: true,
       position: 'bottom-left',
@@ -125,7 +127,9 @@ export const ShareSocialMediaModal: FunctionComponent<
           color="brand.primary"
           margin="1rem"
         >
-          <ModalHeader>Compartilhar</ModalHeader>
+          <ModalHeader>
+            {socialMediaSharingArticleTranslation.share}
+          </ModalHeader>
           <ModalCloseButton
             color="brand.secondary"
             _hover={{ color: 'brand.primary' }}
@@ -195,7 +199,7 @@ export const ShareSocialMediaModal: FunctionComponent<
                   _hover={{ background: 'brand.primary', color: 'brand.hover' }}
                   onClick={() => handleCopyToClipboard(content)}
                 >
-                  Copiar
+                  {socialMediaSharingArticleTranslation.copy}
                 </Button>
               </InputRightElement>
             </InputGroup>
