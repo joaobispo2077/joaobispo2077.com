@@ -1,3 +1,10 @@
+# [1.14.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.13.0...v1.14.0) (2023-11-06)
+
+
+### Features
+
+* translate share component ([e01e5dd](https://github.com/joaobispo2077/joaobispo2077.com/commit/e01e5dd5aa1a95d54def2c3c66feaa91d9410273))
+
 # [1.13.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.12.0...v1.13.0) (2023-07-27)
 
 

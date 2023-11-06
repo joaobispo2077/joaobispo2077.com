@@ -8,6 +8,13 @@ export const blogTranslation = {
   seeAllPosts: 'All posts',
 };
 
+export const socialMediaSharingArticleTranslation = {
+  copy: 'Copy',
+  copied: 'Copied',
+  copiedDescription: 'Link copied to clipboard',
+  share: 'Share',
+};
+
 export const navbarTranslation = {
   home: 'Home',
   about: 'About',
