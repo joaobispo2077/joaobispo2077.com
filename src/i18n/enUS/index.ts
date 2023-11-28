@@ -13,6 +13,7 @@ export const socialMediaSharingArticleTranslation = {
   copied: 'Copied',
   copiedDescription: 'Link copied to clipboard',
   share: 'Share',
+  linkToThePost: 'Link to the post',
 };
 
 export const navbarTranslation = {

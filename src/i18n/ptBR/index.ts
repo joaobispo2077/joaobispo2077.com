@@ -14,6 +14,7 @@ export const socialMediaSharingArticleTranslation = {
   copied: 'Copiado',
   copiedDescription: 'Link copiado para a área de transferência',
   share: 'Compartilhar',
+  linkToThePost: 'Link para o post',
 };
 
 export const navbarTranslation = {
