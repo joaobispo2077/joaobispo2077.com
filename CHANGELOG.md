@@ -1,3 +1,10 @@
+# [1.15.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.14.0...v1.15.0) (2023-11-28)
+
+
+### Features
+
+* internationalize link to the post text ([d0e6d2b](https://github.com/joaobispo2077/joaobispo2077.com/commit/d0e6d2bb72ca563579071214b560151f13c1c3b1))
+
 # [1.14.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.13.0...v1.14.0) (2023-11-06)
 
 
