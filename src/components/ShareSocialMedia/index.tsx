@@ -69,7 +69,7 @@ export const ShareSocialMediaModal: FunctionComponent<
     {
       name: 'E-mail',
       icon: FiMail,
-      link: `mailto:?subject=Link para o post&body=${content}`,
+      link: `mailto:?subject=${socialMediaSharingArticleTranslation.linkToThePost}&body=${content}`,
       color: '#9a9da0',
     },
   ];
