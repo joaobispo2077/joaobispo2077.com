@@ -34,47 +34,45 @@ const AboutPage: NextPage = () => {
     },
   });
 
-  const parsedJobs = data?.jobs
-    .filter((job) => job.company.includes('Serverless'))
-    .map((job) => {
-      const yearsDifference = getYearsDifferenceFromDates(
-        job.startedAt,
-        job.endedAt,
-      );
-      const monthsDifference =
-        getMonthsDifferenceFromDates(job.startedAt, job.endedAt) -
-        yearsDifference * 12;
-      const hasMonths = monthsDifference > 0;
-      const hasYears = yearsDifference > 0;
-      const yearsExperience = `${yearsDifference} ${aboutTranslation.years}`;
-      const monthsExperience = hasMonths
-        ? `${monthsDifference} ${aboutTranslation.months}`
-        : '';
-      const time =
-        yearsDifference > 0
-          ? `${yearsExperience} ${monthsExperience}`
-          : `${
-              hasYears || hasMonths
-                ? monthsExperience
-                : aboutTranslation.lessThanAMonth
-            }`;
-      return {
-        ...job,
-        startedAt: formatDate(new Date(job.startedAt), locale, {
-          year: 'numeric',
-          month: 'short',
-          day: undefined,
-        }),
-        endedAt: job.endedAt
-          ? formatDate(new Date(job.endedAt), locale, {
-              year: 'numeric',
-              month: 'short',
-              day: undefined,
-            })
-          : aboutTranslation.current,
-        time,
-      };
-    });
+  const parsedJobs = data?.jobs.map((job) => {
+    const yearsDifference = getYearsDifferenceFromDates(
+      job.startedAt,
+      job.endedAt,
+    );
+    const monthsDifference =
+      getMonthsDifferenceFromDates(job.startedAt, job.endedAt) -
+      yearsDifference * 12;
+    const hasMonths = monthsDifference > 0;
+    const hasYears = yearsDifference > 0;
+    const yearsExperience = `${yearsDifference} ${aboutTranslation.years}`;
+    const monthsExperience = hasMonths
+      ? `${monthsDifference} ${aboutTranslation.months}`
+      : '';
+    const time =
+      yearsDifference > 0
+        ? `${yearsExperience} ${monthsExperience}`
+        : `${
+            hasYears || hasMonths
+              ? monthsExperience
+              : aboutTranslation.lessThanAMonth
+          }`;
+    return {
+      ...job,
+      startedAt: formatDate(new Date(job.startedAt), locale, {
+        year: 'numeric',
+        month: 'short',
+        day: undefined,
+      }),
+      endedAt: job.endedAt
+        ? formatDate(new Date(job.endedAt), locale, {
+            year: 'numeric',
+            month: 'short',
+            day: undefined,
+          })
+        : aboutTranslation.current,
+      time,
+    };
+  });
 
   const page = data?.page;
 
