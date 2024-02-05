@@ -42,19 +42,20 @@ const AboutPage: NextPage = () => {
     const monthsDifference =
       getMonthsDifferenceFromDates(job.startedAt, job.endedAt) -
       yearsDifference * 12;
-
     const hasMonths = monthsDifference > 0;
     const hasYears = yearsDifference > 0;
     const yearsExperience = `${yearsDifference} ${aboutTranslation.years}`;
     const monthsExperience = hasMonths
       ? `${monthsDifference} ${aboutTranslation.months}`
       : '';
-
     const time =
       yearsDifference > 0
         ? `${yearsExperience} ${monthsExperience}`
-        : `${hasYears ? monthsExperience : aboutTranslation.lessThanAMonth}`;
-
+        : `${
+            hasYears || hasMonths
+              ? monthsExperience
+              : aboutTranslation.lessThanAMonth
+          }`;
     return {
       ...job,
       startedAt: formatDate(new Date(job.startedAt), locale, {

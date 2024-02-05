@@ -24,7 +24,7 @@ export const Header: FunctionComponent = () => {
       backgroundColor="brand.background"
     >
       <Heading
-        as="h1"
+        as="span"
         fontSize="2rem"
         fontWeight="bold"
         color="brand.primary"
