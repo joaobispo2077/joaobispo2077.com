@@ -1,3 +1,11 @@
+## [1.15.1](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.15.0...v1.15.1) (2024-02-05)
+
+
+### Bug Fixes
+
+* adjust to show months when has years or months of experience ([f5b9d94](https://github.com/joaobispo2077/joaobispo2077.com/commit/f5b9d9431a67a3808319f3d0410247a94eb96c4c))
+* use span instead of h1 in home button ([e8f1410](https://github.com/joaobispo2077/joaobispo2077.com/commit/e8f1410ca0f9e96f5ce8ed958a05abdae96ff002))
+
 # [1.15.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.14.0...v1.15.0) (2023-11-28)
 
 
