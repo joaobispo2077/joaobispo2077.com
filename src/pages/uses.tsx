@@ -82,6 +82,17 @@ const UsesPage: NextPage = () => {
             Monitor/Screen 60Hz 16” near 4K (3072 x 1920) 16:9 500 nits P3
           </ListItem>
         </UnorderedList>
+        <Heading as="h2" fontSize="2xl" color="brand.primary">
+          Film kit: Camera, Drone and microphone
+        </Heading>
+        <UnorderedList color="brand.secondary">
+          <ListItem>Sony ZV-10</ListItem>
+          <ListItem>Viltrox 23mm Lens</ListItem>
+          <ListItem>Hollyland Lark M2</ListItem>
+          <ListItem>DJI Mini 4 PRO</ListItem>
+          <ListItem>Powerbank Baseus 20w 10K Mhz</ListItem>
+          <ListItem>Sling bag K&F</ListItem>
+        </UnorderedList>
       </Flex>
     </Flex>
   );
