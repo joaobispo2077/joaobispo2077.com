@@ -59,8 +59,8 @@ export const roadmapTranslation = {
 // };
 
 export const usesTranslation = {
-  title: 'O que eu uso',
+  title: 'O que eu uso? Menos é mais',
   subtitle:
-    'Esta é uma lista das ferramentas, hardware e serviços que eu uso para construir meus projetos.',
+    'Seu equipamento deve lhe dar o caminho mais curto possível entre você e seu estado de concentração. Esta é uma lista de ferramentas, hardware e serviços que uso para construir meus projetos.',
   seoTitle: 'Uses',
 };

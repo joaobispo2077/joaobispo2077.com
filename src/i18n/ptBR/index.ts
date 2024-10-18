@@ -43,12 +43,12 @@ export const roadmapTranslation = {
 };
 
 export const usesTranslation = {
-  title: 'What I use',
+  title: 'What do I use? Less is more',
   subtitle:
-    'This is a list of the tools, hardware and services that I use to build my projects.',
+    'Your gear should give you the shortest possible path between you and your flow state. This is a list of the tools, hardware, and services I use to build my projects.',
   seoTitle: 'Uses',
   seoDescription:
-    'This is a list of the tools, hardware and services that I use to build my projects.',
+    'Your gear should give you the shortest possible path between you and your flow state. This is a list of the tools, hardware, and services I use to build my projects.',
   titleWorkMachine: 'Work machine: Macbook Pro (16-inch) 2019',
   titlePersonalMachine: ' Personal machine: Predator Helios 300',
   bulletCodeEditor: 'Code editor: Visual Studio Code',
