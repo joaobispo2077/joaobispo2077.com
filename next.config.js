@@ -11,7 +11,7 @@ module.exports = {
   async headers() {
     return [
       {
-        source: '/with-locale', // automatically handles all locales
+        source: '/(.*)?', // handles all paths
         headers: [
           {
             key: 'X-Frame-Options',
