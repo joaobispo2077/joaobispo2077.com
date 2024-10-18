@@ -56,9 +56,10 @@ And all backend is built-in on top of [GraphCMS](https://graphcms.com).
 
 - Comming soon...
 
-## 🎯 Challenges
+## 🎯 Challenges/backlog
 
-- Comming soon...
+- [ ] - Add gadgets/uses page
+- [ ] - Add trips pages
 
 ## ♻️ How to contribute
 
