@@ -21,7 +21,8 @@ import {
   useGetPageWithJobsQuery,
 } from '@src/generated/graphql.blog';
 import { AboutDescriptionStyles } from '@src/styles/pages/about.styles';
-import { educations } from '@src/@data/about/education';
+import { getEducationSchemaByLocale } from '@src/@data/about/education';
+import { Course } from '@src/components/Course';
 
 const PAGE_SLUG = 'about';
 
@@ -74,6 +75,8 @@ const AboutPage: NextPage = () => {
       time,
     };
   });
+
+  const educations = getEducationSchemaByLocale(locale);
 
   const page = data?.page;
 
@@ -160,7 +163,7 @@ const AboutPage: NextPage = () => {
         </Text>
         <VStack as="ul" spacing="1.5rem">
           {educations.map((education) => (
-            <Job key={education.startedAt} {...education} />
+            <Course key={education.startedAt} {...education} />
           ))}
         </VStack>
       </Flex>
