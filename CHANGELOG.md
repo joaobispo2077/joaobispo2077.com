@@ -1,3 +1,10 @@
+# [1.16.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.15.1...v1.16.0) (2024-10-18)
+
+
+### Features
+
+* add X-Frame-Options header for /with-locale route ([bfc0e06](https://github.com/joaobispo2077/joaobispo2077.com/commit/bfc0e06046ae91e186228888fee8264db3dd46f9))
+
 ## [1.15.1](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.15.0...v1.15.1) (2024-02-05)
 
 
