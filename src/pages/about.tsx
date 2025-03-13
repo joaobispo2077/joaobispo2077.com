@@ -43,19 +43,20 @@ const AboutPage: NextPage = () => {
     const monthsDifference =
       getMonthsDifferenceFromDates(job.startedAt, job.endedAt) -
       yearsDifference * 12;
-
     const hasMonths = monthsDifference > 0;
     const hasYears = yearsDifference > 0;
     const yearsExperience = `${yearsDifference} ${aboutTranslation.years}`;
     const monthsExperience = hasMonths
       ? `${monthsDifference} ${aboutTranslation.months}`
       : '';
-
     const time =
       yearsDifference > 0
         ? `${yearsExperience} ${monthsExperience}`
-        : `${hasYears ? monthsExperience : aboutTranslation.lessThanAMonth}`;
-
+        : `${
+            hasYears || hasMonths
+              ? monthsExperience
+              : aboutTranslation.lessThanAMonth
+          }`;
     return {
       ...job,
       startedAt: formatDate(new Date(job.startedAt), locale, {
@@ -124,8 +125,8 @@ const AboutPage: NextPage = () => {
           <Image
             priority
             src="https://github.com/joaobispo2077.png"
-            alt="João Bispo - Software Engineer"
-            title="João Bispo - Software Engineer"
+            alt="João Bispo - Senior Software Engineer"
+            title="João Bispo - Senior Software Engineer"
             width={400}
             height={400}
             objectFit="cover"

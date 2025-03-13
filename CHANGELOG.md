@@ -1,3 +1,46 @@
+# [1.16.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.15.1...v1.16.0) (2024-10-18)
+
+
+### Features
+
+* add X-Frame-Options header for /with-locale route ([bfc0e06](https://github.com/joaobispo2077/joaobispo2077.com/commit/bfc0e06046ae91e186228888fee8264db3dd46f9))
+
+## [1.15.1](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.15.0...v1.15.1) (2024-02-05)
+
+
+### Bug Fixes
+
+* adjust to show months when has years or months of experience ([f5b9d94](https://github.com/joaobispo2077/joaobispo2077.com/commit/f5b9d9431a67a3808319f3d0410247a94eb96c4c))
+* use span instead of h1 in home button ([e8f1410](https://github.com/joaobispo2077/joaobispo2077.com/commit/e8f1410ca0f9e96f5ce8ed958a05abdae96ff002))
+
+# [1.15.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.14.0...v1.15.0) (2023-11-28)
+
+
+### Features
+
+* internationalize link to the post text ([d0e6d2b](https://github.com/joaobispo2077/joaobispo2077.com/commit/d0e6d2bb72ca563579071214b560151f13c1c3b1))
+
+# [1.14.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.13.0...v1.14.0) (2023-11-06)
+
+
+### Features
+
+* translate share component ([e01e5dd](https://github.com/joaobispo2077/joaobispo2077.com/commit/e01e5dd5aa1a95d54def2c3c66feaa91d9410273))
+
+# [1.13.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.12.0...v1.13.0) (2023-07-27)
+
+
+### Features
+
+* update job role label ([3e7e1bd](https://github.com/joaobispo2077/joaobispo2077.com/commit/3e7e1bde5ba804e94d6242061d34fc55fd71b20a))
+
+# [1.12.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.11.0...v1.12.0) (2023-07-16)
+
+
+### Features
+
+* increment alt/title from image on page about ([218b191](https://github.com/joaobispo2077/joaobispo2077.com/commit/218b19169afaa273215a9444e30c8aa914964b4f))
+
 # [1.11.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.10.0...v1.11.0) (2023-04-30)
 
 

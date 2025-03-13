@@ -9,6 +9,14 @@ export const blogTranslation = {
   seeAllPosts: 'Todos os posts',
 };
 
+export const socialMediaSharingArticleTranslation = {
+  copy: 'Copiar',
+  copied: 'Copiado',
+  copiedDescription: 'Link copiado para a área de transferência',
+  share: 'Compartilhar',
+  linkToThePost: 'Link para o post',
+};
+
 export const navbarTranslation = {
   home: 'Início',
   about: 'Sobre',

@@ -8,4 +8,17 @@ module.exports = {
   images: {
     domains: ['github.com'],
   },
+  async headers() {
+    return [
+      {
+        source: '/(.*)?', // handles all paths
+        headers: [
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY',
+          },
+        ],
+      },
+    ];
+  },
 };
