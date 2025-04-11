@@ -76,7 +76,7 @@ const AboutPage: NextPage = () => {
     };
   });
 
-  const educations = getEducationSchemaByLocale(locale);
+  const formation = getEducationSchemaByLocale(locale);
 
   const page = data?.page;
 
@@ -159,10 +159,10 @@ const AboutPage: NextPage = () => {
           fontWeight="bold"
           marginY={['1rem', '1rem', '2rem', '2rem']}
         >
-          Education
+          {formation.title}
         </Text>
         <VStack as="ul" spacing="1.5rem">
-          {educations.map((education) => (
+          {formation.educations.map((education) => (
             <Course key={education.startedAt} {...education} />
           ))}
         </VStack>

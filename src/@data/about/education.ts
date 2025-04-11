@@ -2,12 +2,19 @@ import { CourseProps } from '@src/components/Course';
 
 // TODO: Migrate this data to a CMS
 
-export const getEducationSchemaByLocale = (locale: string): CourseProps[] => {
+export type EducationSection = {
+  title: string;
+  educations: CourseProps[];
+};
+
+export const getEducationSchemaByLocale = (
+  locale: string,
+): EducationSection => {
   if (locale === 'pt-br') {
-    return educationsPtBr;
+    return { title: 'Educação', educations: educationsPtBr };
   }
 
-  return educations;
+  return { title: 'Education', educations };
 };
 
 export const educations: CourseProps[] = [
