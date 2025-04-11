@@ -1,3 +1,12 @@
+# [1.17.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.16.0...v1.17.0) (2025-04-11)
+
+
+### Features
+
+* add course component with static education data ([4ac525f](https://github.com/joaobispo2077/joaobispo2077.com/commit/4ac525fe8d1a0df0b3c1e0d77acc0483234e8cb3))
+* add dynamic title for education section ([8e85e40](https://github.com/joaobispo2077/joaobispo2077.com/commit/8e85e405613b565bd5291cd4568ff5b37e1a3f47))
+* **wip:** add education history ([cccb411](https://github.com/joaobispo2077/joaobispo2077.com/commit/cccb411ae58cb9660364fb216d7ca7220f507974))
+
 # [1.16.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.15.1...v1.16.0) (2024-10-18)
 
 

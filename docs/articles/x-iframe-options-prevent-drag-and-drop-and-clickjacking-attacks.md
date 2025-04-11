@@ -5,9 +5,9 @@ Date: 2024-02-06
 Tags: clickjacking-attacks, x-frame-options, security, API, webserver-apps
 ---
 
-Guarding our digital apps against sneaky moves is as important as developing, and clickjacking attacks, especially through drag-and-drop actions, represent a clever trick in the hacker's playbook. These attacks can quietly compromise user interaction, turning innocent clicks into unintended actions. That's where the X-Frame-Options header comes into play, a straightforward but powerful one-line feature in our web security toolkit.
+Shielding digital apps against sneaky moves is as important as developing them. Clickjacking attacks, especially through drag-and-drop actions, represent a clever trick in the hacker's playbook. These attacks can quietly compromise user interaction, turning innocent clicks into unintended actions. That's where the X-Frame-Options header comes into play, a straightforward but powerful one-line feature in our web security toolkit.
 
-# TLDR - Securing Your App from Clickjacking Attacks
+## TLDR - Securing Your App from Clickjacking Attacks
 
 1. Is your server NOT returning HTML?
    You don't need to use the X-Frame-Options header.
@@ -33,7 +33,7 @@ Guarding our digital apps against sneaky moves is as important as developing, an
 4. Is your company trying to beat a security benchmark or get a security certification?
    Use the X-Frame-Options header with `DENY` or any suitable value to your case according the previous recommendations.
 
-# When do the X-Frame-Options header or clickjacking attacks matter?
+## When do the X-Frame-Options header or clickjacking attacks matter?
 
 Only when you have a server that is returning HTML content.
 
@@ -43,7 +43,7 @@ What can be the little security benefits for servers that do not return any HTM?
 
 So we have to use our critical thinking here, when you are not returning HTML, mostly you don't have any security issues, but when you are returning HTML, you should use the X-Frame-Options header to prevent clickjacking attacks because you have a security issue.
 
-# Who can face clickjacking attacks?
+## Who can face clickjacking attacks?
 
 Anyone can face it. Imagine you're logging into your online banking website to check your account balance or make a transaction. Now, envision a scenario where, unbeknownst to you, a hacker has overlaid an invisible frame over the entire webpage. This frame is a part of a malicious website controlled by the hacker, but you can't see it because it's transparent.
 
@@ -51,9 +51,9 @@ In a drag-and-drop clickjacking attack, you might think you're dragging a file, 
 
 This situation is akin to using an ATM where a fraudster has cleverly placed a fake keypad overlay on the real one. You think you're entering your PIN on the bank's machine, but you're actually entering it on the fraudster's device.
 
-# What are the ways that attackers can use clickjacking attacks?
+## What are the ways that attackers can use clickjacking attacks?
 
-They will need 3 steps to perform a clickjacking attack:
+They will need at least 3 steps to perform a clickjacking attack:
 
 1. Creating a malicious website and Layering with an Iframe: The core technique involves using an `<iframe>` HTML element, which can display content from another website within the current page. The attacker places this iframe on their malicious webpage but points it to a legitimate site that the victim trusts, like a financial institution or social media platform.
 
@@ -61,15 +61,15 @@ They will need 3 steps to perform a clickjacking attack:
 
 3. Tricking the User: The attacker then lures the victim to the malicious webpage through phishing emails, social media messages, or other means. The message might promise a reward, require action for account security, or invoke urgency to compel the user to visit the site. Once on the malicious webpage, the victim is tricked into performing an action like clicking a button, dragging, and dropping a file, or other gestures. Because of the transparent iframe overlaying the legitimate content, these actions are redirected to the attacker's site or cause unintended interactions with the legitimate site but under the attacker's control.
 
-# Why would attackers do this?
+## Why would attackers do this?
 
 It's a lazy attack because the attacker does not need to do something like cloning all the website using HTML and CSS, so it's easier to do it. Depending on the nature of the overlay and the intended action, this could result in sensitive information being sent to the attacker, account settings being changed without the user's knowledge, or other malicious outcomes.
 
-# How can we prevent it?
+## How can we prevent it?
 
 As this attack does not depend solely and exclusively on a technical breach, but on the user interacting with a fake page that is using content from a real one. Two fronts can be worked on, the first would be to guide users to always check the domain they are accessing and the second would be to insert the "X-Frame-Options" header with the appropriate value in your application.
 
-# Where should the developer/Ops/Security team configure the X-Frame-Options
+## Where should the developer/Ops/Security team configure the X-Frame-Options
 
 Depending on the tool you are using, the way you can configure the `X-frame-Options header` will vary, I will leave 3 different examples here, one at the proxy level, another at the application level, and the final at the infra level:
 
@@ -113,7 +113,39 @@ Pattern value supported: ^(DENY|SAMEORIGIN)$
 }
 ```
 
-If the tool/framework/infra/proxy that you're using is not one of above, you can search for the documentation of the tool you are using and look for the `X-Frame-Options` header configuration.
+If the tool/framework/infra/proxy that you're using is not one of the above, you can search for the documentation of the tool you are using and look for the `X-Frame-Options` header configuration.
+
+### How to test it?
+
+It's quite simple, you can just use the following curl command to check the response headers:
+
+```bash
+>  curl -s -D - -o /dev/null https://www.google.com
+HTTP/2 200
+date: Fri, 18 Oct 2024 16:04:56 GMT
+expires: -1
+cache-control: private, max-age=0
+content-type: text/html; charset=ISO-8859-1
+content-security-policy-report-only: object-src 'none';base-uri 'self';script-src 'nonce-zkQ3tflPjOHWCgaqZwzgNg' 'strict-dynamic' 'report-sample' 'unsafe-eval' 'unsafe-inline' https: http:;report-uri https://csp.withgoogle.com/csp/gws/other-hp
+accept-ch: Sec-CH-Prefers-Color-Scheme
+p3p: CP="This is not a P3P policy! See g.co/p3phelp for more info."
+server: gws
+x-xss-protection: 0
+x-frame-options: SAMEORIGIN
+set-cookie: AEC=AVYB7cooUo_HU2odhD7env9xfg0V9yVsumNBG3l36icPdz2hiUAnBmJM7Q; expires=Wed, 16-Apr-2025 16:04:56 GMT; path=/; domain=.google.com; Secure; HttpOnly; SameSite=lax
+set-cookie: NID=518=HLbu7preCnjcqhJDQkXlBBDlmSAt8JDKJFXUz6sg66lnP20hCJ45QBX6DxSadNllDX1KgpEY01s0Cj6qYY3Gy8NtEg-bqLpxd1uuhTeqCeuVo7GZgmncY81Z-UK9n7Nsc4MxvkllgOuuUb149cIcb117ELIbaDm4_ijRo2xiOCvyASmB8JgIJmpzpr48eSx252Q; expires=Sat, 19-Apr-2025 16:04:56 GMT; path=/; domain=.google.com; HttpOnly
+alt-svc: h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+accept-ranges: none
+vary: Accept-Encoding
+```
+
+The options used:
+
+- -s: For avoiding showing the progress bar
+- -D -: Dump headers to stdout
+- -o /dev/null: Ignore response body
+
+In the example above you can see the x-frame-options header as SAMEORIGIN.
 
 # Extra - Gotcha/Captcha attack
 
@@ -130,6 +162,10 @@ Imagine you have an API/server that returns part of the user's physical address 
 So when the user completes the information like "Manhattan, NY 10036123, United States" (I typed a random address) the malicious page can steal the user's address and use it to perform a social engineering attack.
 
 Again, this kind of attack depends on the user interacting with a fake page that is using content from a real one, so the same prevention measures can be used here, guide users to always check the domain they are accessing and insert the "X-Frame-Options" header with the appropriate value in your application, but in this special case, I rather prefer to do not have any public GET endpoint returning sensitive or partial sensitive information.
+
+So now that you know how to handle this sneaky move, watch your system and shield your apps.
+
+Sapere Aude.
 
 # References
 
