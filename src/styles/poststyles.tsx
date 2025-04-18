@@ -97,7 +97,8 @@ export const Content = styled.main`
   }
 
   div.centralize,
-  div.half-image {
+  div.half-image,
+  div.half-block {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -112,6 +113,7 @@ export const Content = styled.main`
     }
   }
 
+  /* two elements losing resolution */
   div.half-image {
     flex-wrap: wrap;
     gap: 1rem;
@@ -119,6 +121,23 @@ export const Content = styled.main`
     img {
       border-radius: 0.5rem;
     }
+  }
+  /* two elements without losing resolution */
+  div.half-block {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    background-color: ${brandColors.command};
+    border-radius: 0.5rem;
+  }
+
+  div.half-block img {
+    flex: 1;
+    width: 48%; /* Makes them fit side by side even on narrow screens */
+    object-fit: cover;
+    border-radius: 0.5rem;
+    display: block;
   }
 
   pre {
