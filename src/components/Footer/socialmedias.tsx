@@ -7,12 +7,12 @@ export const socialmedias = [
     icon: FiGithub,
     color: '#f0f6fc',
   },
-  {
-    name: 'Twitter',
-    url: 'http://twitter.com/joaobispo2077',
-    icon: FiTwitter,
-    color: '#1DA1F2',
-  },
+  // {
+  //   name: 'Twitter',
+  //   url: 'http://twitter.com/joaobispo2077',
+  //   icon: FiTwitter,
+  //   color: '#1DA1F2',
+  // },
   {
     name: 'Linkedin',
     url: 'http://linkedin.com/in/joaobispo2077',
