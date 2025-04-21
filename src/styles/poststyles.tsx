@@ -98,7 +98,8 @@ export const Content = styled.main`
 
   div.centralize,
   div.half-image,
-  div.half-block {
+  div.half-block,
+  div.vertical-block {
     width: 100%;
     display: flex;
     justify-content: center;
@@ -130,6 +131,30 @@ export const Content = styled.main`
     gap: 1rem;
     background-color: ${brandColors.command};
     border-radius: 0.5rem;
+  }
+
+  div.vertical-block {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 1rem;
+    background-color: ${brandColors.command};
+    border-radius: 0.5rem;
+    img {
+      max-width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      img {
+        max-width: 50%;
+      }
+    }
+
+    @media (min-width: 1600px) {
+      img {
+        max-width: 100%;
+      }
+    }
   }
 
   div.half-block img {
