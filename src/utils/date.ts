@@ -39,3 +39,10 @@ export const getYearsDifferenceFromDates: ManipulateDatesSignature = (
   const monthsDifference = getMonthsDifferenceFromDates(startDate, endDate);
   return Math.floor(monthsDifference / 12);
 };
+
+export const estimateReadTime = (html: string) => {
+  const text = html.replace(/<[^>]*>/g, '');
+  const words = text.trim().split(/\s+/).length;
+  const wordsPerMinute = 200; // average reading speed
+  return Math.ceil(words / wordsPerMinute); // in minutes
+};
