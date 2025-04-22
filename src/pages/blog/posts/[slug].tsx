@@ -7,11 +7,15 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { FiCalendar, FiShare2 } from 'react-icons/fi';
+import { FiCalendar, FiShare2, FiClock } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 
 import { useTranslation } from '@src/hooks/useTranslation';
-import { formatDate, getRevalidateInDays } from '@src/utils/date';
+import {
+  estimateReadTime,
+  formatDate,
+  getRevalidateInDays,
+} from '@src/utils/date';
 import { ContentManagementClient } from '@src/services/ContentManagementClient';
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { PostDocument, usePostQuery } from '@src/generated/graphql.blog';
@@ -38,7 +42,7 @@ const PostPage: NextPage = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const postUrl = global.window ? window.location?.href : '';
   // TODO: ADD image={data?.post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
-
+  const readTime = estimateReadTime(data?.post?.content.html ?? '0');
   return (
     <Flex
       as="main"
@@ -60,21 +64,35 @@ const PostPage: NextPage = () => {
       </Heading>
       <Tags tags={data?.post?.tags} />
       <Flex gap="2rem" marginTop={'2rem'} justifyContent={'space-between'}>
-        <Flex alignItems="center" gap="1rem">
-          <Icon
-            as={FiCalendar}
-            w={6}
-            h={6}
-            color="brand.secondary"
-            background="brand.background"
-          />
-          <Text as="span" color="brand.secondary">
-            {formatDate(data?.post?.date, locale)}
-          </Text>
+          <Flex alignItems="center" gap="1rem">
+            <Icon
+              as={FiCalendar}
+              w={6}
+              h={6}
+              color="brand.secondary"
+              background="brand.background"
+            />
+            <Text as="span" color="brand.secondary">
+              {formatDate(data?.post?.date, locale)}
+            </Text>
+          </Flex>
+          <Flex alignItems="center" gap="1rem">
+            <Icon
+              as={FiClock}
+              w={6}
+              h={6}
+              color="brand.secondary"
+              background="brand.background"
+            />
+            <Text as="span" color="brand.secondary" arial-label="Reading time">
+              {readTime} min
+            </Text>
+          </Flex>
         </Flex>
+
         <Flex alignItems="center" gap="1rem">
           <IconButton
-            aria-label="Compartilhar post"
+            aria-label="Share post"
             icon={<FiShare2 color="brand.secondary" size={24} />}
             color="brand.secondary"
             variant="link"
