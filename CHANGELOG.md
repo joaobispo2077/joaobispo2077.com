@@ -1,3 +1,12 @@
+# [1.18.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.17.0...v1.18.0) (2025-04-21)
+
+
+### Features
+
+* add styles for handling two images at once in the same div with the same size ([87254fd](https://github.com/joaobispo2077/joaobispo2077.com/commit/87254fd622730e209618f9281c96817138ed50c6))
+* add vertical block for flexible image height in devices with small height size ([7676cdc](https://github.com/joaobispo2077/joaobispo2077.com/commit/7676cdcca71380a5ab6546d424a23862f41dfe7d))
+* enable readers to see instagram social link ([f9a4faa](https://github.com/joaobispo2077/joaobispo2077.com/commit/f9a4faa73f517cd0d666e7e8dd6326ca3ff9a4b1))
+
 # [1.17.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.16.0...v1.17.0) (2025-04-11)
 
 
