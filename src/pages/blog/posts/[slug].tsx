@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   Flex,
   Heading,
@@ -39,10 +41,28 @@ const PostPage: NextPage = () => {
   });
 
   const { locale } = useTranslation();
+  const [useScrollProgress, setUseScrollProgres] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const postUrl = global.window ? window.location?.href : '';
   // TODO: ADD image={data?.post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
   const readTime = estimateReadTime(data?.post?.content.html ?? '0');
+
+  const progressReading = () => {
+    const scrollTop = document?.documentElement?.scrollTop;
+    const viewHeight =
+      document?.documentElement?.scrollHeight -
+      document?.documentElement?.clientHeight;
+    const progress = (scrollTop / viewHeight) * 100;
+    setUseScrollProgres(progress);
+  };
+
+  useEffect(() => {
+    console.log('helou');
+
+    window?.addEventListener('scroll', progressReading);
+    return () => window?.removeEventListener('scroll', progressReading);
+  }, []);
+
   return (
     <Flex
       as="main"
@@ -59,11 +79,21 @@ const PostPage: NextPage = () => {
         image={data?.post?.seo?.image?.url}
         url={`/blog/posts/${slug}`}
       />
+      <Flex
+        position="fixed"
+        top="0"
+        left="0"
+        width={`${useScrollProgress}%`}
+        height="0.25rem"
+        bgGradient="linear(to-r, cyan.400, purple.500)"
+        zIndex="999"
+      />
       <Heading color="brand.primary" fontWeight={900}>
         {data?.post?.title}
       </Heading>
       <Tags tags={data?.post?.tags} />
       <Flex gap="2rem" marginTop={'2rem'} justifyContent={'space-between'}>
+        <Flex gap="2rem">
           <Flex alignItems="center" gap="1rem">
             <Icon
               as={FiCalendar}
@@ -71,8 +101,10 @@ const PostPage: NextPage = () => {
               h={6}
               color="brand.secondary"
               background="brand.background"
+              transition="opacity 0.3s ease"
+              // opacity={showTopLine ? 1 : 0}
             />
-            <Text as="span" color="brand.secondary">
+            <Text as="span" color="brand.secondary" aria-label="Posted at">
               {formatDate(data?.post?.date, locale)}
             </Text>
           </Flex>
