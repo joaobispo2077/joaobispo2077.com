@@ -1,3 +1,5 @@
+import { useEffect, useState } from 'react';
+
 import {
   Flex,
   Heading,
@@ -7,11 +9,15 @@ import {
   useDisclosure,
 } from '@chakra-ui/react';
 import { GetStaticPaths, GetStaticProps, NextPage } from 'next';
-import { FiCalendar, FiShare2 } from 'react-icons/fi';
+import { FiCalendar, FiShare2, FiClock } from 'react-icons/fi';
 import { useRouter } from 'next/router';
 
 import { useTranslation } from '@src/hooks/useTranslation';
-import { formatDate, getRevalidateInDays } from '@src/utils/date';
+import {
+  estimateReadTime,
+  formatDate,
+  getRevalidateInDays,
+} from '@src/utils/date';
 import { ContentManagementClient } from '@src/services/ContentManagementClient';
 import { serverSideCache } from '@src/services/ServerSideCache';
 import { PostDocument, usePostQuery } from '@src/generated/graphql.blog';
@@ -35,9 +41,27 @@ const PostPage: NextPage = () => {
   });
 
   const { locale } = useTranslation();
+  const [useScrollProgress, setUseScrollProgres] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const postUrl = global.window ? window.location?.href : '';
   // TODO: ADD image={data?.post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
+  const readTime = estimateReadTime(data?.post?.content.html ?? '0');
+
+  const progressReading = () => {
+    const scrollTop = document?.documentElement?.scrollTop;
+    const viewHeight =
+      document?.documentElement?.scrollHeight -
+      document?.documentElement?.clientHeight;
+    const progress = (scrollTop / viewHeight) * 100;
+    setUseScrollProgres(progress);
+  };
+
+  useEffect(() => {
+    console.log('helou');
+
+    window?.addEventListener('scroll', progressReading);
+    return () => window?.removeEventListener('scroll', progressReading);
+  }, []);
 
   return (
     <Flex
@@ -55,26 +79,52 @@ const PostPage: NextPage = () => {
         image={data?.post?.seo?.image?.url}
         url={`/blog/posts/${slug}`}
       />
+      <Flex
+        position="fixed"
+        top="0"
+        left="0"
+        width={`${useScrollProgress}%`}
+        height="0.25rem"
+        bgGradient="linear(to-r, cyan.400, purple.500)"
+        zIndex="999"
+      />
       <Heading color="brand.primary" fontWeight={900}>
         {data?.post?.title}
       </Heading>
       <Tags tags={data?.post?.tags} />
       <Flex gap="2rem" marginTop={'2rem'} justifyContent={'space-between'}>
-        <Flex alignItems="center" gap="1rem">
-          <Icon
-            as={FiCalendar}
-            w={6}
-            h={6}
-            color="brand.secondary"
-            background="brand.background"
-          />
-          <Text as="span" color="brand.secondary">
-            {formatDate(data?.post?.date, locale)}
-          </Text>
+        <Flex gap="2rem">
+          <Flex alignItems="center" gap="1rem">
+            <Icon
+              as={FiCalendar}
+              w={6}
+              h={6}
+              color="brand.secondary"
+              background="brand.background"
+              transition="opacity 0.3s ease"
+              // opacity={showTopLine ? 1 : 0}
+            />
+            <Text as="span" color="brand.secondary" aria-label="Posted at">
+              {formatDate(data?.post?.date, locale)}
+            </Text>
+          </Flex>
+          <Flex alignItems="center" gap="1rem">
+            <Icon
+              as={FiClock}
+              w={6}
+              h={6}
+              color="brand.secondary"
+              background="brand.background"
+            />
+            <Text as="span" color="brand.secondary" arial-label="Reading time">
+              {readTime} min
+            </Text>
+          </Flex>
         </Flex>
+
         <Flex alignItems="center" gap="1rem">
           <IconButton
-            aria-label="Compartilhar post"
+            aria-label="Share post"
             icon={<FiShare2 color="brand.secondary" size={24} />}
             color="brand.secondary"
             variant="link"
