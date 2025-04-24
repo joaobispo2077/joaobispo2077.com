@@ -1,3 +1,10 @@
+## [1.20.1](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.20.0...v1.20.1) (2025-04-24)
+
+
+### Performance Improvements
+
+* add compressed image in the first page for better performance ([0de349e](https://github.com/joaobispo2077/joaobispo2077.com/commit/0de349ebb13959809131f3fad9a09e1ce9cf458a))
+
 # [1.20.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.19.0...v1.20.0) (2025-04-24)
 
 
