@@ -1,3 +1,11 @@
+# [1.19.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.18.0...v1.19.0) (2025-04-22)
+
+
+### Features
+
+* add reading progress on top for readers ([1b5651b](https://github.com/joaobispo2077/joaobispo2077.com/commit/1b5651be0845c0bf163d537f87cf32643b3c22ee))
+* add reading time ([ca205d3](https://github.com/joaobispo2077/joaobispo2077.com/commit/ca205d38027b48ae1aae79a92cbf28165aa32c8e))
+
 # [1.18.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.17.0...v1.18.0) (2025-04-21)
 
 
