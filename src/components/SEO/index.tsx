@@ -29,8 +29,7 @@ export const SEO: FunctionComponent<SEOProps> = ({
   const fullTitle = title ? `${title} | ${baseTitle}` : baseTitle;
 
   const baseUrl = 'https://joaobispo2077.com';
-  const canonicalUrl = `${baseUrl}${url.replace(/^\/+/, '')}`;
-  const fullUrl = url ? `${baseUrl}${url}` : baseUrl;
+  const canonicalUrl = url ? `${baseUrl}/${url.replace(/^\/+/, '')}` : baseUrl;
 
   const pageUpdatedTime = modifiedTime || new Date().toISOString();
   return (
