@@ -18,9 +18,12 @@ const Home: NextPage = () => {
       paddingX={'1rem'}
     >
       <SEO
+        title="João Bispo"
         description="Crafting software for the web"
         image="https://us-west-2.graphassets.com/A2rVan5iKQwq5RAG15Bnqz/cm9usucbotdlo0dn1ks5vgv5x"
         url="/"
+        type="website"
+        locale="en_US"
       />
 
       <Flex as="section" width="100%" flexDirection="column">
