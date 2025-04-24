@@ -32,7 +32,7 @@ const Home: NextPage = () => {
             Senior Software Engineer
           </Text>
           <Text color="brand.secondary">
-            Crafting world-impact software that make people lives better.
+            {`Crafting world-impact software that makes people’s lives better`}
           </Text>
         </Box>
       </Flex>
