@@ -18,9 +18,8 @@ const Home: NextPage = () => {
       paddingX={'1rem'}
     >
       <SEO
-        title="João Bispo"
         description="Crafting software for the web"
-        image="https://us-west-2.graphassets.com/A2rVan5iKQwq5RAG15Bnqz/cm9usucbotdlo0dn1ks5vgv5x"
+        image="https://us-west-2.graphassets.com/A2rVan5iKQwq5RAG15Bnqz/cm9vbbqxr1pjd07n088e0sk4d"
         url="/"
         type="website"
         locale="en_US"
