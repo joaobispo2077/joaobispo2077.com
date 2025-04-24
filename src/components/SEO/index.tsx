@@ -53,6 +53,7 @@ export const SEO: FunctionComponent<SEOProps> = ({
       <meta property="og:image" content={image} />
       {/* <meta property="og:image:secure_url" itemProp="image" content={image} /> */}
       <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:alt" content={title ?? 'Cover image'} />
       <meta property="og:image:width" content="1200" />
       <meta property="og:image:height" content="630" />
       <meta property="og:updated_time" content={pageUpdatedTime} />
@@ -67,7 +68,7 @@ export const SEO: FunctionComponent<SEOProps> = ({
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={image} />
 
-      {/* Structured data */}
+      {/* Structured data JSON-LD */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
