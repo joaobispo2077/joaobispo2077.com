@@ -44,6 +44,12 @@ const PostPage: NextPage = () => {
   const [useScrollProgress, setUseScrollProgres] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const postUrl = global.window ? window.location?.href : '';
+  const publishedAt = new Date(data?.post?.date ?? new Date()).toISOString();
+
+  const coverImage =
+    data?.post?.seo?.image?.url ?? '/assets/icons/lightning.png';
+  const canonicalPath = `/blog/posts/${slug}`; // keep leading slash
+
   // TODO: ADD image={data?.post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
   const readTime = estimateReadTime(data?.post?.content.html ?? '0');
 
@@ -57,10 +63,11 @@ const PostPage: NextPage = () => {
   };
 
   useEffect(() => {
-    console.log('helou');
-
-    window?.addEventListener('scroll', progressReading);
-    return () => window?.removeEventListener('scroll', progressReading);
+    if (typeof window !== 'undefined') {
+      // prevents a hydration mismatch when Next.js renders on the server.
+      window?.addEventListener('scroll', progressReading);
+      return () => window?.removeEventListener('scroll', progressReading);
+    }
   }, []);
 
   return (
@@ -76,8 +83,12 @@ const PostPage: NextPage = () => {
       <SEO
         title={`${data?.post?.title}`}
         description={`${data?.post?.excerpt || ''}`}
-        image={data?.post?.seo?.image?.url}
-        url={`/blog/posts/${slug}`}
+        image={coverImage}
+        url={canonicalPath}
+        publishedTime={publishedAt}
+        modifiedTime={publishedAt}
+        type="article"
+        locale={locale === 'pt-br' ? 'pt_BR' : 'en_US'}
       />
       <Flex
         position="fixed"
