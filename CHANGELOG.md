@@ -1,3 +1,31 @@
+## [1.20.2](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.20.1...v1.20.2) (2025-04-24)
+
+
+### Bug Fixes
+
+* remove duplicated title from main page ([7bee3ae](https://github.com/joaobispo2077/joaobispo2077.com/commit/7bee3aea6e14832b5bb4050f5bcfdd91e4ea500b))
+
+## [1.20.1](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.20.0...v1.20.1) (2025-04-24)
+
+
+### Performance Improvements
+
+* add compressed image in the first page for better performance ([0de349e](https://github.com/joaobispo2077/joaobispo2077.com/commit/0de349ebb13959809131f3fad9a09e1ce9cf458a))
+
+# [1.20.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.19.0...v1.20.0) (2025-04-24)
+
+
+### Bug Fixes
+
+* adjust canonical url to be like full url but w/o trash ([f7a49ca](https://github.com/joaobispo2077/joaobispo2077.com/commit/f7a49ca965b7ca4ac3d7ef6283be2acb4b2f0f6f))
+
+
+### Features
+
+* improve post SEO with image, canonical path and updated time ([8afb019](https://github.com/joaobispo2077/joaobispo2077.com/commit/8afb019b8c0d6e19b5a5fe8f52bf987deadd7ebc))
+* improve SEO component capabilities with articles, twitter and scripts ([d6d8ebb](https://github.com/joaobispo2077/joaobispo2077.com/commit/d6d8ebb2275c1c4ff36f757749126acddbc5c7ba))
+* improve SEO from /index ([fb28292](https://github.com/joaobispo2077/joaobispo2077.com/commit/fb282927e4fca37e29f0e99b52fa3a3dc54b636b))
+
 # [1.19.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.18.0...v1.19.0) (2025-04-22)
 
 
