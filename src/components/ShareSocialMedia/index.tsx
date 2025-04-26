@@ -17,8 +17,13 @@ import {
   Text,
   useToast,
 } from '@chakra-ui/react';
-import { FiLinkedin, FiTwitter, FiMail } from 'react-icons/fi';
-import { FaWhatsapp, FaTelegramPlane } from 'react-icons/fa';
+import { FiLinkedin, FiTwitter, FiMail, FiFacebook } from 'react-icons/fi';
+import {
+  FaWhatsapp,
+  FaTelegramPlane,
+  FaPinterest,
+  FaRedditAlien,
+} from 'react-icons/fa';
 
 import { Gtag } from '@src/services/Gtag';
 import { theme } from '@src/styles/theme';
@@ -65,6 +70,24 @@ export const ShareSocialMediaModal: FunctionComponent<
       icon: FaTelegramPlane,
       link: `https://telegram.me/share/url?url=${content}`,
       color: '#0088cc',
+    },
+    {
+      name: 'Reddit',
+      icon: FaRedditAlien,
+      link: `https://www.reddit.com/submit?url=${content}&title=${`Awesome read`}`,
+      color: '#FF4500',
+    },
+    {
+      name: 'Pinterest',
+      icon: FaPinterest,
+      link: `https://pinterest.com/pin/create/button/?url=${content}`,
+      color: '#E60023',
+    },
+    {
+      name: 'Facebook',
+      icon: FiFacebook,
+      link: `https://www.facebook.com/sharer/sharer.php?u=${content}`,
+      color: '#1877F2',
     },
     {
       name: 'E-mail',
