@@ -26,6 +26,7 @@ import { SEO } from '@src/components/SEO';
 import { Tags } from '@src/components/Tags';
 import { parseLocaleToGraphCmsLocale } from '@src/utils/parseLocale';
 import { ShareSocialMediaModal } from '@src/components/ShareSocialMedia';
+import { logger } from '@src/utils/logger';
 import {
   hasFrontmatterBlock,
   looksLikeMarkdown,
@@ -208,13 +209,12 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async (
     slug,
     locale,
   }).toPromise();
-  if (process.env.NODE_ENV !== 'production') {
+  if (logger.isLevelEnabled('debug')) {
     const preview = (postResult.data?.post?.content?.html ?? '')
       .replace(/\s+/g, ' ')
       .slice(0, 800);
-    // Temporary debug log for CMS payload shape while validating V2 parsing.
-    // Remove after confirming final CMS format.
-    console.log('[blog-post-debug]', {
+    logger.debug({
+      event: 'blog-post-debug',
       slug,
       locale,
       title: postResult.data?.post?.title ?? null,
