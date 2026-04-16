@@ -118,9 +118,12 @@ jobs:
               `Timed out waiting for a Vercel preview URL in PR comments. If the deployment failed, no URL is posted — see ${checksUrl}`,
             );
 
+      # If previews use Deployment Protection, add the same secret as in Vercel
+      # (Protection Bypass for Automation) as repo secret VERCEL_AUTOMATION_BYPASS_SECRET.
       - name: Run Cypress E2E tests
         env:
           CYPRESS_BASE_URL: ${{ steps.resolve-url.outputs.url }}
+          CYPRESS_VERCEL_PROTECTION_BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: npm run cypress:run -- --e2e
 
       - name: Upload Cypress artifacts on failure
