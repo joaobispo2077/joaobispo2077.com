@@ -1,9 +1,7 @@
 describe('Homepage', () => {
   it('renders hero content', () => {
-    // Preview deployments with Deployment Protection need the automation bypass secret
-    // (Vercel: Project → Settings → Deployment Protection → Protection Bypass for Automation).
-    // GitHub: set repository secret VERCEL_AUTOMATION_BYPASS_SECRET to the same value.
-    const bypass = Cypress.env('VERCEL_PROTECTION_BYPASS') as string | undefined;
+    // Preview + Deployment Protection: set in cypress.config env (from VERCEL_AUTOMATION_BYPASS_SECRET in CI).
+    const bypass = Cypress.env('vercelProtectionBypass') as string | undefined;
     const headers: Record<string, string> = {
       'Accept-Language': 'en-US,en;q=0.9',
     };

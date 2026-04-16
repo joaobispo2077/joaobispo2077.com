@@ -118,12 +118,23 @@ jobs:
               `Timed out waiting for a Vercel preview URL in PR comments. If the deployment failed, no URL is posted — see ${checksUrl}`,
             );
 
-      # If previews use Deployment Protection, add the same secret as in Vercel
-      # (Protection Bypass for Automation) as repo secret VERCEL_AUTOMATION_BYPASS_SECRET.
+      # Same value as Vercel → Deployment Protection → Protection Bypass for Automation.
+      # Fork PRs do not receive repository secrets — E2E against protected previews will fail there.
+      - name: Verify Vercel bypass secret (preview only)
+        if: ${{ contains(steps.resolve-url.outputs.url, 'vercel.app') }}
+        run: |
+          if [ -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]; then
+            echo "::warning::VERCEL_AUTOMATION_BYPASS_SECRET is empty. If this preview uses Deployment Protection, Cypress will get a login wall. Same-repo PRs: add the secret. Fork PRs: secrets are unavailable by design."
+          else
+            echo "VERCEL_AUTOMATION_BYPASS_SECRET is available for Cypress."
+          fi
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+
       - name: Run Cypress E2E tests
         env:
           CYPRESS_BASE_URL: ${{ steps.resolve-url.outputs.url }}
-          CYPRESS_VERCEL_PROTECTION_BYPASS: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
         run: npm run cypress:run -- --e2e
 
       - name: Upload Cypress artifacts on failure
