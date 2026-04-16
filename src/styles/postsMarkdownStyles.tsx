@@ -37,5 +37,18 @@ export const postsMarkdownStyles = css`
   h3:before {
     content: '### ';
   }
+
+  a.reference-link {
+    color: ${brandColors.secondary};
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease;
+  }
+
+  a.reference-link:hover {
+    color: ${brandColors.yellow};
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
 `;
 

@@ -226,6 +226,17 @@ function addHeadingAnchors(html: string): string {
   });
 }
 
+function addReferenceAnchorsAndCitationLinks(html: string): string {
+  const withReferenceIds = html.replace(
+    /<li>\s*\[(\d+)\]\s*/g,
+    '<li id="reference-$1">[$1] ',
+  );
+
+  return withReferenceIds.replace(/\[(\d+)\]/g, (_, referenceId: string) => {
+    return `<a class="reference-link" href="#reference-${referenceId}" aria-label="Go to reference ${referenceId}">[${referenceId}]</a>`;
+  });
+}
+
 export function parsePostMarkdown(raw: string): PostMarkdownV2 {
   const yamlPresent = hasFrontmatterBlock(raw);
   const { data, content } = matter(raw);
@@ -235,7 +246,9 @@ export function parsePostMarkdown(raw: string): PostMarkdownV2 {
     gfm: true,
   });
 
-  const html = addHeadingAnchors(marked.parse(content.trim()) as string);
+  const html = addReferenceAnchorsAndCitationLinks(
+    addHeadingAnchors(marked.parse(content.trim()) as string),
+  );
 
   return {
     html,
