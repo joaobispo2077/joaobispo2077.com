@@ -3,35 +3,37 @@ import { ReactElement } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { render, screen } from '@testing-library/react';
 
+import { PostCard, type PostCardProps } from '@src/components/PostCard';
+
 jest.mock('@src/hooks/useTranslation', () => ({
   useTranslation: () => ({
     locale: 'en-us',
   }),
 }));
 
-// Intl output for the same UTC instant differs by OS timezone; mock formatting for stable snapshots.
-jest.mock('@src/utils/date', () => {
-  const actual = jest.requireActual<typeof import('@src/utils/date')>('@src/utils/date');
-  return {
-    ...actual,
-    formatDate: jest.fn(() => 'Mar 27, 2026'),
-  };
-});
-
-import { PostCard } from '@src/components/PostCard';
-
 function renderWithProviders(ui: ReactElement) {
   return render(<ChakraProvider>{ui}</ChakraProvider>);
 }
 
 describe('PostCard component', () => {
-  const props = {
-    title: 'Normalization vs Access Patterns',
-    description: 'A practical comparison for production systems.',
-    createdAt: new Date('2026-03-27T00:00:00.000Z'),
-    slug: 'normalization-vs-access-patterns',
-    tags: ['database', 'architecture'],
-  };
+  // jest.useFakeTimers + setSystemTime: stable `new Date()` for Intl (see Jest timer mocks + Fake Timers API).
+  let props: PostCardProps;
+
+  beforeAll(() => {
+    jest.useFakeTimers();
+    jest.setSystemTime(new Date('2026-03-27T12:00:00.000Z'));
+    props = {
+      title: 'Normalization vs Access Patterns',
+      description: 'A practical comparison for production systems.',
+      createdAt: new Date(),
+      slug: 'normalization-vs-access-patterns',
+      tags: ['database', 'architecture'],
+    };
+  });
+
+  afterAll(() => {
+    jest.useRealTimers();
+  });
 
   it('renders title, description and tags', () => {
     renderWithProviders(<PostCard {...props} />);
