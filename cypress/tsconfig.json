@@ -1,0 +1,4 @@
+{
+  "extends": "../tsconfig.tests.json",
+  "include": ["./**/*.ts", "./**/*.tsx", "../cypress.config.ts", "../next-env.d.ts"]
+}

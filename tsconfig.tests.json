@@ -1,8 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "noEmit": true,
-    "types": ["node", "jest", "cypress", "@testing-library/jest-dom"]
+    "noEmit": true
   },
   "include": [
     "next-env.d.ts",
