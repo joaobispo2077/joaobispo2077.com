@@ -1,3 +1,10 @@
+# [1.21.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.20.2...v1.21.0) (2025-04-26)
+
+
+### Features
+
+* add reddit, pinterest and facebook as easy share destinies ([82223d6](https://github.com/joaobispo2077/joaobispo2077.com/commit/82223d667b8eeda29c10d92b12c46629d3cf8efd))
+
 ## [1.20.2](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.20.1...v1.20.2) (2025-04-24)
 
 
