@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
 
 import { brandColors } from './theme';
+import { postsMarkdownStyles } from './postsMarkdownStyles';
 
 const gray = '#e1e1e6';
 
@@ -43,46 +44,18 @@ export const Content = styled.main`
     font-weight: 800;
     color: ${brandColors.primary};
     margin: 2rem 0 1rem;
-
-    cursor: pointer;
-
-    a[href^='#'] {
-      color: inherit;
-      text-decoration: none;
-      cursor: pointer;
-      transition: color 0.2s ease, text-decoration-color 0.2s ease;
-    }
-
-    a[href^='#']:hover {
-      text-decoration: underline;
-      text-decoration-thickness: 2px;
-      text-underline-offset: 3px;
-      color: ${brandColors.secondary};
-    }
   }
 
   h1 {
     font-size: 2rem;
-
-    &:before {
-      content: '# ';
-    }
   }
 
   h2 {
     font-size: 1.5rem;
-
-    &:before {
-      content: '## ';
-    }
   }
 
   h3 {
     font-size: 1.25rem;
-
-    &:before {
-      content: '### ';
-    }
   }
 
   p,
@@ -248,4 +221,6 @@ export const Content = styled.main`
     background-clip: text;
     -webkit-text-fill-color: transparent;
   }
+
+  ${postsMarkdownStyles}
 `;
