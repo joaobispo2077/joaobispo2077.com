@@ -19,8 +19,8 @@
       "@src/*": ["src/*"],
       "@vercel/analytics/react": ["./node_modules/@vercel/analytics/dist/react"]
     },
-    "rootDirs": ["src"],
+    "rootDirs": ["src"]
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules", "cypress"]
+  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["node_modules"]
 }
