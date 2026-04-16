@@ -87,13 +87,57 @@ export function looksLikeMarkdown(content: string): boolean {
   );
 }
 
+function stripHtmlTags(value: string): string {
+  return value.replace(/<[^>]+>/g, '');
+}
+
+function decodeBasicHtmlEntitiesForSlug(value: string): string {
+  return value
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&quot;/gi, '"')
+    .replace(/&#39;/gi, "'");
+}
+
+function slugifyHeading(value: string): string {
+  return decodeBasicHtmlEntitiesForSlug(stripHtmlTags(value))
+    .trim()
+    .normalize('NFD')
+    .replace(/\p{Diacritic}/gu, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, '')
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+function addHeadingAnchors(html: string): string {
+  const headingSlugCounter = new Map<string, number>();
+
+  return html.replace(/<h([1-6])>([\s\S]*?)<\/h\1>/g, (_, level, text) => {
+    const baseSlug = slugifyHeading(text);
+    if (!baseSlug) {
+      return `<h${level}>${text}</h${level}>`;
+    }
+
+    const currentCount = headingSlugCounter.get(baseSlug) ?? 0;
+    const nextCount = currentCount + 1;
+    headingSlugCounter.set(baseSlug, nextCount);
+
+    const slug = currentCount === 0 ? baseSlug : `${baseSlug}-${nextCount}`;
+    return `<h${level} id="${slug}"><a href="#${slug}">${text}</a></h${level}>`;
+  });
+}
+
 export function parsePostMarkdown(raw: string): PostMarkdownV2 {
   const yamlPresent = hasFrontmatterBlock(raw);
   const { data, content } = matter(raw);
   const meta = normalizeMeta(data as Record<string, unknown>);
 
   marked.setOptions({ gfm: true });
-  const html = marked.parse(content.trim()) as string;
+  const html = addHeadingAnchors(marked.parse(content.trim()) as string);
 
   return { html, meta, hasYamlFrontmatter: yamlPresent };
 }

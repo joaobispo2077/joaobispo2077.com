@@ -32,6 +32,7 @@ export const Content = styled.main`
   line-height: 2rem;
   font-size: 1.125rem;
   color: ${gray};
+  overflow-x: auto;
 
   h1,
   h2,
@@ -44,6 +45,20 @@ export const Content = styled.main`
     margin: 2rem 0 1rem;
 
     cursor: pointer;
+
+    a[href^='#'] {
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+
+    a[href^='#']:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+      color: ${brandColors.secondary};
+    }
   }
 
   h1 {
@@ -94,6 +109,45 @@ export const Content = styled.main`
     li {
       margin: 0.5rem 0;
     }
+  }
+
+  ol {
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+
+    li {
+      margin: 0.5rem 0;
+    }
+  }
+
+  blockquote {
+    margin: 1.5rem 0;
+    padding-left: 1rem;
+    border-left: 4px solid ${brandColors.hover};
+    color: ${gray};
+  }
+
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.5rem 0;
+    font-size: 1rem;
+    display: table;
+  }
+
+  thead {
+    background-color: ${brandColors.command};
+  }
+
+  th,
+  td {
+    border: 1px solid ${brandColors.hover};
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+
+  tbody tr:nth-of-type(even) {
+    background-color: rgba(255, 255, 255, 0.03);
   }
 
   div.centralize,
