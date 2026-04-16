@@ -26,8 +26,27 @@ import { SEO } from '@src/components/SEO';
 import { Tags } from '@src/components/Tags';
 import { parseLocaleToGraphCmsLocale } from '@src/utils/parseLocale';
 import { ShareSocialMediaModal } from '@src/components/ShareSocialMedia';
+import {
+  hasFrontmatterBlock,
+  looksLikeMarkdown,
+  normalizeCmsHtmlToText,
+  parsePostMarkdown,
+  type PostMarkdownV2,
+} from '@src/utils/postMarkdownParser';
 
-const PostPage: NextPage = () => {
+export type PostPageProps = {
+  markdownV2FromCms: PostMarkdownV2 | null;
+};
+
+const stripHtml = (html: string) => html.replace(/<[^>]*>/g, '');
+const hasHtmlTags = (content: string) => /<[^>]+>/.test(content);
+const stripRenderedFrontmatterFromHtml = (html: string) => {
+  const renderedFrontmatterRegex =
+    /^\s*<p>\s*---\s*<\/p>[\s\S]*?<p>\s*---\s*<\/p>\s*/i;
+  return html.replace(renderedFrontmatterRegex, '');
+};
+
+const PostPage: NextPage<PostPageProps> = ({ markdownV2FromCms }) => {
   const { graphCmsLocale } = useTranslation();
 
   const router = useRouter();
@@ -44,14 +63,27 @@ const PostPage: NextPage = () => {
   const [useScrollProgress, setUseScrollProgres] = useState(0);
   const { isOpen, onOpen, onClose } = useDisclosure();
   const postUrl = global.window ? window.location?.href : '';
-  const publishedAt = new Date(data?.post?.date ?? new Date()).toISOString();
+
+  const post = data?.post;
+  const markdownSource = markdownV2FromCms;
+  const fallbackContentHtml = stripRenderedFrontmatterFromHtml(
+    post?.content.html ?? '',
+  );
+  const contentHtml = markdownSource?.html ?? fallbackContentHtml;
+  const title = markdownSource?.meta.title ?? post?.title ?? '';
+  const tags = markdownSource?.meta.tags ?? post?.tags ?? [];
+  const dateSource = markdownSource?.meta.date ?? post?.date;
+  const publishedAt = new Date(dateSource ?? new Date()).toISOString();
 
   const coverImage =
-    data?.post?.seo?.image?.url ?? '/assets/icons/lightning.png';
+    post?.seo?.image?.url ?? '/assets/icons/lightning.png';
   const canonicalPath = `/blog/posts/${slug}`; // keep leading slash
 
-  // TODO: ADD image={data?.post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
-  const readTime = estimateReadTime(data?.post?.content.html ?? '0');
+  // TODO: ADD image={post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
+  const readTime = estimateReadTime(contentHtml);
+  const seoDescription =
+    post?.excerpt?.trim() ||
+    (contentHtml ? stripHtml(contentHtml).slice(0, 280).trim() : '');
 
   const progressReading = () => {
     const scrollTop = document?.documentElement?.scrollTop;
@@ -81,8 +113,8 @@ const PostPage: NextPage = () => {
       paddingX={'1.75rem'}
     >
       <SEO
-        title={`${data?.post?.title}`}
-        description={`${data?.post?.excerpt || ''}`}
+        title={title}
+        description={seoDescription}
         image={coverImage}
         url={canonicalPath}
         publishedTime={publishedAt}
@@ -100,9 +132,9 @@ const PostPage: NextPage = () => {
         zIndex="999"
       />
       <Heading color="brand.primary" fontWeight={900}>
-        {data?.post?.title}
+        {title}
       </Heading>
-      <Tags tags={data?.post?.tags} />
+      <Tags tags={tags} />
       <Flex gap="2rem" marginTop={'2rem'} justifyContent={'space-between'}>
         <Flex gap="2rem">
           <Flex alignItems="center" gap="1rem">
@@ -116,7 +148,7 @@ const PostPage: NextPage = () => {
               // opacity={showTopLine ? 1 : 0}
             />
             <Text as="span" color="brand.secondary" aria-label="Posted at">
-              {formatDate(data?.post?.date, locale)}
+              {formatDate(dateSource ?? new Date(), locale)}
             </Text>
           </Flex>
           <Flex alignItems="center" gap="1rem">
@@ -152,7 +184,7 @@ const PostPage: NextPage = () => {
       </Flex>
       <Content
         dangerouslySetInnerHTML={{
-          __html: data?.post?.content.html ?? '',
+          __html: contentHtml,
         }}
       />
     </Flex>
@@ -166,18 +198,48 @@ export const getStaticPaths: GetStaticPaths = () => {
   };
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<PostPageProps> = async (
+  context,
+) => {
   const { slug } = context.params || {};
   const locale = parseLocaleToGraphCmsLocale(context.locale);
 
-  await ContentManagementClient.query(PostDocument, {
+  const postResult = await ContentManagementClient.query(PostDocument, {
     slug,
     locale,
   }).toPromise();
+  if (process.env.NODE_ENV !== 'production') {
+    const preview = (postResult.data?.post?.content?.html ?? '')
+      .replace(/\s+/g, ' ')
+      .slice(0, 800);
+    // Temporary debug log for CMS payload shape while validating V2 parsing.
+    // Remove after confirming final CMS format.
+    console.log('[blog-post-debug]', {
+      slug,
+      locale,
+      title: postResult.data?.post?.title ?? null,
+      contentPreview: preview,
+    });
+  }
+  const cmsContent = postResult.data?.post?.content?.html ?? '';
+  const normalizedCmsText = normalizeCmsHtmlToText(cmsContent);
+  const hasRawFrontmatter =
+    hasFrontmatterBlock(cmsContent) || hasFrontmatterBlock(normalizedCmsText);
+  const shouldParseMarkdown =
+    hasRawFrontmatter ||
+    (!hasHtmlTags(cmsContent) && looksLikeMarkdown(normalizedCmsText));
+  const markdownV2FromCms =
+    typeof cmsContent === 'string' &&
+    shouldParseMarkdown
+      ? parsePostMarkdown(
+          hasFrontmatterBlock(cmsContent) ? cmsContent : normalizedCmsText,
+        )
+      : null;
 
   return {
     props: {
       urqlState: serverSideCache.extractData(),
+      markdownV2FromCms,
     },
     revalidate: getRevalidateInDays(7),
   };
