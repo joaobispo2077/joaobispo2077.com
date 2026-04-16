@@ -22,8 +22,8 @@ function normalizeMeta(data: Record<string, unknown>): PostMarkdownV2Meta {
     rawDate instanceof Date
       ? rawDate.toISOString()
       : typeof rawDate === 'string'
-        ? rawDate
-        : undefined;
+      ? rawDate
+      : undefined;
   const tagsRaw = data.Tags ?? data.tags;
   let tags: string[] | undefined;
   if (typeof tagsRaw === 'string') {
