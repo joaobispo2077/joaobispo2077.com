@@ -3,13 +3,22 @@ import { ReactElement } from 'react';
 import { ChakraProvider } from '@chakra-ui/react';
 import { render, screen } from '@testing-library/react';
 
-import { PostCard } from '@src/components/PostCard';
-
 jest.mock('@src/hooks/useTranslation', () => ({
   useTranslation: () => ({
     locale: 'en-us',
   }),
 }));
+
+// Intl output for the same UTC instant differs by OS timezone; mock formatting for stable snapshots.
+jest.mock('@src/utils/date', () => {
+  const actual = jest.requireActual<typeof import('@src/utils/date')>('@src/utils/date');
+  return {
+    ...actual,
+    formatDate: jest.fn(() => 'Mar 27, 2026'),
+  };
+});
+
+import { PostCard } from '@src/components/PostCard';
 
 function renderWithProviders(ui: ReactElement) {
   return render(<ChakraProvider>{ui}</ChakraProvider>);
