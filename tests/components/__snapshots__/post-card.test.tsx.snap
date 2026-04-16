@@ -1,0 +1,87 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`PostCard component matches snapshot 1`] = `
+<div
+  class="css-6sx0ya"
+>
+  <a
+    class="chakra-link css-spn4bz"
+    href="/blog/posts/normalization-vs-access-patterns"
+  >
+    <h2
+      class="chakra-heading css-1ap6l4m"
+    >
+      Normalization vs Access Patterns
+    </h2>
+    <div
+      class="css-rgcco7"
+    >
+      <svg
+        class="chakra-icon css-1ouyvlc"
+        fill="none"
+        focusable="false"
+        height="1em"
+        name="calendar"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <rect
+          height="18"
+          rx="2"
+          ry="2"
+          width="18"
+          x="3"
+          y="4"
+        />
+        <line
+          x1="16"
+          x2="16"
+          y1="2"
+          y2="6"
+        />
+        <line
+          x1="8"
+          x2="8"
+          y1="2"
+          y2="6"
+        />
+        <line
+          x1="3"
+          x2="21"
+          y1="10"
+          y2="10"
+        />
+      </svg>
+      <p
+        class="chakra-text css-pepkub"
+      >
+        Mar 26, 2026
+      </p>
+    </div>
+    <p
+      class="chakra-text css-97ea1j"
+    >
+      A practical comparison for production systems.
+    </p>
+    <div
+      class="css-1n3jhep"
+    >
+      <span
+        class="css-18et1tf"
+      >
+        database
+      </span>
+      <span
+        class="css-18et1tf"
+      >
+        architecture
+      </span>
+    </div>
+  </a>
+</div>
+`;
