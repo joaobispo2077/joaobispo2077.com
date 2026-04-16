@@ -1,0 +1,95 @@
+name: E2E Tests
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - develop
+      - release
+      - main
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  e2e:
+    if: |
+      (github.base_ref == 'develop' && startsWith(github.head_ref, 'feature/')) ||
+      (github.base_ref == 'release' && github.head_ref == 'develop') ||
+      (github.base_ref == 'main' && github.head_ref == 'release')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Resolve E2E base URL
+        id: resolve-url
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const baseRef = context.payload.pull_request.base.ref;
+            const headRef = context.payload.pull_request.head.ref;
+
+            if (baseRef === 'main' && headRef === 'release') {
+              core.setOutput('url', 'https://www.joaobispo.dev/');
+              return;
+            }
+
+            const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+            const regex = /https:\/\/[^\s)\]]+\.vercel\.app\/?/i;
+
+            // Wait for Vercel bot comment when testing preview environments.
+            for (let attempt = 1; attempt <= 30; attempt++) {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                per_page: 100,
+              });
+
+              for (const comment of comments) {
+                const isVercelBot =
+                  comment.user?.login === 'vercel' ||
+                  comment.user?.login === 'vercel[bot]';
+                if (!isVercelBot || !comment.body) {
+                  continue;
+                }
+
+                const match = comment.body.match(regex);
+                if (match?.[0]) {
+                  const previewUrl = match[0].replace(/[),.;]+$/g, '');
+                  core.setOutput('url', previewUrl);
+                  return;
+                }
+              }
+
+              core.info(`Waiting for Vercel preview comment (attempt ${attempt}/30)...`);
+              await sleep(20000);
+            }
+
+            core.setFailed('Timed out waiting for Vercel preview URL comment from bot.');
+
+      - name: Run Cypress E2E tests
+        env:
+          CYPRESS_BASE_URL: ${{ steps.resolve-url.outputs.url }}
+        run: npm run cypress:run -- --e2e
+
+      - name: Upload Cypress artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+          if-no-files-found: ignore
+

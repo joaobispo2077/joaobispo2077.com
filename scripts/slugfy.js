@@ -17,4 +17,4 @@ const addHashtag = (str, quantity) => {
   return hashtag.repeat(quantity) + str;
 };
 
-console.log(`${addHashtag(slugfy('Considerações Finais'), 1)}`);
+console.log(`${addHashtag(slugfy('Okyakusama wa Kami-sama'), 1)}`);
