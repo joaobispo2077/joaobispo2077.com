@@ -11,6 +11,7 @@ on:
 permissions:
   contents: read
   pull-requests: read
+  checks: read
 
 jobs:
   e2e:
@@ -46,9 +47,46 @@ jobs:
 
             const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
             const regex = /https:\/\/[^\s)\]]+\.vercel\.app\/?/i;
+            const pr = context.payload.pull_request;
+            const checksUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/pull/${pr.number}/checks`;
+
+            /** If Vercel deployment failed, no preview URL comment is posted — stop waiting. */
+            async function getFailedVercelCheck() {
+              const { data } = await github.rest.checks.listForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha,
+                per_page: 100,
+              });
+
+              const terminalFailure = ['failure', 'cancelled', 'timed_out'];
+              for (const run of data.check_runs) {
+                const isVercel =
+                  run.app?.slug === 'vercel' || /vercel/i.test(run.name || '');
+                if (!isVercel || run.status !== 'completed') {
+                  continue;
+                }
+                if (terminalFailure.includes(run.conclusion || '')) {
+                  return run;
+                }
+              }
+              return null;
+            }
 
             // Wait for Vercel bot comment when testing preview environments.
             for (let attempt = 1; attempt <= 30; attempt++) {
+              const failedRun = await getFailedVercelCheck();
+              if (failedRun) {
+                core.setFailed(
+                  [
+                    `Vercel check "${failedRun.name}" ended with ${failedRun.conclusion}.`,
+                    'When deployment fails, no preview URL is posted, so E2E cannot run against Vercel.',
+                    `Fix the deployment, then re-run this job. PR checks: ${checksUrl}`,
+                  ].join(' '),
+                );
+                return;
+              }
+
               const comments = await github.paginate(github.rest.issues.listComments, {
                 owner: context.repo.owner,
                 repo: context.repo.repo,
@@ -76,7 +114,9 @@ jobs:
               await sleep(20000);
             }
 
-            core.setFailed('Timed out waiting for Vercel preview URL comment from bot.');
+            core.setFailed(
+              `Timed out waiting for a Vercel preview URL in PR comments. If the deployment failed, no URL is posted — see ${checksUrl}`,
+            );
 
       - name: Run Cypress E2E tests
         env:
