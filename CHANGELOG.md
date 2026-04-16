@@ -1,3 +1,18 @@
+# [1.22.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.21.0...v1.22.0) (2026-04-16)
+
+
+### Bug Fixes
+
+* pin pino for TypeScript 4.8 compatibility ([a77d211](https://github.com/joaobispo2077/joaobispo2077.com/commit/a77d211b0bd670c2243eded3ce2d8f766b87f051))
+* safely parse cms markdown posts ([7897581](https://github.com/joaobispo2077/joaobispo2077.com/commit/789758127600d9178fdceed803c2987e11b750ad))
+
+
+### Features
+
+* add clickable markdown heading anchors ([a80701a](https://github.com/joaobispo2077/joaobispo2077.com/commit/a80701a742074a71fc5ac2dee3e83e3b8fca8406))
+* improve markdown table mobile usability ([3feae5e](https://github.com/joaobispo2077/joaobispo2077.com/commit/3feae5e6b5a6624c524088a6cb3429f5345c2aab))
+* link markdown citations to references ([a8cc418](https://github.com/joaobispo2077/joaobispo2077.com/commit/a8cc418f95f63ed777475b3abba1e459731b5f1e))
+
 # [1.21.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.20.2...v1.21.0) (2025-04-26)
 
 
