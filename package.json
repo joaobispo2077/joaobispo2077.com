@@ -32,8 +32,6 @@
     "cypress:run": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
     "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
-    "component": "cypress open --component",
-    "component:headless": "cypress run --component",
     "codegen:graphql": "cross-env DOTENV_CONFIG_PATH=./.env.local graphql-codegen -r dotenv/config --config codegen.graphql.yml",
     "lint:fix": "eslint ./src/**/*.{js,ts,tsx} --fix",
     "style:fix": "prettier --write ./src/**/*.{ts,tsx}",
