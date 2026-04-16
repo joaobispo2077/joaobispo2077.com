@@ -100,4 +100,3 @@ export const postsMarkdownStyles = css`
     white-space: normal;
   }
 `;
-

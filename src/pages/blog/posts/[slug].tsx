@@ -76,8 +76,7 @@ const PostPage: NextPage<PostPageProps> = ({ markdownV2FromCms }) => {
   const dateSource = markdownSource?.meta.date ?? post?.date;
   const publishedAt = new Date(dateSource ?? new Date()).toISOString();
 
-  const coverImage =
-    post?.seo?.image?.url ?? '/assets/icons/lightning.png';
+  const coverImage = post?.seo?.image?.url ?? '/assets/icons/lightning.png';
   const canonicalPath = `/blog/posts/${slug}`; // keep leading slash
 
   // TODO: ADD image={post?.coverImage?.coverImagePost[0]?.coverImage?.url} post image in future
@@ -270,8 +269,7 @@ export const getStaticProps: GetStaticProps<PostPageProps> = async (
     hasRawFrontmatter ||
     (!hasHtmlTags(cmsContent) && looksLikeMarkdown(normalizedCmsText));
   const markdownV2FromCms =
-    typeof cmsContent === 'string' &&
-    shouldParseMarkdown
+    typeof cmsContent === 'string' && shouldParseMarkdown
       ? parsePostMarkdown(
           hasFrontmatterBlock(cmsContent) ? cmsContent : normalizedCmsText,
         )

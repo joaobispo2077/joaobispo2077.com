@@ -120,8 +120,8 @@ function normalizeMeta(data: Record<string, unknown>): PostMarkdownV2Meta {
     rawDate instanceof Date
       ? rawDate.toISOString()
       : typeof rawDate === 'string'
-        ? rawDate
-        : undefined;
+      ? rawDate
+      : undefined;
   const tagsRaw = data.Tags ?? data.tags;
   let tags: string[] | undefined;
   if (typeof tagsRaw === 'string') {
@@ -168,7 +168,10 @@ function decodeBasicHtmlEntities(content: string): string {
 export function normalizeCmsHtmlToText(content: string): string {
   return decodeBasicHtmlEntities(content)
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<\/(p|div|section|article|h1|h2|h3|h4|h5|h6|li|ul|ol|pre|blockquote|tr|table|thead|tbody)>/gi, '\n')
+    .replace(
+      /<\/(p|div|section|article|h1|h2|h3|h4|h5|h6|li|ul|ol|pre|blockquote|tr|table|thead|tbody)>/gi,
+      '\n',
+    )
     .replace(/<li[^>]*>/gi, '- ')
     .replace(/<[^>]+>/g, '')
     .replace(/\r/g, '')
@@ -271,7 +274,10 @@ export function parsePostMarkdown(raw: string): PostMarkdownV2 {
  * - YAML frontmatter (Title, Author, Date, Tags) + body with or without `##` headings
  * - No frontmatter: entire file is markdown; metadata comes from the CMS only
  */
-export function loadPostMarkdown(slug: string, locale: Locale): PostMarkdownV2 | null {
+export function loadPostMarkdown(
+  slug: string,
+  locale: Locale,
+): PostMarkdownV2 | null {
   const filePath =
     firstExistingFile(candidatePaths(slug, locale)) ??
     resolveByFrontmatterSlug(slug, locale);

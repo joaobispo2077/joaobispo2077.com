@@ -1,4 +1,4 @@
-import { FiGithub, FiInstagram, FiLinkedin, FiTwitter } from 'react-icons/fi';
+import { FiGithub, FiInstagram, FiLinkedin } from 'react-icons/fi';
 
 export const socialmedias = [
   {
