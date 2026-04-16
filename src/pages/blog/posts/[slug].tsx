@@ -103,6 +103,47 @@ const PostPage: NextPage<PostPageProps> = ({ markdownV2FromCms }) => {
     }
   }, []);
 
+  useEffect(() => {
+    if (typeof window === 'undefined') {
+      return;
+    }
+
+    const wrappers = Array.from(
+      document.querySelectorAll<HTMLElement>('.markdown-table-wrapper'),
+    );
+    if (!wrappers.length) {
+      return;
+    }
+
+    const updateWrapperState = (wrapper: HTMLElement) => {
+      const canScroll = wrapper.scrollWidth - wrapper.clientWidth > 2;
+      const isAtStart = wrapper.scrollLeft <= 2;
+      wrapper.classList.toggle('is-scrollable', canScroll);
+      wrapper.classList.toggle('is-at-start', isAtStart);
+    };
+
+    const listeners = wrappers.map((wrapper) => {
+      const onWrapperScroll = () => updateWrapperState(wrapper);
+      updateWrapperState(wrapper);
+      wrapper.addEventListener('scroll', onWrapperScroll, { passive: true });
+      return { wrapper, onWrapperScroll };
+    });
+
+    const onResize = () => {
+      for (const wrapper of wrappers) {
+        updateWrapperState(wrapper);
+      }
+    };
+    window.addEventListener('resize', onResize);
+
+    return () => {
+      for (const { wrapper, onWrapperScroll } of listeners) {
+        wrapper.removeEventListener('scroll', onWrapperScroll);
+      }
+      window.removeEventListener('resize', onResize);
+    };
+  }, [contentHtml]);
+
   return (
     <Flex
       as="main"

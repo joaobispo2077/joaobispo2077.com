@@ -142,14 +142,22 @@ function addReferenceAnchorsAndCitationLinks(html: string): string {
   });
 }
 
+function wrapTablesForResponsiveScroll(html: string): string {
+  return html.replace(/<table>[\s\S]*?<\/table>/g, (tableHtml) => {
+    return `<div class="markdown-table-wrapper">${tableHtml}</div>`;
+  });
+}
+
 export function parsePostMarkdown(raw: string): PostMarkdownV2 {
   const yamlPresent = hasFrontmatterBlock(raw);
   const { data, content } = matter(raw);
   const meta = normalizeMeta(data as Record<string, unknown>);
 
   marked.setOptions({ gfm: true });
-  const html = addReferenceAnchorsAndCitationLinks(
-    addHeadingAnchors(marked.parse(content.trim()) as string),
+  const html = wrapTablesForResponsiveScroll(
+    addReferenceAnchorsAndCitationLinks(
+      addHeadingAnchors(marked.parse(content.trim()) as string),
+    ),
   );
 
   return { html, meta, hasYamlFrontmatter: yamlPresent };
