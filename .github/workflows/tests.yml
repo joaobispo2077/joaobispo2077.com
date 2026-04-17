@@ -1,0 +1,91 @@
+name: Tests
+
+permissions:
+  contents: read
+  pull-requests: write
+
+# GitHub-hosted runners: run JS-based actions on Node 24 (see deprecation of Node 20 for actions).
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+on:
+  push:
+    branches:
+      - develop
+      - feature/*
+  pull_request:
+    branches:
+      - release
+
+jobs:
+  unit-tests:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run silent unit tests
+        run: npm run test:ci
+
+  coverage-on-develop-to-release:
+    if: github.event_name == 'pull_request' && github.head_ref == 'develop' && github.base_ref == 'release'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run unit tests with coverage
+        run: npm run test:coverage
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: coverage-report
+          path: coverage/
+          if-no-files-found: error
+
+      - name: Build coverage summary
+        id: coverage-summary
+        shell: bash
+        run: |
+          node -e "
+          const fs = require('fs');
+          const summary = JSON.parse(fs.readFileSync('coverage/coverage-summary.json', 'utf8'));
+          const t = summary.total;
+          const body = [
+            '## Test Coverage',
+            '',
+            '| Metric | Coverage |',
+            '|---|---:|',
+            '| Statements | ' + t.statements.pct + '% |',
+            '| Branches | ' + t.branches.pct + '% |',
+            '| Functions | ' + t.functions.pct + '% |',
+            '| Lines | ' + t.lines.pct + '% |'
+          ].join('\n');
+          fs.writeFileSync('coverage-comment.md', body + '\n');
+          " 
+          cat coverage-comment.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Comment coverage on PR
+        uses: marocchino/sticky-pull-request-comment@v2
+        with:
+          header: coverage-report
+          path: coverage-comment.md
+
