@@ -1,24 +1,19 @@
-name: Tests
+name: Measure Code Quality
 
 permissions:
   contents: read
+  pull-requests: write
+  checks: write
 
 # GitHub-hosted runners: run JS-based actions on Node 24 (see deprecation of Node 20 for actions).
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 on:
-  push:
-    branches:
-      - develop
-      - feature/*
   pull_request:
-    branches:
-      - release
 
 jobs:
-  unit-tests:
-    if: github.event_name == 'push'
+  coverage-report:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -32,6 +27,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run silent unit tests
-        run: npm run test:ci
+      - name: Generate Jest coverage report
+        run: npm run test:coverage:report
 
+      - name: Publish coverage report on PR
+        uses: ArtiomTr/jest-coverage-report-action@v2
+        with:
+          skip-step: all
+          coverage-file: ./report.json

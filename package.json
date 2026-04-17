@@ -29,6 +29,7 @@
     "typecheck": "tsc --noEmit",
     "test:ci": "jest --silent --ci --runInBand",
     "test:coverage": "jest --ci --runInBand --coverage --coverageReporters=text-summary --coverageReporters=lcov --coverageReporters=json-summary",
+    "test:coverage:report": "jest --ci --runInBand --coverage --coverageReporters=text-summary --coverageReporters=lcov --coverageReporters=json-summary --json --testLocationInResults --outputFile=report.json",
     "cypress:open": "cypress open",
     "cypress:run": "cypress run",
     "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
