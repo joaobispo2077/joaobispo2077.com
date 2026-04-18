@@ -1,6 +1,6 @@
 {
   "name": "joaobispo2077.com",
-  "version": "1.22.0",
+  "version": "1.22.1",
   "author": "joaobispo2077@gmail.com",
   "description": "My personal portfólio with projects, works, studies, stories and services.",
   "main": "index.js",
@@ -26,6 +26,13 @@
     "lint": "next lint",
     "test": "jest",
     "test:watch": "jest --watch",
+    "typecheck": "tsc --noEmit",
+    "test:ci": "jest --silent --ci --runInBand",
+    "test:coverage": "jest --ci --runInBand --coverage --coverageReporters=text-summary --coverageReporters=lcov --coverageReporters=json-summary",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
+    "e2e": "start-server-and-test dev http://localhost:3000 \"cypress open --e2e\"",
+    "e2e:headless": "start-server-and-test dev http://localhost:3000 \"cypress run --e2e\"",
     "codegen:graphql": "cross-env DOTENV_CONFIG_PATH=./.env.local graphql-codegen -r dotenv/config --config codegen.graphql.yml",
     "lint:fix": "eslint ./src/**/*.{js,ts,tsx} --fix",
     "style:fix": "prettier --write ./src/**/*.{ts,tsx}",
@@ -64,6 +71,9 @@
     "@graphql-codegen/typescript-urql": "^3.7.0",
     "@semantic-release/changelog": "^6.0.1",
     "@semantic-release/git": "^10.0.1",
+    "@testing-library/jest-dom": "6.9.1",
+    "@testing-library/react": "16.3.2",
+    "@testing-library/user-event": "14.6.1",
     "@types/gtag.js": "^0.0.10",
     "@types/jest": "30.0.0",
     "@types/node": "^17.0.39",
@@ -72,6 +82,7 @@
     "@types/react-syntax-highlighter": "^15.5.5",
     "@typescript-eslint/eslint-plugin": "^5.38.1",
     "@typescript-eslint/parser": "^5.38.1",
+    "cypress": "15.13.1",
     "eslint": "^8.24.0",
     "eslint-config-next": "^12.3.1",
     "eslint-config-prettier": "^8.5.0",
@@ -83,6 +94,7 @@
     "jest-environment-jsdom": "30.3.0",
     "prettier": "^2.7.1",
     "semantic-release": "^19.0.5",
+    "start-server-and-test": "2.0.0",
     "typescript": "^4.8.4"
   }
 }

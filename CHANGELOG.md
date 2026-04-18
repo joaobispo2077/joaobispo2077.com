@@ -1,3 +1,11 @@
+## [1.22.1](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.22.0...v1.22.1) (2026-04-17)
+
+
+### Bug Fixes
+
+* align test TypeScript projects for IDE and drop restrictive types list ([39ce5f2](https://github.com/joaobispo2077/joaobispo2077.com/commit/39ce5f24e3dd10a89168373472e12a8b2258fe67))
+* **e2e:** pass Vercel bypass via cypress.config env (CYPRESS_ camelCase pitfall) ([4747788](https://github.com/joaobispo2077/joaobispo2077.com/commit/4747788c6d44c948db4bf45777c959ece8c79abd))
+
 # [1.22.0](https://github.com/joaobispo2077/joaobispo2077.com/compare/v1.21.0...v1.22.0) (2026-04-16)
 
 

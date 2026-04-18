@@ -1,0 +1,154 @@
+name: E2E Tests
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened, ready_for_review]
+    branches:
+      - develop
+      - release
+      - main
+
+permissions:
+  contents: read
+  pull-requests: read
+  checks: read
+
+# GitHub-hosted runners: run JS-based actions (checkout, setup-node, github-script) on Node 24.
+# See https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  e2e:
+    if: |
+      (github.base_ref == 'develop' && startsWith(github.head_ref, 'feature/')) ||
+      (github.base_ref == 'release' && github.head_ref == 'develop') ||
+      (github.base_ref == 'main' && github.head_ref == 'release')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Resolve E2E base URL
+        id: resolve-url
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const baseRef = context.payload.pull_request.base.ref;
+            const headRef = context.payload.pull_request.head.ref;
+
+            if (baseRef === 'main' && headRef === 'release') {
+              core.setOutput('url', 'https://www.joaobispo.dev/');
+              return;
+            }
+
+            const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+            const regex = /https:\/\/[^\s)\]]+\.vercel\.app\/?/i;
+            const pr = context.payload.pull_request;
+            const checksUrl = `https://github.com/${context.repo.owner}/${context.repo.repo}/pull/${pr.number}/checks`;
+
+            /** If Vercel deployment failed, no preview URL comment is posted — stop waiting. */
+            async function getFailedVercelCheck() {
+              const { data } = await github.rest.checks.listForRef({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                ref: pr.head.sha,
+                per_page: 100,
+              });
+
+              const terminalFailure = ['failure', 'cancelled', 'timed_out'];
+              for (const run of data.check_runs) {
+                const isVercel =
+                  run.app?.slug === 'vercel' || /vercel/i.test(run.name || '');
+                if (!isVercel || run.status !== 'completed') {
+                  continue;
+                }
+                if (terminalFailure.includes(run.conclusion || '')) {
+                  return run;
+                }
+              }
+              return null;
+            }
+
+            // Wait for Vercel bot comment when testing preview environments.
+            for (let attempt = 1; attempt <= 30; attempt++) {
+              const failedRun = await getFailedVercelCheck();
+              if (failedRun) {
+                core.setFailed(
+                  [
+                    `Vercel check "${failedRun.name}" ended with ${failedRun.conclusion}.`,
+                    'When deployment fails, no preview URL is posted, so E2E cannot run against Vercel.',
+                    `Fix the deployment, then re-run this job. PR checks: ${checksUrl}`,
+                  ].join(' '),
+                );
+                return;
+              }
+
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                issue_number: context.issue.number,
+                per_page: 100,
+              });
+
+              for (const comment of comments) {
+                const isVercelBot =
+                  comment.user?.login === 'vercel' ||
+                  comment.user?.login === 'vercel[bot]';
+                if (!isVercelBot || !comment.body) {
+                  continue;
+                }
+
+                const match = comment.body.match(regex);
+                if (match?.[0]) {
+                  const previewUrl = match[0].replace(/[),.;]+$/g, '');
+                  core.setOutput('url', previewUrl);
+                  return;
+                }
+              }
+
+              core.info(`Waiting for Vercel preview comment (attempt ${attempt}/30)...`);
+              await sleep(20000);
+            }
+
+            core.setFailed(
+              `Timed out waiting for a Vercel preview URL in PR comments. If the deployment failed, no URL is posted — see ${checksUrl}`,
+            );
+
+      # Same value as Vercel → Deployment Protection → Protection Bypass for Automation.
+      # Fork PRs do not receive repository secrets — E2E against protected previews will fail there.
+      - name: Verify Vercel bypass secret (preview only)
+        if: ${{ contains(steps.resolve-url.outputs.url, 'vercel.app') }}
+        run: |
+          if [ -z "$VERCEL_AUTOMATION_BYPASS_SECRET" ]; then
+            echo "::warning::VERCEL_AUTOMATION_BYPASS_SECRET is empty. If this preview uses Deployment Protection, Cypress will get a login wall. Same-repo PRs: add the secret. Fork PRs: secrets are unavailable by design."
+          else
+            echo "VERCEL_AUTOMATION_BYPASS_SECRET is available for Cypress."
+          fi
+        env:
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+
+      - name: Run Cypress E2E tests
+        env:
+          CYPRESS_BASE_URL: ${{ steps.resolve-url.outputs.url }}
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+        run: npm run cypress:run -- --e2e
+
+      - name: Upload Cypress artifacts on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: cypress-artifacts
+          path: |
+            cypress/screenshots
+            cypress/videos
+          if-no-files-found: ignore
+
